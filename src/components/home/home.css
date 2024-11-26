@@ -1,0 +1,38 @@
+.background-video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .text-overlay h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .text-overlay p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+  
