@@ -3,6 +3,7 @@ import { Layout, ConfigProvider } from 'antd';
 import HeaderComponent from './components/Header';
 import LandingContent from './components/LandingContent';
 import FooterComponent from './components/Footer';
+import CircularAnimation from './components/landing2/CircularAnimation';
 import './App.css';
 
 const { Content } = Layout;
@@ -22,6 +23,7 @@ const App = () => {
         <HeaderComponent />
         <Content>
           <LandingContent />
+        
         </Content>
         <FooterComponent />
       </Layout>
