@@ -12,7 +12,7 @@ const CircularScrollAnimation = () => {
     { name: "After Effects", icon: "🎬" },
   ];
 
-  const radius = 200; // Radius for the circular path
+  const radius = 300; // Radius for the circular path
   const [scrollY, setScrollY] = useState(0); // State to track scroll position
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const CircularScrollAnimation = () => {
             </div>
           );
         })}
-        <div className="center-item">Center</div>
+        <div className="center-item">Prushal Tech</div>
       </div>
     </div>
   );

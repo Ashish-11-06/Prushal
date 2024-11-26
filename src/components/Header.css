@@ -1,0 +1,45 @@
+/* src/components/Header.css */
+
+/* Header styling */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: #4CAF50; /* Change to any color you want */
+  }
+  
+  /* Logo styling */
+  .logo img {
+    height: 40px; /* Adjust logo size */
+  }
+  
+  /* Brand Name styling */
+  .brand-name {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Menu styling */
+  .ant-menu {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* Menu item styling for hover */
+  .ant-menu-item {
+    color: #fff !important; /* White text color */
+  }
+  
+  /* Hover effect for menu items */
+  .ant-menu-item:hover {
+    background-color: #333 !important; /* Dark background on hover */
+  }
+  
+  /* Active menu item styling */
+  .ant-menu-item-selected {
+    background-color: #111 !important; /* Darker background for selected menu item */
+  }
+  

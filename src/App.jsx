@@ -5,6 +5,7 @@ import LandingContent from './components/LandingContent';
 import FooterComponent from './components/Footer';
 import CircularAnimation from './components/landing2/CircularAnimation';
 import './App.css';
+import Home1 from './components/home/Home1';
 
 const { Content } = Layout;
 
@@ -21,7 +22,9 @@ const App = () => {
     <ConfigProvider theme={theme}>
       <Layout>
         <HeaderComponent />
+       <Home1/>
         <Content>
+          
           <LandingContent />
         
         </Content>

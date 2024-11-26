@@ -1,19 +1,24 @@
 import React from 'react';
-import './BackgroundVideo.css'; // Ensure you create the CSS for styling
+import { Typography } from 'antd';
+import './Home1.css'; // Ensure you create the CSS for styling
+import videoSource from '../../assets/Home1.mp4'; // Adjust the path based on your file structure
 
-const BackgroundVideo = () => {
+const { Title, Paragraph } = Typography;
+const Home1 = () => {
   return (
     <div className="background-video-container">
       <video autoPlay loop muted className="background-video">
-        <source src="your-video-url.mp4" type="video/mp4" />
+        <source src={videoSource} type="" />
         Your browser does not support the video tag.
       </video>
       <div className="text-overlay">
-        <h1>Your Branding Text Here</h1>
-        <p>Subtext for additional branding or message</p>
+      <Title>Welcome to PrushalTech</Title>
+        <Paragraph className='paraText'>
+          We specialize in providing data-driven solutions for your business needs.
+        </Paragraph>
       </div>
     </div>
   );
 };
 
-export default BackgroundVideo;
+export default Home1;
