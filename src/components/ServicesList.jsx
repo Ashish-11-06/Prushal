@@ -19,7 +19,12 @@ const ServicesList = () => {
       backgroundImage: webDevImg, // Use imported image
     },
     {
-      title: 'Mobile Development',
+      title: 'Brand creation',
+      services: ['iOS Development', 'Android Development', 'Cross-Platform Apps'],
+      backgroundImage: mobileDevImg, // Use imported image
+    },
+    {
+      title: 'Digital Transformation',
       services: ['iOS Development', 'Android Development', 'Cross-Platform Apps'],
       backgroundImage: mobileDevImg, // Use imported image
     },
@@ -29,10 +34,11 @@ const ServicesList = () => {
     <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
       {servicesData.map((serviceData, index) => (
         <ServicesCard
-          key={index}
+          key={index}  
+          backgroundImage={serviceData.backgroundImage}
           title={serviceData.title}
           services={serviceData.services}
-          backgroundImage={serviceData.backgroundImage}
+        
         />
       ))}
     </div>

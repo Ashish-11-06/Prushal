@@ -3,6 +3,7 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
 import './Header.css';  // Optional: Add a separate CSS file for styling
+import Navbar from './Header/NavBar';
 
 const { Header } = Layout;
 
@@ -16,20 +17,12 @@ const HeaderComponent = () => {
   ];
 
   return (
-    <Header className="header">
-      {/* Logo section */}
-      <div className="logo">
-        <img src="/path-to-logo.png" alt="Logo" />
-      </div>
-
-      {/* Brand Name */}
-      <div className="brand-name">
-        Prushal Tech
-      </div>
-
-      {/* Menu items */}
-      <Menu theme="light" mode="horizontal" items={items} />
-    </Header>
+  <>
+  <Navbar />
+   
+   
+  </>
+   
   );
 };
 

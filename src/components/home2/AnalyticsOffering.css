@@ -1,0 +1,40 @@
+.analytics-offering {
+    padding: 20px;
+    background-color: #f7f7f7;
+  }
+  
+  .analytics-offering h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .analytics-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .analytics-card ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .analytics-card li {
+    margin: 5px 0;
+    font-size: 16px;
+  }
+  
+  .analytics-card.purple {
+    background-color: #9c27b0;
+    color: white;
+  }
+  
+  .analytics-card.green {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .analytics-card i {
+    font-size: 24px;
+    color: white;
+  }
+  

@@ -3,13 +3,13 @@ import "./CircularAnimation.css";
 
 const CircularScrollAnimation = () => {
   const items = [
-    { name: "WordPress", icon: "📝" },
-    { name: "Wix", icon: "🌐" },
-    { name: "Google", icon: "🔍" },
-    { name: "Figma", icon: "🎨" },
-    { name: "Canva", icon: "🖌️" },
-    { name: "Webflow", icon: "🌊" },
-    { name: "After Effects", icon: "🎬" },
+    { name: "WordPress", logo: "https://upload.wikimedia.org/wikipedia/commons/2/20/WordPress_logo.svg" },
+    { name: "Wix", logo: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Wix_logo.svg" },
+    { name: "Google", logo: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngwing.com%2Fen%2Fsearch%3Fq%3Dgoogle&psig=AOvVaw2nM-yGZdk1zk-K1fSKrFlf&ust=1732773277096000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLiY-s_p-4kDFQAAAAAdAAAAABAE" },
+    { name: "Figma", logo: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" },
+    { name: "Canva", logo: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Canva_logo.svg" },
+    { name: "Webflow", logo: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Webflow_Logo.svg" },
+    { name: "After Effects", logo: "https://upload.wikimedia.org/wikipedia/commons/5/57/Adobe_After_Effects_CC_logo.svg" },
   ];
 
   const radius = 300; // Radius for the circular path
@@ -50,7 +50,7 @@ const CircularScrollAnimation = () => {
                 top: `calc(50% - ${y}px)`,   // Position vertically (inverted for correct positioning)
               }}
             >
-              <div className="icon">{item.icon}</div>
+              <img src={item.logo} alt={item.name} className="logo" />
               <div className="name">{item.name}</div>
             </div>
           );

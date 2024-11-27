@@ -3,9 +3,9 @@ import { Layout, ConfigProvider } from 'antd';
 import HeaderComponent from './components/Header';
 import LandingContent from './components/LandingContent';
 import FooterComponent from './components/Footer';
-import CircularAnimation from './components/landing2/CircularAnimation';
 import './App.css';
 import Home1 from './components/home/Home1';
+import ContactUs from './components/ContactUs/ContactUs';
 
 const { Content } = Layout;
 
@@ -26,9 +26,10 @@ const App = () => {
         <Content>
           
           <LandingContent />
-        
+
         </Content>
-        <FooterComponent />
+       <ContactUs />
+        <FooterComponent /> 
       </Layout>
     </ConfigProvider>
   );

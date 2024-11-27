@@ -1,0 +1,59 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #173A62, #3D9DB7); /* Linear gradient background */
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+  
+  .logo {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .logo:hover {
+    transform: scale(1.1);
+  }
+  
+  .menu-desktop {
+    display: flex;
+  }
+  
+  .menu-mobile-button {
+    display: none;
+  }
+  
+  .ant-menu-horizontal {
+    background: transparent;
+    border-bottom: none;
+  }
+  
+  .ant-menu-item {
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .ant-menu-item:hover {
+    color: #40a9ff; /* Ant Design secondary color */
+    transform: translateY(-3px);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .menu-desktop {
+      display: none;
+    }
+    .menu-mobile-button {
+      display: block;
+      color: white;
+    }
+  }
+  

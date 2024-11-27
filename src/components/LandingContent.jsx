@@ -3,7 +3,8 @@
 import React from 'react';
 import ServicesList from './ServicesList';
 import AnimatedBackground from '../components/Animation/AnimatedBackground'; // Import the AnimatedBackground component
-import CircularAnimation from './landing2/CircularAnimation';
+import CircularAnimation from '../components/Animation/CircularAnimation';
+import AnalyticsOffering from './home2/AnalyticsOffering';
 
 
 
@@ -15,7 +16,7 @@ const LandingContent = () => {
       <div style={{ padding: '50px' }}>
       <AnimatedBackground />  {/*  Add the animated background here */}
         <ServicesList />
-       
+       <AnalyticsOffering/>
       </div> 
       <CircularAnimation />
       {/* <CircularAnimation />
