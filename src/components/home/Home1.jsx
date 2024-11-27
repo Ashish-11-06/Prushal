@@ -2,18 +2,30 @@ import React from 'react';
 import { Typography } from 'antd';
 import { motion } from 'framer-motion';
 import './Home1.css';
-import videoSource from '../../assets/Home1.mp4';
+import ParticleBackground from '../Animation/VideoParticles';
 
 const { Title, Paragraph } = Typography;
 
 const Home1 = () => {
   return (
     <div className="background-video-container">
-      <video autoPlay loop muted className="background-video">
+      
+      {/* Video Background */}
+      {/* <video autoPlay loop muted className="background-video">
         <source src={videoSource} type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+      </video> */}
+
+      {/* Particle Overlay */}
+      <div className="particles-overlay">
+      
+      </div>
+      <ParticleBackground />
+      
+
+      {/* Text Overlay */}
       <div className="text-overlay">
+     
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
@@ -31,6 +43,7 @@ const Home1 = () => {
           </Paragraph>
         </motion.div>
       </div>
+      
     </div>
   );
 };

@@ -4,15 +4,19 @@ import { motion } from 'framer-motion';
 
 const { Title, Paragraph } = Typography;
 
-// Animation variants
+// Animation variants for left-to-right effect
 const cardVariants = {
-  hidden: { opacity: 0, y: 50 }, // Hidden state: card starts below and invisible
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } }, // Visible state: card slides up into view
+  hidden: { opacity: 0, x: -100 }, // Hidden state: card starts 100px to the left and invisible
+  visible: { 
+    opacity: 1, 
+    x: 0, // Card moves to its normal position (x=0)
+    transition: { duration: 0.8, ease: 'easeOut' } 
+  }, // Visible state: card slides in from the left
 };
 
 const ServicesCard = ({ title, services, backgroundImage }) => {
   const ref = useRef(null); // Reference to the card element
-  const [inView, setInView] = useState(false); // State to track visibility
+  const [inView, setInView] = useState(true); // State to track visibility
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -47,7 +51,7 @@ const ServicesCard = ({ title, services, backgroundImage }) => {
     >
       <Card
         style={{
-          width: 300,
+          width: 260,
           backgroundImage: `url(${backgroundImage})`, // Set the background image
           backgroundSize: 'cover', // Ensure the image covers the card
           backgroundPosition: 'center', // Center the background image
@@ -73,9 +77,8 @@ const ServicesCard = ({ title, services, backgroundImage }) => {
           }}
         />
 
-      
-       {/* Text Content */}
-       <motion.div style={{ textAlign: 'center', zIndex: 1, position: 'relative' }}>
+        {/* Text Content */}
+        <motion.div style={{ textAlign: 'center', zIndex: 1, position: 'relative' }}>
           <Title level={4} style={{ transition: 'color 0.3s', color: 'white' }}>
             {title}
           </Title>

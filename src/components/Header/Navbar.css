@@ -10,50 +10,77 @@
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-  
-  .logo {
+
+.logo {
     font-size: 24px;
     color: white;
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.3s ease;
-  }
-  
-  .logo:hover {
+}
+
+.logo:hover {
     transform: scale(1.1);
-  }
-  
-  .menu-desktop {
+}
+
+.menu-desktop {
     display: flex;
-  }
-  
-  .menu-mobile-button {
+}
+
+.menu-mobile-button {
     display: none;
-  }
-  
-  .ant-menu-horizontal {
+}
+
+.ant-menu-horizontal {
     background: transparent;
     border-bottom: none;
-  }
-  
-  .ant-menu-item {
+}
+
+.ant-menu-item {
     color: white;
     font-weight: 500;
     transition: color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .ant-menu-item:hover {
+}
+
+.ant-menu-item:hover {
     color: #40a9ff; /* Ant Design secondary color */
     transform: translateY(-3px);
-  }
-  
-  @media screen and (max-width: 768px) {
+}
+
+/* Styles for submenu items */
+.ant-menu-submenu-title {
+    color: white;
+    font-weight: 500;
+}
+
+.ant-menu-submenu-title:hover {
+    color: #40a9ff; /* Ant Design secondary color */
+}
+
+.ant-menu-submenu {
+    background: rgba(255, 255, 255, 0.1); /* Slightly transparent background for submenus */
+}
+
+.ant-menu-item-selected {
+    color: #40a9ff; /* Highlight selected item */
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
     .menu-desktop {
-      display: none;
+        display: none;
     }
     .menu-mobile-button {
-      display: block;
-      color: white;
+        display: block;
+        color: white;
     }
-  }
-  
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 10px 15px; /* Adjust padding for smaller screens */
+    }
+    .logo {
+        font-size: 20px; /* Smaller logo font size for mobile */
+    }
+}

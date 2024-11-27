@@ -19,6 +19,8 @@ const AnimatedBackground2 = () => {
     <div className="animated-background">
       <AnimatedCircle />
       <AnimatedCircle />
+     
+ 
     </div>
   );
 };
