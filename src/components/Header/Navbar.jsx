@@ -1,54 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Menu, Button, Drawer } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import './Navbar.css';
-import CustomMenuItem from './CustomMenuItem';
 
 const Navbar = () => {
-  const [isDrawerVisible, setIsDrawerVisible] = React.useState(false);
+  const [isDrawerVisible, setIsDrawerVisible] = useState(false);
 
+  // Function to show the drawer
   const showDrawer = () => {
     setIsDrawerVisible(true);
   };
 
+  // Function to close the drawer
   const closeDrawer = () => {
     setIsDrawerVisible(false);
   };
 
+  // Menu items for the navigation bar
   const menuItems = [
-    {
-      key: '1',
-      label: 'Home',
-      children: [
-        { key: '1-1', label: 'Industries' },
-        { key: '1-2', label: 'Banking' },
-        { key: '1-3', label: 'Healthcare' },
-        { key: '1-4', label: 'Education' },
-        { key: '1-5', label: 'Manufacturing' },
-        { key: '1-6', label: 'Finance' },
-        { key: '1-7', label: 'FMCG' },
-        { key: '1-8', label: 'Energy' },
-      ],
-    },
-    {
-      key: '2',
-      label: 'Services',
-      children: [
-        { key: '2-1', label: 'Application Services' },
-        { key: '2-2', label: 'Automation' },
-        { key: '2-3', label: 'Business Process Services' },
-        { key: '2-4', label: 'Cloud' },
-        { key: '2-5', label: 'Data and AI' },
-        { key: '2-6', label: 'Software Engineering' },
-        { key: '2-7', label: 'Internet of Things' },
-      ],
-    },
+    { key: '1', label: 'Home' },
+    { key: '2', label: 'Services' },
     { key: '3', label: 'Capabilities' },
-    {
-      key: '4',
-      label: 'About',
-      children: [{ key: '4-1', label: 'Careers' }],
-    },
+    { key: '4', label: 'About' },
     { key: '5', label: 'Contact' },
   ];
 
@@ -61,31 +33,13 @@ const Navbar = () => {
       {/* Desktop Menu */}
       <div className="menu-desktop" style={desktopMenuStyle}>
         {menuItems.map((item) => (
-          <div
-            key={item.key}
-            style={{
-              position: 'relative',
-              marginRight: '20px', // Space between menu items
-            }}
-          >
-            <CustomMenuItem item={item} />
-            {item.children && (
-              <div
-                className="submenu"
-                style={submenuStyle}
-              >
-                {item.children.map((child) => (
-                  <div key={child.key} style={submenuItemStyle}>
-                    {child.label}
-                  </div>
-                ))}
-              </div>
-            )}
+          <div key={item.key} style={menuItemStyle}>
+            {item.label}
           </div>
         ))}
       </div>
 
-      {/* Mobile Menu Button */}
+      {/* Button to open the drawer */}
       <Button
         className="menu-mobile-button"
         icon={<MenuOutlined />}
@@ -93,15 +47,21 @@ const Navbar = () => {
         style={mobileButtonStyle}
       />
 
-      {/* Drawer Menu */}
+      {/* Drawer Menu below the navbar */}
       <Drawer
         title="Menu"
-        placement="right"
-        closable={true}
+        placement="top"  // Change placement to "bottom" for the drawer to slide down
+        closable
         onClose={closeDrawer}
         open={isDrawerVisible}
+        bodyStyle={drawerBodyStyle}
+        style={drawerStyle}
       >
-        <Menu mode="vertical" items={menuItems} />
+        <Menu mode="vertical">
+          {menuItems.map((item) => (
+            <Menu.Item key={item.key}>{item.label}</Menu.Item>
+          ))}
+        </Menu>
       </Drawer>
     </nav>
   );
@@ -114,53 +74,43 @@ const navbarStyle = {
   alignItems: 'center',
   padding: '10px 20px',
   backgroundColor: '#001529',
+  zIndex: 10, // Ensure navbar is on top
 };
 
 const logoStyle = {
   fontSize: '24px',
   fontWeight: 'bold',
   color: 'white',
+  zIndex: 1000, 
 };
 
 const desktopMenuStyle = {
   display: 'flex',
   alignItems: 'center',
+  zIndex: 1000, 
 };
 
 const mobileButtonStyle = {
   backgroundColor: '#001529',
   color: 'white',
+  border: 'none',
+  zIndex: 1000, 
 };
 
-const submenuStyle = {
-  position: 'absolute',
-  top: '100%',
-  left: '0',
-  backgroundColor: '#fff',
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-  padding: '10px',
-  display: 'none', // Hide by default, show on hover
-};
-
-const submenuItemStyle = {
-  padding: '5px 10px',
+const menuItemStyle = {
+  zIndex: 1000, 
+  marginRight: '20px',
+  color: 'white',
   cursor: 'pointer',
-  whiteSpace: 'nowrap',
 };
 
-// Show submenu on hover
-document.addEventListener('mouseover', (e) => {
-  if (e.target.closest('.menu-desktop div')) {
-    const submenu = e.target.closest('.menu-desktop div').querySelector('.submenu');
-    if (submenu) submenu.style.display = 'block';
-  }
-});
+const drawerBodyStyle = {
+  padding: 0,
+};
 
-document.addEventListener('mouseout', (e) => {
-  if (e.target.closest('.menu-desktop div')) {
-    const submenu = e.target.closest('.menu-desktop div').querySelector('.submenu');
-    if (submenu) submenu.style.display = 'none';
-  }
-});
+const drawerStyle = {
+  zIndex: 1000, // Ensure drawer appears above the content
+  position: 'absolute', // Absolute positioning for the drawer to control placement
+};
 
 export default Navbar;

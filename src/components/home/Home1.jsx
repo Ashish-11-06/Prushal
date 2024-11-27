@@ -20,7 +20,7 @@ const Home1 = () => {
       <div className="particles-overlay">
       
       </div>
-      <ParticleBackground />
+      {/* <ParticleBackground /> */}
       
 
       {/* Text Overlay */}
