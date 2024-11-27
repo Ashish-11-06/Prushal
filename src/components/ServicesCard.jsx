@@ -47,7 +47,7 @@ const ServicesCard = ({ title, services, backgroundImage }) => {
       animate={inView ? 'visible' : 'hidden'} // Toggle animation state
       whileHover={{ scale: 1.05 }} // Scale up on hover
       whileTap={{ scale: 0.95 }} // Scale down on tap
-      style={{ margin: '20px' }} // Add margin to the card
+      style={{ margin: '20px', borderRadius: '2%', }} // Add margin to the card
     >
       <Card
         style={{
@@ -62,6 +62,7 @@ const ServicesCard = ({ title, services, backgroundImage }) => {
           alignItems: 'center', // Center content horizontally
           position: 'relative', // To position overlay
           boxShadow: '0 4px 20px #18e8ff2b',
+          borderRadius: '2%',
         }}
       >
         {/* Overlay to darken the background */}
@@ -73,12 +74,13 @@ const ServicesCard = ({ title, services, backgroundImage }) => {
             right: 0,
             bottom: 0,
             backgroundColor: '#2a37375e', // Semi-transparent black overlay
+            borderRadius: '2%',
             zIndex: 1,
           }}
         />
 
         {/* Text Content */}
-        <motion.div style={{ textAlign: 'center', zIndex: 1, position: 'relative' }}>
+        <motion.div style={{ textAlign: 'center', zIndex: 1, position: 'relative', borderRadius: '2%',}}>
           <Title level={4} style={{ transition: 'color 0.3s', color: 'white' }}>
             {title}
           </Title>

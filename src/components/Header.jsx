@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import './Header.css';  // Optional: Add a separate CSS file for styling
+// import './Header.css';  // Optional: Add a separate CSS file for styling
 import Navbar from './Header/NavBar';
 
 const { Header } = Layout;

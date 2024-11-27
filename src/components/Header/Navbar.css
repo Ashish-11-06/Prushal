@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: linear-gradient(to right, #173A62, #3D9DB7); /* Linear gradient background */
+    background: linear-gradient(100deg, #2196F3, #007676); /* Gradient background */
     color: white;
     position: sticky;
     top: 0;

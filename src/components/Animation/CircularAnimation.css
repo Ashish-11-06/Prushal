@@ -80,9 +80,6 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .logo {
-  width: 152px;
-  height: 57px;
-  background: rgba(255, 255, 255, 0);
-  margin: 16px 24px 16px 0;
-  float: left;
+  height: 60px !important ;
+  border-radius: 50% !important;
 }
