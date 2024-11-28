@@ -13,12 +13,12 @@ const ServicesCard = ({ title, services, backgroundImage }) => {
     >
       <Card
         style={{
-          width: 260,
+          width: 250,
           backgroundImage: `url(${backgroundImage})`, // Set the background image
           backgroundSize: 'cover', // Ensure the image covers the card
           backgroundPosition: 'center', // Center the background image
           color: 'white', // Ensure text color is white for better contrast
-          minHeight: '450px', // Ensure minimum height to see the image
+          minHeight: '350px', // Ensure minimum height to see the image
           display: 'flex', // To center content
           justifyContent: 'center', // Center content vertically
           alignItems: 'center', // Center content horizontally

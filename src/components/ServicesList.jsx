@@ -2,31 +2,56 @@ import React from 'react';
 import ServicesCard from './ServicesCard';
 
 // Import images directly
-import dataScienceImg from '../assets/card1.jpg';
-import webDevImg from '../assets/card2.jpg';
-import mobileDevImg from '../assets/card3.jpg';
+import appServicesImg from '../assets/card1.jpg';
+import automationImg from '../assets/card1.jpg';
+import businessProcessImg from '../assets/card1.jpg';
+import cloudImg from '../assets/card1.jpg';
+import dataAIImg from '../assets/card1.jpg';
+import softwareEngImg from '../assets/card1.jpg';
+import iotImg from '../assets/card1.jpg';
+import genAIImg from '../assets/card1.jpg';
 
 const ServicesList = () => {
   const servicesData = [
     {
-      title: 'Data Science',
-      services: ['Data Analysis', 'Machine Learning', 'Statistical Modeling'],
-      backgroundImage: dataScienceImg, // Use imported image
+      title: 'Application Services',
+      services: ['Application Development', 'Application Maintenance', 'Application Modernization'],
+      backgroundImage: appServicesImg,
     },
     {
-      title: 'Web Development',
-      services: ['Responsive Design', 'API Integration', 'E-commerce Solutions'],
-      backgroundImage: webDevImg, // Use imported image
+      title: 'Automation',
+      services: ['Process Automation', 'Robotic Process Automation (RPA)', 'Intelligent Automation'],
+      backgroundImage: automationImg,
     },
     {
-      title: 'Brand creation',
-      services: ['iOS Development', 'Android Development', 'Cross-Platform Apps'],
-      backgroundImage: mobileDevImg, // Use imported image
+      title: 'Business Process Services',
+      services: ['Business Process Outsourcing', 'Process Optimization', 'Operational Efficiency'],
+      backgroundImage: businessProcessImg,
     },
     {
-      title: 'Digital Transformation',
-      services: ['iOS Development', 'Android Development', 'Cross-Platform Apps'],
-      backgroundImage: mobileDevImg, // Use imported image
+      title: 'Cloud',
+      services: ['Cloud Migration', 'Cloud Infrastructure', 'Cloud Security'],
+      backgroundImage: cloudImg,
+    },
+    {
+      title: 'Data and AI',
+      services: ['Data Engineering', 'Artificial Intelligence', 'Data Analytics'],
+      backgroundImage: dataAIImg,
+    },
+    {
+      title: 'Software Engineering',
+      services: ['Custom Software Development', 'Agile Development', 'Software Testing'],
+      backgroundImage: softwareEngImg,
+    },
+    {
+      title: 'Internet of Things (IoT)',
+      services: ['IoT Solutions', 'Device Integration', 'IoT Analytics'],
+      backgroundImage: iotImg,
+    },
+    {
+      title: 'GenAI',
+      services: ['Generative AI Models', 'AI-Powered Content', 'Intelligent Chatbots'],
+      backgroundImage: genAIImg,
     },
   ];
 
@@ -34,11 +59,10 @@ const ServicesList = () => {
     <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
       {servicesData.map((serviceData, index) => (
         <ServicesCard
-          key={index}  
+          key={index}
           backgroundImage={serviceData.backgroundImage}
           title={serviceData.title}
           services={serviceData.services}
-        
         />
       ))}
     </div>

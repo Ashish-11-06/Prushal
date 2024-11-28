@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Drawer } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import { text } from 'framer-motion/client';
+import logo from '../../assets/PrushalLogo.png'
 
 const Navbar = () => {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
@@ -48,9 +48,9 @@ const Navbar = () => {
 
   return (
     <nav className="navbar" style={navbarStyle}>
-      <div style={logoStyle}>
-        MySite
-      </div>
+     <div style={logoStyle}>
+    
+    </div>
 
       {/* Desktop Menu */}
       <div className="menu-desktop" style={desktopMenuStyle}>
@@ -90,19 +90,33 @@ const Navbar = () => {
 
 // Inline Styles
 const navbarStyle = {
+  position: 'sticky', // Sticky positioning
+  top: 0, // Sticks to the top of the page
+  left: 0,
+  right: 0,
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   padding: '20px 20px',
-  background: 'linear-gradient(100deg, #2196F3, #007676)', /* Gradient background */
-  zIndex: 1,
+  background: 'linear-gradient(90deg, #2196f37a, #007676)', // Gradient background
+  zIndex: 1000, // Ensures it stays above other elements
+  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Optional: Add a shadow for better visibility
 };
+
 
 const logoStyle = {
   fontSize: '24px',
   fontWeight: 'bold',
   color: 'white',
-  zIndex: 1000,
+  zIndex: 10000,
+  display: 'flex',
+  alignItems: 'center',
+  backgroundImage: `url(${logo})`, // Use imported image
+  backgroundSize: 'cover', // Adjusts image size to fit
+  backgroundRepeat: 'no-repeat', // Prevents repeating
+  backgroundPosition: 'left center', // Positions the image
+  paddingLeft: '50px', // Adds space so text doesn't overlap with the logo
+  height: '30px', // Adjusts the height of the logo container
 };
 
 const desktopMenuStyle = {
