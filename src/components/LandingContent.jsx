@@ -21,7 +21,7 @@ const LandingContent = () => {
       <div style={{ padding: '10px 50px', 
         // border: '2px solid red',
         borderRadius: '1%',
-        background: 'linear-gradient(100deg, #2196f345, #00767661)', /* Gradient background */
+        // background: 'linear-gradient(100deg, #2196f300, #00767630)', /* Gradient background */
  
       }}>
        <ServicesList /> 

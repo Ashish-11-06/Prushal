@@ -1,66 +1,71 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Card, Typography, Button } from 'antd';
 import { motion } from 'framer-motion';
 
 const { Title, Paragraph } = Typography;
 
 const ServicesCard = ({ title, services, backgroundImage }) => {
+  const [isHovered, setIsHovered] = useState(false); // Track hover state
+
+  // Handlers for hover events
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+
   return (
     <motion.div
       whileHover={{ scale: 1.05 }} // Scale up on hover
       whileTap={{ scale: 0.95 }} // Scale down on tap
-      style={{ margin: '20px', borderRadius: '2%' }} // Add margin to the card
+      style={{ margin: '20px', borderRadius: '2%', overflow: 'hidden' }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <Card
         style={{
           width: 250,
-          backgroundImage: `url(${backgroundImage})`, // Set the background image
-          backgroundSize: 'cover', // Ensure the image covers the card
-          backgroundPosition: 'center', // Center the background image
-          color: 'white', // Ensure text color is white for better contrast
-          minHeight: '350px', // Ensure minimum height to see the image
-          display: 'flex', // To center content
-          justifyContent: 'center', // Center content vertically
-          alignItems: 'center', // Center content horizontally
-          position: 'relative', // To position overlay
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          minHeight: '350px',
+          position: 'relative',
           boxShadow: '0 4px 20px #18e8ff2b',
           borderRadius: '2%',
         }}
       >
-        {/* Overlay to darken the background */}
-        <div
+        {/* Overlay */}
+        <motion.div
           style={{
             position: 'absolute',
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: '#2a37375e', // Semi-transparent black overlay
-            borderRadius: '2%',
+            backgroundColor: isHovered
+              ? 'rgba(0, 0, 0, 0.6)' // Dark overlay when hovered
+              : 'rgba(0, 0, 0, 0)', // Transparent when not hovered
+            transition: 'background-color 0.3s',
             zIndex: 1,
           }}
         />
 
-        {/* Text Content */}
+        {/* Text Content - visible only on hover */}
         <motion.div
           style={{
             textAlign: 'center',
-            zIndex: 1,
+            zIndex: 2,
             position: 'relative',
-            borderRadius: '2%',
+            opacity: isHovered ? 1 : 0, // Show only when hovered
+            transition: 'opacity 0.3s',
+            color: 'white',
+            padding: '20px',
           }}
         >
-          <Title level={4} style={{ transition: 'color 0.3s', color: 'white' }}>
-            {title}
-          </Title>
-          <Paragraph style={{ transition: 'color 0.3s', color: 'white' }}>
+          <Title level={4} style={{ color: 'white' }}>{title}</Title>
+          <Paragraph style={{ color: 'white' }}>
             {services.map((service, index) => (
               <div key={index}>- {service}</div>
             ))}
           </Paragraph>
-          <Button type="primary" style={{ zIndex: 2 }}>
-            Learn More
-          </Button>
+          <Button type="primary">Learn More</Button>
         </motion.div>
       </Card>
     </motion.div>

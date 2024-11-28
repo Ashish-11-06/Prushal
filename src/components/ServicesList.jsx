@@ -2,14 +2,14 @@ import React from 'react';
 import ServicesCard from './ServicesCard';
 
 // Import images directly
-import appServicesImg from '../assets/card1.jpg';
-import automationImg from '../assets/card1.jpg';
-import businessProcessImg from '../assets/card1.jpg';
-import cloudImg from '../assets/card1.jpg';
-import dataAIImg from '../assets/card1.jpg';
-import softwareEngImg from '../assets/card1.jpg';
-import iotImg from '../assets/card1.jpg';
-import genAIImg from '../assets/card1.jpg';
+import appServicesImg from '../assets/ServiceCard/ApplicationServices.jpg';
+import automationImg from '../assets/ServiceCard/Automation.jpg';
+import businessProcessImg from '../assets/ServiceCard/BusinessProcessServices.jpg';
+import cloudImg from '../assets/ServiceCard/Cloud.jpg';
+import dataAIImg from '../assets/ServiceCard/DataAndAI.jpg';
+import softwareEngImg from '../assets/ServiceCard/SoftwareEngineering.jpg';
+import iotImg from '../assets/ServiceCard/InternetofThings.jpg';
+import genAIImg from '../assets/ServiceCard/GenAI.jpg';
 
 const ServicesList = () => {
   const servicesData = [

@@ -72,14 +72,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-image: url('../../assets/Clients/logo.png');
-  background-color: #22cdd0;
+  /* background-color: #22cdd0; */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
 }
 .logo {
   height: 60px !important ;
