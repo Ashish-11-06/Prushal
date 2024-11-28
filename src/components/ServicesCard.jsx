@@ -65,7 +65,7 @@ const ServicesCard = ({ title, services, backgroundImage }) => {
               <div key={index}>- {service}</div>
             ))}
           </Paragraph>
-          <Button type="primary">Learn More</Button>
+          <Button type="primary">Contact</Button>
         </motion.div>
       </Card>
     </motion.div>
