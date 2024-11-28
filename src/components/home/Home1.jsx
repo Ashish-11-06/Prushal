@@ -18,9 +18,9 @@ const Home1 = () => {
 
       {/* Particle Overlay */}
       <div className="particles-overlay">
-      
+      <ParticleBackground />
+   
       </div>
-      {/* <ParticleBackground /> */}
       
 
       {/* Text Overlay */}
@@ -31,7 +31,7 @@ const Home1 = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 1.5 }}
         >
-          <Title>Welcome to PrushalTech</Title>
+          <Title>PrushalTech</Title>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 100 }}
@@ -43,7 +43,7 @@ const Home1 = () => {
           </Paragraph>
         </motion.div>
       </div>
-      
+     
     </div>
   );
 };

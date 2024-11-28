@@ -1,7 +1,7 @@
 .scroll-circular-container {
   border-radius: 10px;
-  background-color: #f7f7f7;
-  background-image: url('../../assets/Clients.png'); /* Set the path to your background image */
+  background-color: #ffffff;
+  /* background-image: url('../../assets/Clients.png'); Set the path to your background image */
   background-position: center;
   background-size: cover; /* Make the background image cover the entire container */
   background-repeat: no-repeat; /* Prevent the image from repeating */
@@ -41,6 +41,7 @@
     transition: transform 0.3s ease;
     /* background: linear-gradient(100deg, #2195f34b, #00767642); Gradient background */
     border-radius: 50%;
+    box-shadow: #2f3f3f4f;
 }
 
 .orbit-item:hover {
@@ -65,11 +66,12 @@
 
 .center-item {
   position: absolute;
-  width: 120px; /* Adjusted size */
-  height: 120px; /* Adjusted size */
+  width: 92px; /* Adjusted size */
+  height: 92px; /* Adjusted size */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-image: url('../../assets/Clients/logo.png');
   background-color: #22cdd0;
   border-radius: 50%;
   display: flex;

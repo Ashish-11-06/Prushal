@@ -21,7 +21,8 @@ const App = () => {
   return (
     <ConfigProvider theme={theme}>
       <Layout>
-     <Navbar/>  <Home1/>
+     <Navbar/> 
+      <Home1/>
         <Content>
           
           <LandingContent />

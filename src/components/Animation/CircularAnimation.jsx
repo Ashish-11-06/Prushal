@@ -92,7 +92,7 @@ const images = [
         })}
 
         {/* Center Text */}
-        <div className="center-item">Prushal Tech</div>
+        <div className="center-item"></div>
       </div>
     </div>
   );
