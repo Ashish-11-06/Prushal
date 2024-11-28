@@ -1,0 +1,45 @@
+.about-us {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .about-us h1 {
+    font-size: 36px;
+    color: #007676;
+    margin-bottom: 40px;
+  }
+  
+  .about-card {
+    transition: all 0.3s ease;
+  }
+  
+  .about-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .about-card ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+  }
+  
+  .about-card li {
+    margin-bottom: 10px;
+  }
+  
+  .about-card p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 767px) {
+    .about-us h1 {
+      font-size: 28px;
+    }
+  
+    .about-card {
+      margin-bottom: 20px;
+    }
+  }
+  

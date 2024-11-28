@@ -6,6 +6,7 @@ import './App.css';
 import Home1 from './components/home/Home1';
 import ContactUs from './components/ContactUs/ContactUs';
 import Navbar from './components/Header/NavBar';
+import AboutUs from './components/home3/AboutUs';
 
 const { Content } = Layout;
 
@@ -24,10 +25,10 @@ const App = () => {
      <Navbar/> 
       <Home1/>
         <Content>
-          
           <LandingContent />
-
+          <AboutUs/>
         </Content>
+
        <ContactUs />
         <FooterComponent /> 
       </Layout>

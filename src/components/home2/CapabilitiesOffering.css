@@ -1,0 +1,24 @@
+
+.capabilities-offering {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .capability-card {
+    transition: transform 0.3s;
+  }
+  
+  .capability-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+  }
+  
+  .capability-card ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+  }
+  
+  .capability-card li {
+    padding: 5px 0;
+  }
+  

@@ -6,6 +6,7 @@ import AnimatedBackground from '../components/Animation/AnimatedBackground'; // 
 import CircularAnimation from '../components/Animation/CircularAnimation';
 import AnalyticsOffering from './home2/AnalyticsOffering';
 import HeroSection from './DataStats/HeroSection';
+import CapabilitiesOffering from './home2/CapabilitiesOffering';
 
 
 
@@ -29,6 +30,7 @@ const LandingContent = () => {
         
         < HeroSection/>
        <AnalyticsOffering/>
+       <CapabilitiesOffering/>
        
       </div> 
       <CircularAnimation />

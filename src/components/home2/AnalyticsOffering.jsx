@@ -2,50 +2,69 @@ import React from 'react';
 import { Row, Col, Card } from 'antd';
 import './AnalyticsOffering.css'; // Import the styling file
 
-// Data array containing the information for the cards
-const analyticsData = [
+// Data array containing the industries and their details
+const industriesData = [
   {
-    title: "Enterprise Data Management & Reporting",
-    icon: "DesktopOutlined", // You can modify the icon name if needed
-    color: "purple",
-    items: [
+    industry: "Banking",
+    description: [
       "Enterprise Data Management",
-      "Dashboard Consulting",
-      "Dashboard Modernization",
-      "Regulatory Reporting",
-      "MIS Reporting"
+      "Regulatory Compliance",
+      "Customer Analytics",
+      "Risk and Fraud Detection"
     ]
   },
   {
-    title: "Digital Command Centre",
-    icon: "VideoCameraOutlined",
-    color: "green",
-    items: [
-      "Operations Analytics",
-      "CXO Cockpit System",
-      "Contact Centre Analytics",
-      "Employee Analytics"
+    industry: "Healthcare",
+    description: [
+      "Patient Data Management",
+      "Clinical Analytics",
+      "Predictive Healthcare",
+      "Operational Efficiency"
     ]
   },
   {
-    title: "Customer Analytics",
-    icon: "SearchOutlined",
-    color: "purple",
-    items: [
-      "Integrated Customer View",
-      "Customer Segmentation",
-      "Segment Profiling",
-      "Next Best Offer",
-      "Churn Prediction"
+    industry: "Education",
+    description: [
+      "Student Analytics",
+      "Learning Management Systems",
+      "Course Optimization",
+      "Academic Performance Tracking"
     ]
   },
   {
-    title: "Risk / Fraud Analytics",
-    icon: "LockOutlined",
-    color: "green",
-    items: [
-      "Claim Fraud Analytics",
-      "Contextual & Behavioral Analytics"
+    industry: "Manufacturing",
+    description: [
+      "Supply Chain Analytics",
+      "Production Optimization",
+      "Predictive Maintenance",
+      "Quality Control"
+    ]
+  },
+  {
+    industry: "Finance",
+    description: [
+      "Portfolio Management",
+      "Financial Forecasting",
+      "Risk Analytics",
+      "Investment Analysis"
+    ]
+  },
+  {
+    industry: "FMCG",
+    description: [
+      "Consumer Behavior Analytics",
+      "Demand Forecasting",
+      "Inventory Management",
+      "Market Trend Analysis"
+    ]
+  },
+  {
+    industry: "Energy",
+    description: [
+      "Energy Consumption Analysis",
+      "Renewable Energy Optimization",
+      "Grid Management",
+      "Operational Efficiency"
     ]
   }
 ];
@@ -53,18 +72,24 @@ const analyticsData = [
 const AnalyticsOffering = () => {
   return (
     <div className="analytics-offering">
-      <h1>Analytics Offering In Banking / Financial Services</h1>
+      <h1>Industry-Specific Analytics Offerings</h1>
       <Row gutter={[16, 16]}>
-        {analyticsData.map((card, index) => (
-          <Col key={index} span={6}>
+        {industriesData.map((industry, index) => (
+          <Col key={index} xs={24} sm={12} md={8} lg={6}>
             <Card
-              title={card.title}
-              extra={<i className={`anticon anticon-${card.icon}`} />}
-              className={`analytics-card ${card.color}`}
-              style={{ height: '100%' }}  // Ensure card fills available space
+              title={industry.industry}
+              className="industry-card"
+              style={{
+                height: '100%',
+                backgroundColor: '#f5f5f5',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                borderRadius: '8px',
+                transition: 'transform 0.3s',
+              }}
+              hoverable
             >
               <ul>
-                {card.items.map((item, idx) => (
+                {industry.description.map((item, idx) => (
                   <li key={idx}>{item}</li>
                 ))}
               </ul>
