@@ -10,7 +10,7 @@ const FooterComponent = () => {
     <>
 
 <Footer style={{ textAlign: 'center', background: '#001e1e' }}>
-  ©2024 Your Company Name. All Rights Reserved.
+  ©2024 Prushal Technology Pvt Ltd. All Rights Reserved.
 </Footer>
 
     

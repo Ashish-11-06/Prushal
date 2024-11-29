@@ -44,6 +44,14 @@ const ContactUs = () => {
               </Form.Item>
 
               <Form.Item
+                label="Phone"
+                name="num"
+                rules={[{ required: true, type: 'email', message: 'Please enter a valid email!' }]}
+              >
+                <Input placeholder="Enter your email address" />
+              </Form.Item>
+
+              <Form.Item
                 label="Message"
                 name="message"
                 rules={[{ required: true, message: 'Please enter your message!' }]}
@@ -59,51 +67,99 @@ const ContactUs = () => {
             </Form>
           </Col>
 
-          {/* Right Column: Social Media and Creative Content */}
+          {/* Right Column: Social Media, Quick Links, Contact Email, and Address */}
           <Col xs={24} md={12}>
             <div className="social-media-section">
-              <Title level={4}>Follow Us</Title>
+              {/* Company Address Section */}
+           <section className='company-info'> 
+               <div className="company-address-section">
+
+               
+                <Title level={4}>Our Address</Title>
+                <Divider className="contact-us-divider" />
+                <Paragraph>
+                  <strong>Prushal Technology Pvt. Ltd.</strong><br />
+                  Flat No: 401, Vrindavan<br />
+                  Society, near Samindradevi<br />
+                  Market, Baif Road, Wagholi,<br />
+                  Pune, MH – 412207
+                </Paragraph>
+              </div>
+
+              <div class="contact-container">
+              <Title level={4}>Contact</Title>
               <Divider className="contact-us-divider" />
-              <Row gutter={16} className="social-media-buttons">
-                <Col>
-                  <Button
-                    type="link"
-                    icon={<FacebookOutlined />}
-                    href="https://www.facebook.com"
-                    target="_blank"
-                  />
-                </Col>
-                <Col>
-                  <Button
-                    type="link"
-                    icon={<TwitterOutlined />}
-                    href="https://www.twitter.com"
-                    target="_blank"
-                  />
-                </Col>
-                <Col>
-                  <Button
-                    type="link"
-                    icon={<InstagramOutlined />}
-                    href="https://www.instagram.com"
-                    target="_blank"
-                  />
-                </Col>
-                <Col>
-                  <Button
-                    type="link"
-                    icon={<LinkedinOutlined />}
-                    href="https://www.linkedin.com"
-                    target="_blank"
-                  />
-                </Col>
-              </Row>
-              <Divider className="contact-us-divider" />
+    <div class="contact-item">
+      <i class="fas fa-phone-alt"></i>
+      <span> (+91) 9850113269</span>
+    </div>
+    <div class="contact-item">
+      <i class="fas fa-phone-alt"></i>
+      <span> (+91) 9850603269</span>
+    </div>
+    <div class="contact-item">
+      <i class="fas fa-phone-alt"></i>
+      <span> (+91) 9850803269</span>
+    </div>
+    <div class="contact-item">
+      <i class="fas fa-phone-alt"></i>
+      <span> (+91) 9762203269</span>
+    </div>
+  </div>
+
+                  </section>
+                
+
+              <Divider className="divider2" />
+
+
+              {/* Contact Email */}
               <Paragraph>
-                For any inquiries, you can also reach us directly via email at <span className="contact-us-email">support@yourdomain.com</span>.
+                For inquiries, you can reach us directly at:
+                <a href="mailto:info@prushal.com" className="contact-us-email"> info@prushal.com</a>
+              
+
+<Row gutter={20} className="social-media-buttons">
+  <Col>
+    <Button
+      type="link"
+      icon={<FacebookOutlined style={{ fontSize: '24px' }} />}
+      href="https://www.facebook.com"
+      target="_blank"
+    />
+  </Col>
+  <Col>
+    <Button
+      type="link"
+      icon={<TwitterOutlined style={{ fontSize: '24px' }} />}
+      href="https://www.twitter.com"
+      target="_blank"
+    />
+  </Col>
+  <Col>
+    <Button
+      type="link"
+      icon={<InstagramOutlined style={{ fontSize: '24px' }} />}
+      href="https://www.instagram.com"
+      target="_blank"
+    />
+  </Col>
+  <Col>
+    <Button
+      type="link"
+      icon={<LinkedinOutlined style={{ fontSize: '24px' }} />}
+      href="https://www.linkedin.com"
+      target="_blank"
+    />
+  </Col>
+</Row>
+
+
               </Paragraph>
             </div>
+
           </Col>
+
         </Row>
       </div>
     </div>
