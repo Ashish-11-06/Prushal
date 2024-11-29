@@ -1,40 +1,63 @@
+/* Container for the offering */
 .analytics-offering {
-    padding: 20px;
-    background-color: #f7f7f7;
-  }
-  
-  .analytics-offering h1 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .analytics-card {
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .analytics-card ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .analytics-card li {
-    margin: 5px 0;
-    font-size: 16px;
-  }
-  
-  .analytics-card.purple {
-    background-color: #9c27b0;
-    color: white;
-  }
-  
-  .analytics-card.green {
-    background-color: #4caf50;
-    color: white;
-  }
-  
-  .analytics-card i {
-    font-size: 24px;
-    color: white;
-  }
-  
+  padding: 40px 20px;
+  background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Title styling */
+.analytics-offering h1 {
+  font-size: 36px;
+  color: #3f51b5;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+/* Timeline customization */
+/* .industry-timeline {
+  width: 100%;
+  max-width: 1000px;
+} */
+
+/* .ant-timeline-item-label {
+  font-size: 20px;
+  color: #3f51b5;
+  font-weight: bold;
+} */
+
+/* Content inside each timeline item */
+/* .timeline-content {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+} */
+
+/* List styling */
+/* .timeline-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  color: #333;
+} */
+/* 
+.timeline-content ul li {
+  font-size: 14px;
+  padding: 8px 0;
+  position: relative;
+  padding-left: 24px;
+} */
+
+/* Custom bullet points */
+/* .timeline-content ul li::before {
+  content: '•';
+  color: #3f51b5;
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+  top: 2px;
+} */

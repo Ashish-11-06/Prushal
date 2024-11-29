@@ -2,7 +2,6 @@ import React from 'react';
 import { Row, Col, Card } from 'antd';
 import './AnalyticsOffering.css'; // Import the styling file
 
-// Data array containing the industries and their details
 const industriesData = [
   {
     industry: "Banking",
@@ -72,20 +71,13 @@ const industriesData = [
 const AnalyticsOffering = () => {
   return (
     <div className="analytics-offering">
-      <h1>Industry-Specific Analytics Offerings</h1>
+      <h1>Industries</h1>
       <Row gutter={[16, 16]}>
         {industriesData.map((industry, index) => (
           <Col key={index} xs={24} sm={12} md={8} lg={6}>
             <Card
               title={industry.industry}
               className="industry-card"
-              style={{
-                height: '100%',
-                backgroundColor: '#f5f5f5',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                borderRadius: '8px',
-                transition: 'transform 0.3s',
-              }}
               hoverable
             >
               <ul>

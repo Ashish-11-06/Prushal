@@ -10,31 +10,42 @@ import CapabilitiesOffering from './home2/CapabilitiesOffering';
 
 
 
+
 const LandingContent = () => {
   return (
     <div style={{ position: 'relative', zIndex: 1 }}> {/* Ensure content is above the background */}
-      <div style={{ padding: '50px', 
+      <div style={{
+        padding: '50px',
         // border: '2px solid red'
       }}>
-    
-      <AnimatedBackground />  {/*  Add the animated background here */}
 
-      <div style={{ padding: '10px 50px', 
-        // border: '2px solid red',
-        borderRadius: '1%',
-        // background: 'linear-gradient(100deg, #2196f300, #00767630)', /* Gradient background */
- 
-      }}>
-       <ServicesList /> 
+        <AnimatedBackground />  {/*  Add the animated background here */}
+
+        <div style={{
+          padding: '10px 50px',
+          // border: '2px solid red',
+          borderRadius: '1%',
+          // background: 'linear-gradient(100deg, #2196f300, #00767630)', /* Gradient background */
+
+        }}>
+          <ServicesList />
+        </div>
+
+        < HeroSection />
+
+        <section className="offerings">
+  <div className="left-section">
+    <AnalyticsOffering />
+  </div>
+  <div className="right-section">
+    <CapabilitiesOffering />
+  </div>
+</section>
+
+
       </div>
-        
-        < HeroSection/>
-       <AnalyticsOffering/>
-       <CapabilitiesOffering/>
-       
-      </div> 
       <CircularAnimation />
-    
+
     </div>
   );
 };
