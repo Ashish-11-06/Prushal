@@ -1,45 +1,68 @@
-.about-us {
-    padding: 40px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-  }
-  
-  .about-us h1 {
-    font-size: 36px;
-    color: #007676;
-    margin-bottom: 40px;
-  }
-  
-  .about-card {
-    transition: all 0.3s ease;
-  }
-  
-  .about-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .about-card ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    text-align: left;
-  }
-  
-  .about-card li {
-    margin-bottom: 10px;
-  }
-  
-  .about-card p {
-    font-size: 16px;
-    line-height: 1.6;
-  }
-  
-  @media (max-width: 767px) {
-    .about-us h1 {
-      font-size: 28px;
-    }
-  
-    .about-card {
-      margin-bottom: 20px;
-    }
-  }
-  
+
+
+/* Override Ant Design's default card box shadow */
+.ant-card:not(.ant-card-bordered) {
+  box-shadow: none !important; /* Remove default shadow */
+}
+
+/* Additional specificity for cases where 'css-dev-only-do-not-override' might change */
+:where(.css-dev-only-do-not-override-1k28r9r).ant-card:not(.ant-card-bordered) {
+  box-shadow: none !important;
+}
+
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Flexbox container for equal-height cards */
+.about-card, .about-card-special {
+  background:  #ddf9fd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0);
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Ensure vertical alignment */
+  justify-content: space-between; /* Distribute content evenly */
+  height: 100%; /* Ensures card stretches equally */
+}
+
+.about-card-special {
+
+  background: #ddf9fd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0);
+  /* display: flex
+; */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  /* margin-left: -26%; */
+  margin: 0% -25%;
+  /* width: 113%; */
+  /* width: 125%;
+}
+
+.about-card-inner, .about-card-inner-special {
+  padding: 20px;
+}
+
+.card-title {
+  text-align: center;
+  color: #007676;
+}
+
+.card-content {
+  text-align: left;
+  color: #333;
+  flex-grow: 1; /* Pushes the content down */
+}
+
+.special-row {
+  margin-top: 40px;
+}
+
+/* Add consistent height for the Row container */
+.ant-row {
+  display: flex; /* Flexbox for consistent heights */
+  align-items: stretch;
+}

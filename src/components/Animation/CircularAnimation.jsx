@@ -1,38 +1,41 @@
 import React, { useState, useEffect } from "react";
 import "./CircularAnimation.css";
-import img1 from "../../assets/Clients/1.png";
-import img2 from "../../assets/Clients/2.png";
-import img3 from "../../assets/Clients/3.png";
-import img4 from "../../assets/Clients/4.png";
-import img5 from "../../assets/Clients/5.png";
-import img6 from "../../assets/Clients/6.png";
-import img7 from "../../assets/Clients/7.png";
-import img8 from "../../assets/Clients/8.png";
-import img9 from "../../assets/Clients/9.png";
-import img10 from "../../assets/Clients/10.png";
-import img11 from "../../assets/Clients/11.png";
-import img12 from "../../assets/Clients/12.png";
-import img13 from "../../assets/Clients/13.png";
-import img14 from "../../assets/Clients/14.png";
-import img15 from "../../assets/Clients/15.png";
-import img16 from "../../assets/Clients/16.png";
-import img17 from "../../assets/Clients/17.png";
-import img18 from "../../assets/Clients/18.png";
-import img19 from "../../assets/Clients/19.png";
-import img20 from "../../assets/Clients/20.png";
+import img1 from "../../assets/techs/ai.png";
+import img2 from "../../assets/techs/bar-graph.png";
+import img3 from "../../assets/techs/big-data.png";
+import img4 from "../../assets/techs/bootstrap.png";
+import img5 from "../../assets/techs/django.png";
+import img6 from "../../assets/techs/figma.png";
+import img7 from "../../assets/techs/file.png";
+import img8 from "../../assets/techs/github.png";
+import img9 from "../../assets/techs/java.png";
+import img10 from "../../assets/techs/mysql.png";
+import img11 from "../../assets/techs/nodejs.png";
+import img12 from "../../assets/techs/php.png";
+import img13 from "../../assets/techs/physics.png";
+import img14 from "../../assets/techs/postgre.png";
+import img15 from "../../assets/techs/angular.png";
+import img16 from "../../assets/techs/programing.png";
+import img17 from "../../assets/techs/python.png";
+import img18 from "../../assets/techs/social.png";
+import img19 from "../../assets/techs/visual-studio.png";
+import img20 from "../../assets/techs/wordpress.png";
+
+import prushalLogo from '../../assets/PrushalLogo.png';
+
 
 
 const CircularScrollAnimation = () => {
   // Array of image paths
 
-const images = [
-  img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
-  img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
-];
+  const images = [
+    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
+    img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
+  ];
 
 
-  const radius1 = 330; // Radius for outer circle
-  const radius2 = 200; // Radius for inner circle
+  const radius1 = 250; // Radius for outer circle
+  const radius2 = 150; // Radius for inner circle
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -92,7 +95,9 @@ const images = [
         })}
 
         {/* Center Text */}
-        <div className="center-item"></div>
+        <div className="center-item">
+  <img src={prushalLogo} alt="Description of the image" />
+</div>
       </div>
     </div>
   );

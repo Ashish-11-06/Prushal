@@ -14,7 +14,7 @@ const App = () => {
   const theme = {
     token: {
       colorPrimary: '#009EDB', // Primary color
-      colorBgContainer: '#bbf4fc', // Background color for containers
+      colorBgContainer: '#ddf9fd', // Background color for containers
       colorText: '#000', // Text color
     },
   };

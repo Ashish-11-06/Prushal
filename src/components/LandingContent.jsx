@@ -7,6 +7,8 @@ import CircularAnimation from '../components/Animation/CircularAnimation';
 import AnalyticsOffering from './home2/AnalyticsOffering';
 import HeroSection from './DataStats/HeroSection';
 import CapabilitiesOffering from './home2/CapabilitiesOffering';
+import './LandingContent.css'
+import CompanyLogos from './Clients/CompanyLogos';
 
 
 
@@ -37,14 +39,23 @@ const LandingContent = () => {
   <div className="left-section">
     <AnalyticsOffering />
   </div>
-  <div className="right-section">
-    <CapabilitiesOffering />
-  </div>
-</section>
+  <main className="right-section">
+    <div>
+      <CapabilitiesOffering />
+    </div>
+    <div>
+      <CircularAnimation />
+    </div>
+   
 
+  </main>
+</section>
+<div>
+      <CompanyLogos />
+    </div>
 
       </div>
-      <CircularAnimation />
+      {/* <CircularAnimation /> */}
 
     </div>
   );

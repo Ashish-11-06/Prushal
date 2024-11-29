@@ -1,63 +1,33 @@
-/* Container for the offering */
-.analytics-offering {
-  padding: 40px 20px;
-  background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.analytics-offering{
+  font-size: 25px;
+  margin-bottom: 20%;
 }
 
-/* Title styling */
-.analytics-offering h1 {
-  font-size: 36px;
-  color: #3f51b5;
-  font-weight: bold;
-  margin-bottom: 40px;
+ h1 {
+  font-size: 25px;
+  color: #333; /* Color for the main title */
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Timeline customization */
-/* .industry-timeline {
-  width: 100%;
-  max-width: 1000px;
-} */
+.industry-timeline .ant-timeline-item-head {
+  border-color: #0066cc; /* Customize the timeline dot color */
+}
 
-/* .ant-timeline-item-label {
-  font-size: 20px;
-  color: #3f51b5;
-  font-weight: bold;
-} */
+.timeline-content h3 {
+  /* border: 2px solid red; */
+  font-size: 101%;
+  color: #0066cc; /* Industry name color */
+}
 
-/* Content inside each timeline item */
-/* .timeline-content {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-} */
-
-/* List styling */
-/* .timeline-content ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 10px 0 0 0;
-  color: #333;
-} */
-/* 
 .timeline-content ul li {
-  font-size: 14px;
-  padding: 8px 0;
-  position: relative;
-  padding-left: 24px;
-} */
+  /* border: 2px solid rgb(0, 255, 34); */
+  color: #ffffff; /* Description color */
+}
 
-/* Custom bullet points */
-/* .timeline-content ul li::before {
-  content: '•';
-  color: #3f51b5;
-  font-size: 20px;
-  position: absolute;
-  left: 0;
-  top: 2px;
-} */
+.ant-timeline .ant-timeline-item {
+  position: relative;
+  margin: 0;
+  font-size: 14px;
+  list-style: none;
+}

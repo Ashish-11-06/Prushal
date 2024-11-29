@@ -84,8 +84,10 @@ const CapabilitiesOffering = () => {
             <Card
               title={
                 <div style={{ textAlign: 'center' }}>
-                  {capability.icon}
-                  <h3 style={{ marginTop: 10, color: '#3f51b5' }}>{capability.capability}</h3>
+                  {/* {capability.icon} */}
+                  <h3 style={{ marginTop: 10, color: '#3f51b5', 
+                    fontSize: '15px',
+                  }}>{capability.capability}</h3>
                 </div>
               }
               className="capability-card"

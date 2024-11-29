@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Card } from 'antd';
+import { Timeline } from 'antd';
 import './AnalyticsOffering.css'; // Import the styling file
 
 const industriesData = [
@@ -71,24 +71,35 @@ const industriesData = [
 const AnalyticsOffering = () => {
   return (
     <div className="analytics-offering">
-      <h1>Industries</h1>
-      <Row gutter={[16, 16]}>
+      <h1>Industries We Serve</h1>
+      <Timeline mode="alternate" className="industry-timeline">
         {industriesData.map((industry, index) => (
-          <Col key={index} xs={24} sm={12} md={8} lg={6}>
-            <Card
-              title={industry.industry}
-              className="industry-card"
-              hoverable
-            >
+          <Timeline.Item key={index} label={industry.industry}>
+            <div className="timeline-content">
+              <h3
+                style={{
+                  fontSize: '101%',
+                  color: '#0066cc', // Set color for industry name
+                }}
+              >
+                {industry.industry}
+              </h3>
               <ul>
                 {industry.description.map((item, idx) => (
-                  <li key={idx}>{item}</li>
+                  <li
+                    key={idx}
+                    style={{
+                      color: '#05445E', // Set color for description
+                    }}
+                  >
+                    {item}
+                  </li>
                 ))}
               </ul>
-            </Card>
-          </Col>
+            </div>
+          </Timeline.Item>
         ))}
-      </Row>
+      </Timeline>
     </div>
   );
 };

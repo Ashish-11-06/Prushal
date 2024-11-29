@@ -9,10 +9,10 @@ const FooterComponent = () => {
   return (
     <>
 
-    {/* <AboutUs/> */}
-      <Footer style={{ textAlign: 'center' }}>
-      ©2024 Your Company Name. All Rights Reserved.
-    </Footer>
+<Footer style={{ textAlign: 'center', background: '#001e1e' }}>
+  ©2024 Your Company Name. All Rights Reserved.
+</Footer>
+
     
     </>
   

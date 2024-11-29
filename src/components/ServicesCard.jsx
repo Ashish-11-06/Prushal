@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 
 const { Title, Paragraph } = Typography;
 
-const ServicesCard = ({ title, services, backgroundImage }) => {
+// Define the functional component and wrap it with React.memo
+const ServicesCard = React.memo(function ServicesCard({ title, services, backgroundImage }) {
   const [isHovered, setIsHovered] = useState(false); // Track hover state
 
   // Handlers for hover events
@@ -70,6 +71,7 @@ const ServicesCard = ({ title, services, backgroundImage }) => {
       </Card>
     </motion.div>
   );
-};
+});
 
+// Export the component
 export default ServicesCard;

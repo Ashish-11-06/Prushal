@@ -46,14 +46,6 @@ body {
 
 /* Header Styles */
 
-.logo {
-  width: 120px;
-  height: 31px;
-  background: rgba(255, 255, 255, 0.4); /* Slightly Transparent Logo Background */
-  margin: 16px 24px 16px 0;
-  float: left;
-}
-
 .ant-menu-dark.ant-menu-horizontal > .ant-menu-item {
   margin: 0 20px;
   color: #fff; /* Menu Item Text Color */

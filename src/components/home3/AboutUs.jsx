@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Card, Typography } from 'antd';
 import { motion } from 'framer-motion';
+import { EyeOutlined, RocketOutlined, HeartOutlined, CheckCircleOutlined } from '@ant-design/icons'; // Add icons
 import './AboutUs.css'; // Styling file for the About Us component
 
 const { Title, Paragraph } = Typography;
@@ -8,13 +9,13 @@ const { Title, Paragraph } = Typography;
 const aboutUsData = [
   {
     title: "Our Vision",
-    content: "Be and be recognized as the best solution provider for the businesses and the individuals across the globe",
-    icon: "EyeOutlined",
+    content: "Be and be recognized as the best solution provider for the businesses and individuals across the globe",
+    icon: <EyeOutlined style={{ fontSize: '24px', color: '#007676' }} />,
   },
   {
     title: "Our Mission",
     content: "Manifesting Automation and transformation for the improvement and betterment of the business process and upliftment of individual lives",
-    icon: "RocketOutlined",
+    icon: <RocketOutlined style={{ fontSize: '24px', color: '#007676' }} />,
   },
   {
     title: "Our Values",
@@ -22,7 +23,7 @@ const aboutUsData = [
       "Customer Satisfaction First",
       "Deliver Beyond Promise",
     ],
-    icon: "HeartOutlined",
+    icon: <HeartOutlined style={{ fontSize: '24px', color: '#007676' }} />,
   },
   {
     title: "What We Ensure",
@@ -34,38 +35,41 @@ const aboutUsData = [
       "Additional Services and Resources: Providing extra services or resources that align with and contribute to client goals.",
       "Exceptional Support: Ensuring exceptional support to enhance the overall customer experience."
     ],
-    icon: "CheckCircleOutlined",
+    icon: <CheckCircleOutlined style={{ fontSize: '24px', color: '#007676' }} />,
+    isSpecial: true,  // Flag to style the 4th card differently
   }
 ];
 
 const AboutUs = () => {
   return (
-    <div className="about-us">
-      <h1>About Us</h1>
-      <Col gutter={[24, 24]} justify="center">
-        {aboutUsData.map((section, index) => (
-          <Col key={index}>
+    <div className="about-us"
+    style={{
+      position: 'sticky', // Sticky positioning
+      top: 0, // Sticks to the top of the page
+      left: 0,
+      right: 0,
+      padding: '40px 20px',
+      background: 'linear-gradient(90deg, #2196f37a, #007676)', // Gradient background
+      zIndex: 100, // Ensures it stays above other elements
+      marginTop: '-1%',
+    
+    }}
+    
+    >
+      <Title level={2} className="section-title">About Us</Title>
+
+      {/* First three cards in the first Row */}
+      <Row gutter={[24, 24]} justify="center">
+        {aboutUsData.slice(0, 3).map((section, index) => (
+          <Col xs={24} sm={12} md={8} key={index}>
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="about-card"
             >
-              <Card
-                bordered={false}
-                style={{
-                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-                  borderRadius: '12px',
-                  textAlign: 'left',
-                  height: '1%',
-                  width: '100%',
-                  margin: '20px',
-                  zIndex: 100,
-                }}
-              >
-                <Title level={3} style={{ color: '#007676' }}>
-                  {section.title}
-                </Title>
-                <Paragraph>
+              <Card bordered={false} className="about-card-inner">
+                <Title level={4} className="card-title"> {section.icon} {section.title}</Title>
+                <Paragraph className="card-content">
                   {Array.isArray(section.content) ? (
                     <ul>
                       {section.content.map((item, idx) => (
@@ -80,7 +84,29 @@ const AboutUs = () => {
             </motion.div>
           </Col>
         ))}
-      </Col>
+      </Row>
+
+      {/* Special fourth card in a separate Row */}
+      <Row gutter={[24, 24]} justify="center" className="special-row">
+        <Col xs={24} sm={24} md={16}>
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.95 }}
+            className="about-card-special"
+          >
+            <Card bordered={false} className="about-card-inner-special">
+              <Title level={4} className="card-title"> {aboutUsData[3].icon} {aboutUsData[3].title}</Title>
+              <Paragraph className="card-content">
+                <ul>
+                  {aboutUsData[3].content.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              </Paragraph>
+            </Card>
+          </motion.div>
+        </Col>
+      </Row>
     </div>
   );
 };

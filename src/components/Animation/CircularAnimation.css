@@ -1,6 +1,6 @@
 .scroll-circular-container {
   border-radius: 10px;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   /* background-image: url('../../assets/Clients.png'); Set the path to your background image */
   background-position: center;
   background-size: cover; /* Make the background image cover the entire container */
@@ -64,24 +64,16 @@
   text-align: center;
 }
 
-.center-item {
+.center-item img {
   position: absolute;
-  width: 92px; /* Adjusted size */
-  height: 92px; /* Adjusted size */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-image: url('../../assets/Clients/logo.png');
-  /* background-color: #22cdd0; */
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  text-align: center;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  max-width: 13%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  top: 44%;
+  left: 43%;
 }
+
 .logo {
   height: 60px !important ;
-  border-radius: 50% !important;
 }

@@ -8,12 +8,17 @@ const HeroSection = () => {
   const [companies, setCompanies] = useState(0);
   const [dataScientists, setDataScientists] = useState(0); // New state for Data Scientists
   const [developers, setDevelopers] = useState(0); // New state for Developers
+  const [imageLoaded, setImageLoaded] = useState(false); // State to track if the image is loaded
 
   const statsRef = useRef(null);
+  const imageRef = useRef(null); // Reference to the image for lazy loading
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
+        if (entries[0].isIntersecting && !imageLoaded) {
+          setImageLoaded(true); // Mark the image as loaded
+        }
         if (entries[0].isIntersecting) {
           // Start animating numbers when in view
           animateCount();
@@ -25,13 +30,19 @@ const HeroSection = () => {
     if (statsRef.current) {
       observer.observe(statsRef.current);
     }
+    if (imageRef.current) {
+      observer.observe(imageRef.current); // Observe the image for lazy loading
+    }
 
     return () => {
       if (statsRef.current) {
         observer.unobserve(statsRef.current);
       }
+      if (imageRef.current) {
+        observer.unobserve(imageRef.current); // Clean up observer
+      }
     };
-  }, []);
+  }, [imageLoaded]);
 
   const animateCount = () => {
     // Define target values for each statistic
@@ -105,10 +116,10 @@ const HeroSection = () => {
             Let Prushal transform your Raw Data to Real Results and help you achieve your goals.
           </p>
         </motion.div>
-        
-        {/* Stats */}
+      
       </div>
 
+      {/* Stats Section */}
       <div className="stats-container" ref={statsRef}>
         <motion.div className="stat">
           <h2>{clients} +</h2>
@@ -127,10 +138,6 @@ const HeroSection = () => {
           <p>Data Scientists</p>
           <p>& Developers</p>
         </motion.div>
-        {/* <motion.div className="stat">
-          <h2>{developers} +</h2>
-          <p>Developers</p>
-        </motion.div> */}
       </div>
     </div>
   );

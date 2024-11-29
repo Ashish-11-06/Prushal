@@ -1,16 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
+import { loadSlim } from "@tsparticles/slim";
 
-const VideoParticles = () => {
+const ParticleBackground = () => {
   const [init, setInit] = useState(false);
 
-  // this should be run only once per application lifetime
+  // Initialize particles engine once
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-    
       await loadSlim(engine);
-      //await loadBasic(engine);
     }).then(() => {
       setInit(true);
     });
@@ -20,7 +18,7 @@ const VideoParticles = () => {
     () => ({
       background: {
         color: {
-          value: "#",
+          value: "transparent", // Ensure background is transparent
         },
       },
       fpsLimit: 120,
@@ -89,14 +87,20 @@ const VideoParticles = () => {
 
   if (init) {
     return (
-      <Particles
-        id="tsparticles"
-        options={options}
-      />
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "relative",
+          overflow: "hidden", // Prevent overflow outside the div
+        }}
+      >
+        <Particles id="tsparticles" options={options} />
+      </div>
     );
   }
 
   return <></>;
 };
 
-export default VideoParticles;
+export default ParticleBackground;
