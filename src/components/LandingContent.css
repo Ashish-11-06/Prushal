@@ -9,7 +9,7 @@
   .offerings .left-section {
     flex: 0 0 30%; /* Fixes width to 30% */
     background: linear-gradient(90deg, rgba(33, 150, 243, 0.250), rgba(0, 118, 118, 0.250)); /* Gradient background */
-    padding: 40px 20px; /* Padding inside the section */
+    padding: 0px 20px; /* Padding inside the section */
     border-radius: 8px; /* Optional rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth effect */
     position: sticky; /* Sticky positioning */

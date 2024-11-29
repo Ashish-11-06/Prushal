@@ -65,7 +65,17 @@ const industriesData = [
       "Grid Management",
       "Operational Efficiency"
     ]
+  },
+  {
+    industry: "E-commerce",
+    description: [
+      "Online Store Development",
+      "Payment Gateway Integration",
+      "Inventory Management Systems",
+      "Customer Behavior Analytics"
+    ]
   }
+  
 ];
 
 const AnalyticsOffering = () => {

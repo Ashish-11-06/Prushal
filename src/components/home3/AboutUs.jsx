@@ -9,12 +9,12 @@ const { Title, Paragraph } = Typography;
 const aboutUsData = [
   {
     title: "Our Vision",
-    content: "Be and be recognized as the best solution provider for the businesses and individuals across the globe",
+    content: "Be and be recognized as the best solution provider for the businesses and individuals across the globe.",
     icon: <EyeOutlined style={{ fontSize: '24px', color: '#007676' }} />,
   },
   {
     title: "Our Mission",
-    content: "Manifesting Automation and transformation for the improvement and betterment of the business process and upliftment of individual lives",
+    content: "Manifesting Automation and transformation for the improvement and betterment of the business process and upliftment of individual lives.",
     icon: <RocketOutlined style={{ fontSize: '24px', color: '#007676' }} />,
   },
   {
