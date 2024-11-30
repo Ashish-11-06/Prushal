@@ -1,6 +1,10 @@
 import React from 'react';
 import { Form, Input, Button, Typography, notification, Row, Col, Divider } from 'antd';
-import { FacebookOutlined, TwitterOutlined, InstagramOutlined, LinkedinOutlined } from '@ant-design/icons';
+import {
+  FacebookOutlined,
+  //  TwitterOutlined, 
+  InstagramOutlined, LinkedinOutlined, YoutubeOutlined
+} from '@ant-design/icons';
 import './ContactUs.css'; // Ensure this path is correct
 
 const { Title, Paragraph } = Typography;
@@ -45,10 +49,16 @@ const ContactUs = () => {
 
               <Form.Item
                 label="Phone"
-                name="num"
-                rules={[{ required: true, type: 'email', message: 'Please enter a valid email!' }]}
+                name="phone"
+                rules={[
+                  { required: true, message: 'Please enter your phone number!' },
+                  {
+                    pattern: /^[0-9]{10}$/, // Adjust pattern to validate a 10-digit phone number
+                    message: 'Please enter a valid 10-digit phone number!',
+                  },
+                ]}
               >
-                <Input placeholder="Enter your email address" />
+                <Input placeholder="Enter your phone number" />
               </Form.Item>
 
               <Form.Item
@@ -61,7 +71,7 @@ const ContactUs = () => {
 
               <Form.Item style={{ textAlign: 'center' }}>
                 <Button type="primary" htmlType="submit" size="large">
-                  Send Message
+                  Submit
                 </Button>
               </Form.Item>
             </Form>
@@ -71,44 +81,49 @@ const ContactUs = () => {
           <Col xs={24} md={12}>
             <div className="social-media-section">
               {/* Company Address Section */}
-           <section className='company-info'> 
-               <div className="company-address-section">
+              <section className='company-info'>
+                <div className="company-address-section">
 
-               
-                <Title level={4}>Our Address</Title>
-                <Divider className="contact-us-divider" />
-                <Paragraph>
-                  <strong>Prushal Technology Pvt. Ltd.</strong><br />
-                  Flat No: 401, Vrindavan<br />
-                  Society, near Samindradevi<br />
-                  Market, Baif Road, Wagholi,<br />
-                  Pune, MH – 412207
-                </Paragraph>
-              </div>
 
-              <div class="contact-container">
-              <Title level={4}>Contact</Title>
-              <Divider className="contact-us-divider" />
-    <div class="contact-item">
-      <i class="fas fa-phone-alt"></i>
-      <span> (+91) 9850113269</span>
-    </div>
-    <div class="contact-item">
-      <i class="fas fa-phone-alt"></i>
-      <span> (+91) 9850603269</span>
-    </div>
-    <div class="contact-item">
-      <i class="fas fa-phone-alt"></i>
-      <span> (+91) 9850803269</span>
-    </div>
-    <div class="contact-item">
-      <i class="fas fa-phone-alt"></i>
-      <span> (+91) 9762203269</span>
-    </div>
-  </div>
+                  <Title level={4}>Our Address</Title>
+                  <Divider className="contact-us-divider" />
+                  <Paragraph>
+                    <strong>Prushal Technology Pvt. Ltd.</strong><br />
+                    Flat No: 401, Vrindavan<br />
+                    Society, near Samindradevi<br />
+                    Market, Baif Road, Wagholi,<br />
+                    Pune, MH – 412207
+                  </Paragraph>
+                </div>
 
-                  </section>
-                
+                <div class="contact-container">
+                  <Title level={4}>Contact</Title>
+                  <Divider className="contact-us-divider" />
+
+                  <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+919850113269"> (+91) 9850113269</a>
+                  </div>
+
+                  <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+919850603269"> (+91) 9850603269</a>
+                  </div>
+
+                  <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+919850803269"> (+91) 9850803269</a>
+                  </div>
+
+                  <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+919762203269"> (+91) 9762203269</a>
+                  </div>
+                </div>
+
+
+              </section>
+
 
               <Divider className="divider2" />
 
@@ -117,42 +132,52 @@ const ContactUs = () => {
               <Paragraph>
                 For inquiries, you can reach us directly at:
                 <a href="mailto:info@prushal.com" className="contact-us-email"> info@prushal.com</a>
-              
 
-<Row gutter={20} className="social-media-buttons">
-  <Col>
-    <Button
-      type="link"
-      icon={<FacebookOutlined style={{ fontSize: '24px' }} />}
-      href="https://www.facebook.com"
-      target="_blank"
-    />
-  </Col>
-  <Col>
+
+                <Row gutter={20} className="social-media-buttons">
+                  <Col>
+                    <Button
+                      type="link"
+                      icon={<FacebookOutlined style={{ fontSize: '24px' }} />}
+                      href="https://www.facebook.com/prushal"
+                      target="_blank"
+                    />
+                  </Col>
+                  {/* <Col>
     <Button
       type="link"
       icon={<TwitterOutlined style={{ fontSize: '24px' }} />}
       href="https://www.twitter.com"
       target="_blank"
     />
-  </Col>
-  <Col>
-    <Button
-      type="link"
-      icon={<InstagramOutlined style={{ fontSize: '24px' }} />}
-      href="https://www.instagram.com"
-      target="_blank"
-    />
-  </Col>
-  <Col>
-    <Button
-      type="link"
-      icon={<LinkedinOutlined style={{ fontSize: '24px' }} />}
-      href="https://www.linkedin.com"
-      target="_blank"
-    />
-  </Col>
-</Row>
+  </Col> */}
+
+
+                  <Col>
+                    <Button
+                      type="link"
+                      icon={<InstagramOutlined style={{ fontSize: '24px' }} />}
+                      href="https://www.instagram.com/prushaltech/"
+                      target="_blank"
+                    />
+                  </Col>
+                  <Col>
+                    <Button
+                      type="link"
+                      icon={<LinkedinOutlined style={{ fontSize: '24px' }} />}
+                      href="https://www.linkedin.com/company/prushal-technology-pvt-ltd/"
+                      target="_blank"
+                    />
+                  </Col>
+                  <Col>
+                    <Button
+                      type="link"
+                      icon={<YoutubeOutlined style={{ fontSize: '24px', color: 'blue' }} />} // YouTube icon with red color
+                      href="https://www.youtube.com"
+                      target="_blank" // Opens the link in a new tab
+                    />
+                  </Col>
+                </Row>
 
 
               </Paragraph>

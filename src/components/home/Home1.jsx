@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography } from 'antd';
 import { motion } from 'framer-motion';
+import { Typewriter } from 'react-simple-typewriter';
 import './Home1.css';
 import ParticleBackground from '../Animation/VideoParticles';
 
@@ -12,8 +13,42 @@ const letterData = [
   { letter: 'U', meaning: 'Upgrading' },
   { letter: 'S', meaning: 'Solutions for' },
   { letter: 'H', meaning: 'Holistic' },
-  { letter: 'A', meaning: 'Automation and' },
-  { letter: 'L', meaning: 'Leadership' },
+  { 
+    letter: 'A', 
+    meaning: (
+      <Typewriter
+        words={[
+          'Automation and',
+          'Advancements in ',
+          'Accentuation',
+        ]}
+        loop={0} // Infinite loop
+        cursor
+        cursorStyle="_"
+        typeSpeed={70}
+        deleteSpeed={50}
+        delaySpeed={2000} // Delay before changing
+      />
+    )
+  },
+  { 
+    letter: 'L', 
+    meaning: (
+      <Typewriter
+        words={[
+          'Leadership    _',
+          'Language Models',
+          'Leading-edge',
+        ]}
+        loop={0} // Infinite loop
+        cursor
+        cursorStyle="_"
+        typeSpeed={70}
+        deleteSpeed={50}
+        delaySpeed={2000} // Delay before changing
+      />
+    )
+  },
 ];
 
 const Home1 = () => {
@@ -53,22 +88,13 @@ const Home1 = () => {
                     visible: { opacity: 1, y: 0 },
                   }}
                 >
-                  <span className="big-letter">{data.letter}</span> {data.meaning}
+                  <span className="big-letter">{data.letter}</span>{' '}
+                  <span className="letter-meaning">{data.meaning}</span>
                 </motion.div>
               ))}
             </motion.div>
           </Title>
         </motion.div>
-
-        {/* <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 5 }}
-        >
-          <Title level={1} className="company-name">
-            PrushalTech
-          </Title>
-        </motion.div> */}
 
         <motion.div
           initial={{ opacity: 0 }}
