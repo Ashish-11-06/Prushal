@@ -49,7 +49,7 @@ const AboutUs = () => {
       left: 0,
       right: 0,
       padding: '40px 20px',
-      background: 'linear-gradient(90deg, #2196f37a, #007676)', // Gradient background
+      background: 'linear-gradient(90deg, #2196f37a, #1c9999)', // Gradient background
       zIndex: 100, // Ensures it stays above other elements
       marginTop: '-1%',
     

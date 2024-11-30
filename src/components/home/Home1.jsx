@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 import './Home1.css';
 import ParticleBackground from '../Animation/VideoParticles';
+import ImageComponent from './ImageComponent'; // Import the Image Component
 
 const { Title } = Typography;
 
@@ -13,15 +14,11 @@ const letterData = [
   { letter: 'U', meaning: 'Upgrading' },
   { letter: 'S', meaning: 'Solutions for' },
   { letter: 'H', meaning: 'Holistic' },
-  { 
-    letter: 'A', 
+  {
+    letter: 'A',
     meaning: (
       <Typewriter
-        words={[
-          'Automation and',
-          'Advancements in ',
-          'Accentuation',
-        ]}
+        words={['Automation and', 'Advancements in ', 'Accentuation']}
         loop={0} // Infinite loop
         cursor
         cursorStyle="_"
@@ -29,17 +26,13 @@ const letterData = [
         deleteSpeed={50}
         delaySpeed={2000} // Delay before changing
       />
-    )
+    ),
   },
-  { 
-    letter: 'L', 
+  {
+    letter: 'L',
     meaning: (
       <Typewriter
-        words={[
-          'Leadership    _',
-          'Language Models',
-          'Leading-edge',
-        ]}
+        words={['Leadership    _', 'Language Models', 'Leading-edge']}
         loop={0} // Infinite loop
         cursor
         cursorStyle="_"
@@ -47,7 +40,7 @@ const letterData = [
         deleteSpeed={50}
         delaySpeed={2000} // Delay before changing
       />
-    )
+    ),
   },
 ];
 
@@ -58,6 +51,12 @@ const Home1 = () => {
       <div className="particles-overlay">
         <ParticleBackground />
       </div>
+<div className='image'>
+ {/* Image Overlay */}
+      <ImageComponent /> {/* Display the image component */}
+
+</div>
+     
 
       {/* Text Overlay */}
       <div className="text-overlay">
