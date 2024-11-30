@@ -8,7 +8,8 @@
   right: 0;
   bottom: 0;
   overflow: hidden;
-  /* z-index: -1; Send it to the background */
+  z-index: -2; 
+  /* Send it to the background */
 }
 
 .circle {
