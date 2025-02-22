@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion'; // Import motion for animation
 import './HeroSection.css'; // For styling
 
@@ -13,38 +13,7 @@ const HeroSection = () => {
   const statsRef = useRef(null);
   const imageRef = useRef(null); // Reference to the image for lazy loading
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !imageLoaded) {
-          setImageLoaded(true); // Mark the image as loaded
-        }
-        if (entries[0].isIntersecting) {
-          // Start animating numbers when in view
-          animateCount();
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
-    if (imageRef.current) {
-      observer.observe(imageRef.current); // Observe the image for lazy loading
-    }
-
-    return () => {
-      if (statsRef.current) {
-        observer.unobserve(statsRef.current);
-      }
-      if (imageRef.current) {
-        observer.unobserve(imageRef.current); // Clean up observer
-      }
-    };
-  }, [imageLoaded]);
-
-  const animateCount = () => {
+  const animateCount = useCallback(() => {
     // Define target values for each statistic
     let associatesTarget = 100;
     let projectTarget = 120;
@@ -96,7 +65,38 @@ const HeroSection = () => {
         return prev;
       });
     }, 30);
-  };
+  }, []);
+
+  const observer = useMemo(() => new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting && !imageLoaded) {
+        setImageLoaded(true); // Mark the image as loaded
+      }
+      if (entries[0].isIntersecting) {
+        // Start animating numbers when in view
+        animateCount();
+      }
+    },
+    { threshold: 0.5 }
+  ), [imageLoaded, animateCount]);
+
+  useEffect(() => {
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+    if (imageRef.current) {
+      observer.observe(imageRef.current); // Observe the image for lazy loading
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+      if (imageRef.current) {
+        observer.unobserve(imageRef.current); // Clean up observer
+      }
+    };
+  }, [observer]);
 
   return (
     <div className="hero-container">

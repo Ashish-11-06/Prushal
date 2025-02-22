@@ -8,7 +8,6 @@ const ParticleBackground = () => {
   // this should be run only once per application lifetime
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-    
       await loadSlim(engine);
       //await loadBasic(engine);
     }).then(() => {
@@ -23,22 +22,15 @@ const ParticleBackground = () => {
           value: "#",
         },
       },
-      fpsLimit: 120,
+      fpsLimit: 60, // Reduce FPS limit to reduce CPU usage
       interactivity: {
         events: {
-          onClick: {
-            enable: true,
-            mode: "push",
-          },
           onHover: {
             enable: true,
             mode: "repulse",
           },
         },
         modes: {
-          push: {
-            quantity: 4,
-          },
           repulse: {
             distance: 200,
             duration: 0.3,
@@ -63,14 +55,14 @@ const ParticleBackground = () => {
             default: "bounce",
           },
           random: false,
-          speed: 3,
+          speed: 2, // Reduce speed to reduce CPU usage
           straight: false,
         },
         number: {
           density: {
             enable: true,
           },
-          value: 80,
+          value: 60, // Reduce number of particles to reduce CPU usage
         },
         opacity: {
           value: 0.5,

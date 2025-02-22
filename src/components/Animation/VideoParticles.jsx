@@ -21,22 +21,15 @@ const ParticleBackground = () => {
           value: "transparent", // Ensure background is transparent
         },
       },
-      fpsLimit: 120,
+      fpsLimit: 60, // Reduce FPS limit to reduce CPU usage
       interactivity: {
         events: {
-          onClick: {
-            enable: true,
-            mode: "push",
-          },
           onHover: {
             enable: true,
             mode: "repulse",
           },
         },
         modes: {
-          push: {
-            quantity: 4,
-          },
           repulse: {
             distance: 200,
             duration: 0.4,
@@ -61,14 +54,14 @@ const ParticleBackground = () => {
             default: "bounce",
           },
           random: false,
-          speed: 3,
+          speed: 2, // Reduce speed to reduce CPU usage
           straight: false,
         },
         number: {
           density: {
             enable: true,
           },
-          value: 150,
+          value: 100, // Reduce number of particles to reduce CPU usage
         },
         opacity: {
           value: 0.5,
@@ -93,6 +86,7 @@ const ParticleBackground = () => {
           height: "100%",
           position: "relative",
           overflow: "hidden", // Prevent overflow outside the div
+          zIndex: -10, // Ensure particles are behind other elements
         }}
       >
         <Particles id="tsparticles" options={options} />

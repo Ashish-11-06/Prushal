@@ -38,19 +38,19 @@ const CompanyLogos = () => {
 
   return (
     <div className="company-logos-container">
-      {/* First line of logos with 4 times duplicates */}
-      <marquee behavior="scroll" direction="left" scrollamount="10" loop="infinite">
-        {firstLineLogos.concat(firstLineLogos , firstLineLogos, firstLineLogos, firstLineLogos, firstLineLogos).map((logo, index) => (
+      {/* First line of logos with CSS animation */}
+      <div className="logos-line scroll-left">
+        {firstLineLogos.concat(firstLineLogos).map((logo, index) => (
           <img src={logo} className="logo-img" alt={`Logo ${index + 1}`} key={index} />
         ))}
-      </marquee>
+      </div>
 
-      {/* Second line of logos with 4 times duplicates */}
-      <marquee behavior="scroll" direction="right" scrollamount="8" loop="infinite">
-        {secondLineLogos.concat(secondLineLogos, secondLineLogos, secondLineLogos, secondLineLogos, secondLineLogos).map((logo, index) => (
+      {/* Second line of logos with CSS animation */}
+      <div className="logos-line scroll-right">
+        {secondLineLogos.concat(secondLineLogos).map((logo, index) => (
           <img src={logo} className="logo-img" alt={`Logo ${index + 11}`} key={index} />
         ))}
-      </marquee>
+      </div>
     </div>
   );
 };

@@ -28,11 +28,11 @@ const Navbar = () => {
 
   // Menu items for the navigation bar
   const menuItems = [
-    { key: '1', label: 'Home' },
-    { key: '2', label: 'Services' },
-    { key: '3', label: 'Capabilities' },
-    { key: '4', label: 'About' },
-    { key: '5', label: 'Contact' },
+    { key: '1', label: '' },
+    // { key: '2', label: 'Services' },
+    // { key: '3', label: 'Capabilities' },
+    // { key: '4', label: 'About' },
+    // { key: '5', label: 'Contact' },
   ];
 
   // UseEffect to hide the mobile button on larger screens

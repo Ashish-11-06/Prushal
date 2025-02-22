@@ -8,12 +8,12 @@ import image4 from '../../assets/home1/bird.png';
 const images = [image2, image3, image4];
 
 const ImageComponent = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [visibleImageIndex, setVisibleImageIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4000); // Change image every 4 seconds
+      setVisibleImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 4000); // Change visible image every 4 seconds
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);
@@ -21,20 +21,22 @@ const ImageComponent = () => {
   return (
     <div className="image-container">
       <AnimatePresence>
-        <motion.div
-          key={currentImageIndex}
-          className={`image-wrapper image-${currentImageIndex}`} // Apply a unique class based on the index
-        >
-          <motion.img
-            src={images[currentImageIndex]}
-            alt="Sample"
-            className="overlay-image"
+        {images.map((image, index) => (
+          <motion.div
+            key={index}
+            className={`image-wrapper image-${index}`} // Apply a unique class based on the index
             initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            animate={{ opacity: visibleImageIndex === index ? 1 : 0, scale: visibleImageIndex === index ? 1 : 0.9 }}
             exit={{ opacity: 0, scale: 1.1 }}
             transition={{ duration: 1.5 }}
-          />
-        </motion.div>
+          >
+            <motion.img
+              src={image}
+              alt={`Sample ${index}`}
+              className="overlay-image"
+            />
+          </motion.div>
+        ))}
       </AnimatePresence>
     </div>
   );

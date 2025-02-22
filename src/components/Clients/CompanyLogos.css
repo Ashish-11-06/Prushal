@@ -1,36 +1,46 @@
 .company-logos-container {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    width: 100%;
-    margin-top: 20px;
-  }
-  
-
-  
-.logo-img {
-    width: 10%;
-    height: 10%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 20px;
+  white-space: nowrap;
 }
-  
-  /* Keyframe to animate scrolling from right to left */
-  @keyframes scrollLeft {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+
+.logos-line {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+.scroll-right {
+  animation: scroll-right 35s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
   }
-  
-  /* Create a wrapper to ensure the looping effect */
-  .scroll-wrapper {
-    display: flex;
-    flex-direction: row;
-    width: max-content; /* Allow wrapping of the logos */
+  100% {
+    transform: translateX(-100%);
   }
-  
-  .scroll-wrapper .scroll-line {
-    animation: scrollLeft 20s linear infinite;
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-100%);
   }
-  
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.logo-img {
+  width: 10%;
+  height: 10%;
+  display: inline-block;
+  margin: 0 10px;
+}
