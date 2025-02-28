@@ -31,7 +31,6 @@ body {
 }
 
 .ant-layout-content {
-  padding: 20px;
   background-color: #fff; /* Keep Content Area White for Contrast */
   border: 1px solid #D0E6F9; /* Subtle Border */
 }

@@ -61,7 +61,7 @@ const ParticleBackground = () => {
           density: {
             enable: true,
           },
-          value: 100, // Reduce number of particles to reduce CPU usage
+          value: 130, // Reduce number of particles to reduce CPU usage
         },
         opacity: {
           value: 0.5,

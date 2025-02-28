@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './ImageComponent.css';
-import image2 from '../../assets/home1/Hand.png';
-import image3 from '../../assets/home1/roboHeadphone.png';
-import image4 from '../../assets/home1/bird.png';
+import image2 from '../../assets/home1/Hand__New.png';
+import image3 from '../../assets/home1/roboHeadphone__New.png';
+import image4 from '../../assets/home1/bird__New.png';
 
 const images = [image2, image3, image4];
 

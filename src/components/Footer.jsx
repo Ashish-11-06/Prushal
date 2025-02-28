@@ -9,7 +9,7 @@ const FooterComponent = () => {
   return (
     <>
 
-<Footer style={{ textAlign: 'center', background: '#001e1e' }}>
+<Footer style={{ textAlign: 'center', background: '#007676' }}>
   ©2024 Prushal Technology Pvt Ltd. All Rights Reserved.
 </Footer>
 

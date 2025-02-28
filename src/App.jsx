@@ -1,12 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Layout, ConfigProvider } from 'antd';
 import LandingContent from './components/LandingContent';
 import FooterComponent from './components/Footer';
-import './App.css';
-import Home1 from './components/home/Home1';
 import ContactUs from './components/ContactUs/ContactUs';
 import Navbar from './components/Header/Navbar';
 import AboutUs from './components/home3/AboutUs';
+import './App.css';
 
 const { Content } = Layout;
 
@@ -21,19 +21,36 @@ const App = () => {
 
   return (
     <ConfigProvider theme={theme}>
-      <Layout>
-     <Navbar/> 
-      <Home1/>
-        <Content>
-          <LandingContent />
-          <AboutUs/>
-        </Content>
+      <Router>
+        <Navbar />
+        <Layout>
+          <Content>
+            <Routes>
+              <Route path="/" element={<LandingContent />} />
 
-       <ContactUs />
-        <FooterComponent /> 
-      </Layout>
+            </Routes>
+          </Content>
+
+          {/* <ContactUs /> */}
+          <FooterComponent />
+        </Layout>
+      </Router>
     </ConfigProvider>
   );
 };
 
 export default App;
+
+{/* <ConfigProvider theme={theme}>
+<Layout>
+<Navbar/> 
+<Home1/>
+  <Content>
+    <LandingContent />
+    <AboutUs/>
+  </Content>
+
+ <ContactUs />
+  <FooterComponent /> 
+</Layout>
+</ConfigProvider> */}

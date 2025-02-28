@@ -46,48 +46,7 @@ const Navbar = () => {
     }
   }, []); // Empty dependency array ensures this runs only once after initial render
 
-  return (
-    <nav className="navbar" style={navbarStyle}>
-     <div style={logoStyle}>
-    
-    </div>
-
-      {/* Desktop Menu */}
-      <div className="menu-desktop" style={desktopMenuStyle}>
-        {menuItems.map((item) => (
-          <div
-            key={item.key}
-            style={menuItemStyle}
-            onClick={() => handleMenuItemClick(item.label)}
-          >
-            {item.label}
-          </div>
-        ))}
-      </div>
-
-      {/* Button to open the drawer (visible only on mobile) */}
-      <Button
-        className="menu-mobile-button"
-        icon={<MenuOutlined />}
-        onClick={() => showDrawer('Menu')} // Show generic title for mobile menu
-        style={mobileButtonStyle}
-      />
-
-      {/* Drawer Menu */}
-      <Drawer
-        title={drawerTitle} // Dynamically set the drawer title
-        placement="top"
-        closable
-        onClose={closeDrawer}
-        open={isDrawerVisible}
-        styles={{ wrapper: drawerWrapperStyle }}
-      >
-        {/* Initially, nothing is displayed in the drawer */}
-      </Drawer>
-    </nav>
-  );
-};
-
+  
 // Inline Styles
 const navbarStyle = {
   position: 'sticky', // Sticky positioning
@@ -141,7 +100,49 @@ const menuItemStyle = {
 
 const drawerWrapperStyle = {
   padding: '0px',
-  zIndex: 1000,
+  zIndex: 1000, 
+};
+
+return (
+  <nav className="navbar" style={navbarStyle}>
+   <div style={logoStyle}>
+  
+  </div>
+
+    {/* Desktop Menu */}
+    <div className="menu-desktop" style={desktopMenuStyle}>
+      {menuItems.map((item) => (
+        <div
+          key={item.key}
+          style={menuItemStyle}
+          onClick={() => handleMenuItemClick(item.label)}
+        >
+          {item.label}
+        </div>
+      ))}
+    </div>
+
+    {/* Button to open the drawer (visible only on mobile) */}
+    <Button
+      className="menu-mobile-button"
+      icon={<MenuOutlined />}
+      onClick={() => showDrawer('Menu')} // Show generic title for mobile menu
+      style={mobileButtonStyle}
+    />
+
+    {/* Drawer Menu */}
+    <Drawer
+      title={drawerTitle} // Dynamically set the drawer title
+      placement="top"
+      closable
+      onClose={closeDrawer}
+      open={isDrawerVisible}
+      styles={{ wrapper: drawerWrapperStyle }}
+    >
+      {/* Initially, nothing is displayed in the drawer */}
+    </Drawer>
+  </nav>
+);
 };
 
 export default Navbar;

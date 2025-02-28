@@ -1,11 +1,11 @@
 /* ContactUs.css */
 .contact-us-container {
-    padding: 30px;
-    background: linear-gradient(180deg, #2195f300, #032d2d); /* Gradient background */
+    padding: 10px;
+    background: #007676; /* Gradient background */
   }
   
   .contact-us-form-container {
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
     background-color: #acf7ff81;
     padding: 30px;
