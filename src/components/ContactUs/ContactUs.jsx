@@ -29,7 +29,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="contact-us-container">
+    <div>
       <div className="contact-us-form-container">
         <Title level={2} className="contact-us-title">Contact Us</Title>
         <Paragraph className="contact-us-paragraph">
@@ -97,14 +97,14 @@ const ContactUs = () => {
 
           {/* Right Column: Social Media, Quick Links, Contact Email, and Address */}
           <Col xs={24} md={12}>
-            <Card className="contact-info-card">
+            <Card className="contact-info-card" style={{ height: '100%' }}>
               <div className="social-media-section">
                 {/* Company Address Section */}
                 <section className='company-info'>
                   <div className="company-address-section">
                     <Title level={4}><EnvironmentOutlined /> Our Address</Title>
                     <Divider className="contact-us-divider" />
-                    <Paragraph>
+                    <Paragraph style={{ marginBottom: 0, color: 'black' }}>
                       <strong>Prushal Technology Pvt. Ltd.</strong><br />
                       Flat No: 401, Vrindavan<br />
                       Society, near Samindradevi<br />
@@ -134,7 +134,7 @@ const ContactUs = () => {
                 <Divider className="divider2" />
 
                 {/* Contact Email */}
-                <Paragraph>
+                <Paragraph style={{ marginBottom: 0, color: 'black' }}>
                   <MailOutlined /> For inquiries, you can reach us directly at:
                   <a href="mailto:info@prushal.com" className="contact-us-email"> info@prushal.com</a>
                 </Paragraph>
