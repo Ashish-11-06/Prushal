@@ -38,9 +38,9 @@ const ContactUs = () => {
 
         <Row gutter={40}>
           {/* Left Column: Contact Form */}
-          <Col xs={24} md={12}>
-            <Card className="contact-form-card">
-              <Form onFinish={onFinish} layout="vertical">
+          <Col xs={24} md={12} style={{marginTop: '10px'}}>
+            <Card className="contact-form-card" style={{ height:'100%'}}>
+              <Form onFinish={onFinish} layout="vertical" >
                 <Form.Item
                   label="Name"
                   name="name"
@@ -50,7 +50,7 @@ const ContactUs = () => {
                 </Form.Item>
 
                 <Row gutter={16}>
-                  <Col span={12}>
+                  <Col span={12} >
                     <Form.Item
                       label="Email"
                       name="email"
@@ -96,8 +96,8 @@ const ContactUs = () => {
           </Col>
 
           {/* Right Column: Social Media, Quick Links, Contact Email, and Address */}
-          <Col xs={24} md={12}>
-            <Card className="contact-info-card" style={{ height: '100%' }}>
+          <Col xs={24} md={12} style={{marginTop: '10px'}}>
+            <Card className="contact-info-card" style={{ height: '100%'}}>
               <div className="social-media-section">
                 {/* Company Address Section */}
                 <section className='company-info'>

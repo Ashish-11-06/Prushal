@@ -14,6 +14,7 @@ import ContactUs from './ContactUs/ContactUs';
 import ParticleBackground from './Animation/VideoParticles';
 import ImageComponent from './home/ImageComponent';
 import { Typewriter } from 'react-simple-typewriter';
+import AboutUs from './home3/AboutUs';
 
 const { Title, Paragraph } = Typography;
 const { Content } = Layout;
@@ -141,13 +142,15 @@ const LandingContent = () => {
         </Row>
 
         {/* Company Logos Section */}
-        <Row justify="center" style={{ padding: '50px 0' }}>
+        <Row justify="center" style={{ padding: '5px 0' }}>
           <Col span={24}>
             <CompanyLogos />
           </Col>
         </Row>
+        <AboutUs />
       </Content>
-
+      
+      
       {/* Contact Us Section */}
       <ContactUs />
     </Layout>

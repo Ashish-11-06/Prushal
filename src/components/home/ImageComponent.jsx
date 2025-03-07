@@ -29,6 +29,7 @@ const ImageComponent = () => {
             animate={{ opacity: visibleImageIndex === index ? 1 : 0, scale: visibleImageIndex === index ? 1 : 0.9 }}
             exit={{ opacity: 0, scale: 1.1 }}
             transition={{ duration: 1.5 }}
+            style={{ maxWidth: '100%', display: visibleImageIndex === index ? 'block' : 'none' }} // Ensure responsiveness
           >
             <motion.img
               src={image}

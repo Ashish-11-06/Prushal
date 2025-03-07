@@ -1,14 +1,13 @@
 .scroll-circular-container {
   border-radius: 10px;
-  /* background-color: #ffffff; */
-  /* background-image: url('../../assets/Clients.png'); Set the path to your background image */
   background-position: center;
-  background-size: cover; /* Make the background image cover the entire container */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
-  height: 715px; /* Adjust height as needed */
-  width: 100%; /* Stretch the width to full width */
+  height: 715px; /* Default height for larger screens */
+  width: 100%;
   margin: 0 auto;
+  overflow: hidden; /* Ensure content doesn't overflow */
 }
 
 .scroll-circle {
@@ -17,63 +16,62 @@
   height: 100%;
 }
 
-/* .circle-path {
-  position: absolute;
-  width: 60%;
-  height: 100%;
-  border-radius: 50%;
-  border: 1.5px dashed #4ec0ff;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); 
-  pointer-events: none;
-} */
-
 .orbit-item {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    transition: transform 0.3s ease;
-    /* background: linear-gradient(100deg, #2195f34b, #00767642); Gradient background */
-    border-radius: 50%;
-    box-shadow: #2f3f3f4f;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
 }
 
 .orbit-item:hover {
-  transform: translate(-50%, -50%) scale(1.1); /* Scale up slightly on hover */
-}
-
-.icon {
-  font-size: 3rem; /* Increased icon size */
-  margin-bottom: 10px; /* Adjusted spacing for better spacing */
-  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for size and color */
-}
-
-.orbit-item:hover .icon {
-  transform: scale(1.2); /* Scale up the icon on hover */
-  color: #1890ff; /* Change the icon color on hover */
-}
-
-.name {
-  font-size: 1rem; /* Adjust text size */
-  text-align: center;
-}
-
-.center-item img {
-  position: absolute;
-  max-width: 13%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  top: 44%;
-  left: 43%;
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .logo {
-  height: 60px !important ;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.center-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.center-logo {
+  object-fit: contain;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .scroll-circular-container {
+    height: 600px; /* Adjust height for large tablets and smaller desktops */
+  }
+}
+
+@media (max-width: 992px) {
+  .scroll-circular-container {
+    height: 500px; /* Adjust height for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-circular-container {
+    height: 400px; /* Adjust height for smaller tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  .scroll-circular-container {
+    height: 300px; /* Adjust height for mobile devices */
+  }
+}
+
+@media (max-width: 400px) {
+  .scroll-circular-container {
+    height: 250px; /* Adjust height for very small screens */
+  }
 }

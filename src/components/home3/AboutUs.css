@@ -37,7 +37,7 @@
   /* flex-direction: column; */
   /* justify-content: space-between; */
   /* margin-left: -26%; */
-  margin: 0% -25%;
+  /* margin: 0% -25%; */
   /* width: 113%; */
   /* width: 125%;
 }
@@ -65,4 +65,117 @@
 .ant-row {
   display: flex; /* Flexbox for consistent heights */
   align-items: stretch;
+}
+
+.about-us{
+  color: black !important;
+}
+
+.about-us {
+  color: black;
+  padding: 40px 20px;
+  background: linear-gradient(90deg, #2196f37a, #1c9999);
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.about-card-inner,
+.about-card-inner-special {
+  background: #ddf9fd;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.about-card .card-title,
+.about-card-special .card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black !important;
+}
+
+.about-card .card-content,
+.about-card-special .card-content {
+  font-size: 1rem;
+  color: black !important;
+  text-align: left;
+}
+
+.about-card ul,
+.about-card-special ul {
+  padding-left: 20px;
+}
+
+.about-card ul li,
+.about-card-special ul li {
+  font-size: 1rem;
+  color: black;
+}
+
+@media (max-width: 1024px) {
+  .about-card .card-title,
+  .about-card-special .card-title {
+    font-size: 1.2rem;
+  }
+
+  .about-card .card-content,
+  .about-card-special .card-content {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-us {
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .about-card-inner,
+  .about-card-inner-special {
+    padding: 15px;
+  }
+
+  .about-card .card-title,
+  .about-card-special .card-title {
+    font-size: 1rem;
+  }
+
+  .about-card .card-content,
+  .about-card-special .card-content {
+    font-size: 0.8rem;
+  }
+
+  .about-card ul li,
+  .about-card-special ul li {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .about-card .card-title,
+  .about-card-special .card-title {
+    font-size: 0.9rem;
+  }
+
+  .about-card .card-content,
+  .about-card-special .card-content {
+    font-size: 0.75rem;
+  }
+
+  .about-card ul li,
+  .about-card-special ul li {
+    font-size: 0.75rem;
+  }
 }

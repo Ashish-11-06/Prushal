@@ -20,34 +20,41 @@ import img17 from "../../assets/techs/python.png";
 import img18 from "../../assets/techs/social.png";
 import img19 from "../../assets/techs/visual-studio.png";
 import img20 from "../../assets/techs/wordpress.png";
-
 import prushalLogo from '../../assets/PrushalLogo.png';
 
-
-
 const CircularScrollAnimation = () => {
-  // Array of image paths
-
   const images = [
     img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
     img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
   ];
 
-
-  const radius1 = 250; // Radius for outer circle
-  const radius2 = 150; // Radius for inner circle
   const [scrollY, setScrollY] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
 
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  // Dynamic radius based on screen width
+  const radius1 = windowWidth < 768 ? 150 : 250; // Outer circle radius
+  const radius2 = windowWidth < 768 ? 100 : 150; // Inner circle radius
+
+  // Dynamic image size based on screen width
+  const imageSize = windowWidth < 768 ? 40 : 60; // Smaller size for mobile, larger for desktop
 
   const angleOffset = (scrollY / 10) % 360;
 
@@ -69,7 +76,12 @@ const CircularScrollAnimation = () => {
                 top: `calc(50% - ${y}px)`,
               }}
             >
-              <img src={image} alt={`img-${index}`} className="logo" />
+              <img
+                src={image}
+                alt={`img-${index}`}
+                className="logo"
+                style={{ width: `${imageSize}px`, height: `${imageSize}px` }}
+              />
             </div>
           );
         })}
@@ -89,15 +101,25 @@ const CircularScrollAnimation = () => {
                 top: `calc(50% - ${y}px)`,
               }}
             >
-              <img src={image} alt={`img-${index}`} className="logo" />
+              <img
+                src={image}
+                alt={`img-${index}`}
+                className="logo"
+                style={{ width: `${imageSize}px`, height: `${imageSize}px` }}
+              />
             </div>
           );
         })}
 
-        {/* Center Text */}
+        {/* Center Logo */}
         <div className="center-item">
-  <img src={prushalLogo} alt="Description of the image" />
-</div>
+          <img
+            src={prushalLogo}
+            alt="Prushal Logo"
+            className="center-logo"
+            style={{ width: `${imageSize * 2}px`, height: `${imageSize * 2}px` }} // Center logo is larger
+          />
+        </div>
       </div>
     </div>
   );
