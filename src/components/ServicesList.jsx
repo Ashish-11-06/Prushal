@@ -9,7 +9,7 @@ import businessProcessImg from '../assets/ServiceCard/BusinessProcessServices__n
 import cloudImg from '../assets/ServiceCard/Cloud__new.jpg';
 import dataAIImg from '../assets/ServiceCard/DataAndAI__new.jpg';
 import softwareEngImg from '../assets/ServiceCard/SoftwareEngineering__new.jpg';
-import iotImg from '../assets/ServiceCard/IoT__new.jpg';
+import iotImg from '../assets/ServiceCard/InternetofThings__new.jpg';
 import genAIImg from '../assets/ServiceCard/GenAI__new.jpg';
 
 const { Title, Paragraph } = Typography;
