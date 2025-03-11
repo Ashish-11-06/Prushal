@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: 'https://www.prushal.com/api', // Ensure this base URL is correct
+    baseURL: 'https://api.prushal.com/api', // Ensure this base URL is correct
     headers: {
         'Content-Type': 'application/json',
     },
