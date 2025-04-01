@@ -1,113 +1,79 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { motion } from 'framer-motion'; // Import motion for animation
-import './HeroSection.css'; // For styling
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { motion } from 'framer-motion';
+import './HeroSection.css';
 
 const HeroSection = () => {
+  // State for counter animations
   const [clients, setClients] = useState(0);
   const [projects, setProjects] = useState(0);
   const [companies, setCompanies] = useState(0);
-  const [dataScientists, setDataScientists] = useState(0); // New state for Data Scientists
-  const [developers, setDevelopers] = useState(0); // New state for Developers
-  const [imageLoaded, setImageLoaded] = useState(false); // State to track if the image is loaded
-
+  const [dataScientists, setDataScientists] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const statsRef = useRef(null);
-  const imageRef = useRef(null); // Reference to the image for lazy loading
+
+  // Use ref to track animation state for IntersectionObserver
+  const hasAnimatedRef = useRef(false);
+  hasAnimatedRef.current = hasAnimated;
 
   const animateCount = useCallback(() => {
-    // Define target values for each statistic
-    let associatesTarget = 100;
-    let projectTarget = 120;
-    let companyTarget = 30;
-    let dataScientistsTarget = 40; // Target for Data Scientists
-    let developersTarget = 20; // Target for Developers
+    if (hasAnimatedRef.current) return;
 
-    // Increment clients count
-    const clientIncrement = setInterval(() => {
-      setClients((prev) => {
-        if (prev < associatesTarget) return prev + 20;
-        clearInterval(clientIncrement);
-        return prev;
-      });
-    }, 10);
+    const animateNumber = (setter, target, step = 1, interval = 20) => {
+      let current = 0;
+      const increment = setInterval(() => {
+        current += step;
+        setter(Math.min(current, target));
+        if (current >= target) clearInterval(increment);
+      }, interval);
+    };
 
-    // Increment projects count
-    const projectIncrement = setInterval(() => {
-      setProjects((prev) => {
-        if (prev < projectTarget) return prev + 20;
-        clearInterval(projectIncrement);
-        return prev;
-      });
-    }, 15);
+    // Start all animations
+    animateNumber(setClients, 100, 5);
+    animateNumber(setProjects, 120, 5);
+    animateNumber(setCompanies, 30, 1, 50);
+    animateNumber(setDataScientists, 40, 1, 50);
 
-    // Increment companies count
-    const companyIncrement = setInterval(() => {
-      setCompanies((prev) => {
-        if (prev < companyTarget) return prev + 1;
-        clearInterval(companyIncrement);
-        return prev;
-      });
-    }, 20);
-
-    // Increment data scientists count
-    const dataScientistsIncrement = setInterval(() => {
-      setDataScientists((prev) => {
-        if (prev < dataScientistsTarget) return prev + 1;
-        clearInterval(dataScientistsIncrement);
-        return prev;
-      });
-    }, 25);
-
-    // Increment developers count
-    const developersIncrement = setInterval(() => {
-      setDevelopers((prev) => {
-        if (prev < developersTarget) return prev + 1;
-        clearInterval(developersIncrement);
-        return prev;
-      });
-    }, 30);
+    setHasAnimated(true);
+    sessionStorage.setItem('heroAnimated', 'true');
   }, []);
 
-  const observer = useMemo(() => new IntersectionObserver(
-    (entries) => {
-      if (entries[0].isIntersecting && !imageLoaded) {
-        setImageLoaded(true); // Mark the image as loaded
-      }
-      if (entries[0].isIntersecting) {
-        // Start animating numbers when in view
-        animateCount();
-      }
-    },
-    { threshold: 0.5 }
-  ), [imageLoaded, animateCount]);
-
+  // Check if already animated on mount
   useEffect(() => {
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
+    const alreadyAnimated = sessionStorage.getItem('heroAnimated');
+    if (alreadyAnimated) {
+      setClients(100);
+      setProjects(120);
+      setCompanies(30);
+      setDataScientists(40);
+      setHasAnimated(true);
     }
-    if (imageRef.current) {
-      observer.observe(imageRef.current); // Observe the image for lazy loading
-    }
+  }, []);
 
-    return () => {
-      if (statsRef.current) {
-        observer.unobserve(statsRef.current);
-      }
-      if (imageRef.current) {
-        observer.unobserve(imageRef.current); // Clean up observer
-      }
-    };
-  }, [observer]);
+  // Set up intersection observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasAnimatedRef.current) {
+          animateCount();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (statsRef.current) observer.observe(statsRef.current);
+
+    return () => observer.disconnect();
+  }, [animateCount]);
 
   return (
     <div className="hero-container">
-      {/* Hero Image */}
       <div className="hero-content">
-        {/* Animated Text */}
-        <motion.div 
+        <motion.div
           className="hero-text"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
+          viewport={{ once: true }}
         >
           <h1 className="hero-title">
             10 <span className="highlight-text">years </span>of Expertise in Data Science, Web Development for Digital Transformation, and Branding Management
@@ -115,26 +81,62 @@ const HeroSection = () => {
           <p className="hero-subtitle">
             Let Prushal transform your Raw Data to Real Results and help you achieve your goals.
           </p>
+         
         </motion.div>
-      
+
+        <motion.div 
+          className="hero-image-container"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <div className="hero-image" />
+        </motion.div>
       </div>
 
-      {/* Stats Section */}
       <div className="stats-container" ref={statsRef}>
-        <motion.div className="stat">
-          <h2>{clients} +</h2>
+        <motion.div 
+          className="stat"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <h2>{clients}+</h2>
           <p>Associates</p>
         </motion.div>
-        <motion.div className="stat">
-          <h2>{projects} +</h2>
+        
+        <motion.div 
+          className="stat"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
+          <h2>{projects}+</h2>
           <p>Projects</p>
         </motion.div>
-        <motion.div className="stat">
-          <h2>{companies} +</h2>
+        
+        <motion.div 
+          className="stat"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <h2>{companies}+</h2>
           <p>Companies</p>
         </motion.div>
-        <motion.div className="stat">
-          <h2>{dataScientists} +</h2>
+        
+        <motion.div 
+          className="stat"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <h2>{dataScientists}+</h2>
           <p>Data Scientists</p>
           <p>& Developers</p>
         </motion.div>

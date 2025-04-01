@@ -20,7 +20,7 @@
 .about-card, .about-card-special {
   background:  #ddf9fd;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0);
+  box-shadow: 0 4px 13px rgba(255, 255, 255, 0);
   display: flex; /* Flexbox */
   flex-direction: column; /* Ensure vertical alignment */
   justify-content: space-between; /* Distribute content evenly */
@@ -31,7 +31,7 @@
 
   background: #ddf9fd;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0);
+  box-shadow: 0 4px 13px rgba(255, 255, 255, 0);
   /* display: flex
 ; */
   /* flex-direction: column; */

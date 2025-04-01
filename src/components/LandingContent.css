@@ -33,3 +33,13 @@
       display: none; /* Hide the left section on mobile */
     }
   }
+
+  .hide-on-mobile {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .hide-on-mobile {
+      display: none;
+    }
+  }

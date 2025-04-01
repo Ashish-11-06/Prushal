@@ -83,11 +83,11 @@ const AnalyticsOffering = () => {
       <h1>Industries We Serve</h1>
       <Timeline mode="alternate" className="industry-timeline">
         {industriesData.map((industry, index) => (
-          <Timeline.Item key={index} label={industry.industry}>
+          <Timeline.Item key={index} >
             <h3 style={{ fontSize: '101%', color: '#0066cc' }}>
               {industry.industry}
             </h3>
-            <ul>
+            <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
               {industry.description.map((item, idx) => (
                 <li key={idx} style={{ color: '#05445E' }}>
                   {item}

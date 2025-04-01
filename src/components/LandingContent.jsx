@@ -2,14 +2,12 @@ import React, { useMemo } from 'react';
 import { Typography, Row, Col, Card, Button, Layout } from 'antd'; // Import AntD components
 import { motion } from 'framer-motion';
 import ServicesList from './ServicesList';
-import AnimatedBackground from '../components/Animation/AnimatedBackground';
 import CircularAnimation from '../components/Animation/CircularAnimation';
 import AnalyticsOffering from './home2/AnalyticsOffering';
 import HeroSection from './DataStats/HeroSection';
 import CapabilitiesOffering from './home2/CapabilitiesOffering';
 import './LandingContent.css';
 import CompanyLogos from './Clients/CompanyLogos';
-import Home1 from './home/Home1';
 import ContactUs from './ContactUs/ContactUs';
 import ParticleBackground from './Animation/VideoParticles';
 import ImageComponent from './home/ImageComponent';
@@ -107,9 +105,7 @@ const LandingContent = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 6 }}
             >
-              <Paragraph className="paraText">
-                We specialize in providing data-driven solutions for your business needs.
-              </Paragraph>
+            
             </motion.div>
           </div>
         </div>
@@ -123,8 +119,10 @@ const LandingContent = () => {
           </Col>
         </Row>
 
-        {/* Hero Section */}
-        <HeroSection />
+      {/* Hero Section - Hidden on Mobile */}
+<div className="hide-on-mobile">
+  <HeroSection />
+</div>
 
         {/* Offerings Section */}
         <Row gutter={[16, 16]} style={{ padding: "50px", paddingBottom: "0" }}>
