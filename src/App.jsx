@@ -5,7 +5,8 @@ import LandingContent from './components/LandingContent';
 import FooterComponent from './components/Footer';
 import ContactUs from './components/ContactUs/ContactUs';
 import Navbar from './components/Header/Navbar';
-import AboutUs from './components/home3/AboutUs';
+//import AboutUs from './components/home3/AboutUs';
+import AboutUs from './pages/AboutUs';
 import './App.css';
 
 const { Content } = Layout;
@@ -27,6 +28,8 @@ const App = () => {
           <Content>
             <Routes>
               <Route path="/" element={<LandingContent />} />
+              <Route path="/about" element={<AboutUs />} />
+
 
             </Routes>
           </Content>

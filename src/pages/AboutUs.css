@@ -1,0 +1,77 @@
+/* AboutUs.css */
+
+.about-container {
+    text-align: center;
+    padding: 50px;
+    background: linear-gradient(135deg, #f3f3f3, #ffffff);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-title,
+.team-title,
+.contact-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-top: 50px;
+}
+
+.about-description {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 800px;
+    line-height: 1.8;
+}
+
+.about-cards,
+.team-section,
+.contact-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.card,
+.team-card,
+.contact-card {
+    background: #fff;
+    padding: 20px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover,
+.team-card:hover,
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.card h2,
+.team-card h3,
+.contact-card h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card p,
+.team-card p,
+.contact-card p {
+    color: #777;
+    font-size: 1rem;
+}
+
+.team-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
