@@ -1,5 +1,6 @@
 
 
+
 import React from 'react';
 import { Form, Input, Button, Typography, notification, Row, Col, Divider, Card, message } from 'antd';
 import {
@@ -32,7 +33,7 @@ const ContactUs = () => {
     <div>
       <div className="contact-us-form-container">
         <Title level={2} className="contact-us-title">Contact Us</Title>
-        <Paragraph className="contact-us-paragraph">
+        <Paragraph className="contact-us-paragraph" style={{ color: 'white' }}>
           We'd love to hear from you! Please fill out the form below and we will get back to you as soon as possible.
         </Paragraph>
 

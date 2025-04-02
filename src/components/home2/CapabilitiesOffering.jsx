@@ -54,16 +54,6 @@ const capabilitiesData = [
       "Cloud Migration",
       "Enterprise Digital Transformation"
     ]
-  },
-  {
-    capability: "Automation & Digital Transformation",
-    icon: <LineChartOutlined style={{ fontSize: 36, color: '#f44336' }} />,
-    description: [
-      "Robotic Process Automation (RPA)",
-      "Business Process Automation",
-      "Cloud Migration",
-      "Enterprise Digital Transformation"
-    ]
   }
 ];
 
@@ -71,41 +61,92 @@ const CapabilitiesOffering = () => {
   return (
     <div className="capabilities-offering">
       <h1>Our Core Capabilities</h1>
-      <Row gutter={[24, 24]} justify="center">
-        {capabilitiesData.map((capability, index) => (
+
+      {/* First Row - 3 Cards */}
+      <Row gutter={[12, 12]} justify="center" style={{ display: "flex", flexWrap: "wrap" }}>
+        {capabilitiesData.slice(0, 3).map((capability, index) => (
           <Col 
             key={index} 
-            xs={24}   /* Full width on extra-small screens (mobile) */
-            sm={12}   /* 2 cards per row on small screens (tablet) */
-            md={8}    /* 3 cards per row on medium screens (desktop) */
-            lg={4.8}    /* 4 cards per row on large screens */
-            xl={4.8}  /* 5 cards per row on extra-large screens */
+            xs={24}    
+            sm={12}    
+            md={8}    
+            lg={4}    
+            xl={4}    
+            flex="auto"  
+            style={{
+              minWidth: "250px", 
+              textAlign: "left"
+            }}
           >
             <Card
               title={
-                <div style={{ textAlign: 'center' }}>
-                  {/* {capability.icon} */}
-                  <h3 style={{ marginTop: 10, color: '#3f51b5', 
-                    fontSize: '15px',
-                  }}>{capability.capability}</h3>
+                <div style={{ textAlign: "center", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <h3 style={{ marginTop: 10, color: "#3f51b5", fontSize: "12px", textAlign: "center", maxWidth: "80%" }}>
+                    {capability.capability}
+                  </h3>
                 </div>
               }
               className="capability-card"
               hoverable
               style={{
-                height: '100%',
+                height: "100%",
                 background: `linear-gradient(to bottom right, #ffffff, #f3f3f3)`,
-                boxShadow: '0 6px 20px rgba(0,0,0,0.1)',
-                borderRadius: '16px',
-                textAlign: 'center',
-                transition: 'transform 0.3s ease-in-out',
+                boxShadow: "0 6px 20px rgba(0,0,0,0.1)",
+                borderRadius: "16px",
+                // textAlign: "center",
+                transition: "transform 0.3s ease-in-out",
               }}
             >
-              <ul>
-                {capability.description.map((item, idx) => (
-                  <li key={idx} style={{ fontSize: '14px' }}>{item}</li>
-                ))}
-              </ul>
+              {capability.description.map((item, idx) => (
+                <div key={idx} style={{ fontSize: "14px", padding: "4px 0" }}>
+                  {item}
+                </div>
+              ))}
+            </Card>
+          </Col>
+        ))}
+      </Row>
+
+      {/* Second Row - Last 2 Cards (Taking Full Width) */}
+      <Row gutter={[12, 12]}  style={{ display: "flex", flexWrap: "wrap", marginTop: 12 }}>
+        {capabilitiesData.slice(3, 5).map((capability, index) => (
+          <Col 
+            key={index} 
+            xs={24}    
+            sm={12}    
+            md={12}    
+            lg={12}    
+            xl={12}    
+            flex="auto"  
+            style={{
+              minWidth: "300px", 
+              textAlign: "left"
+            }}
+          >
+            <Card
+              title={
+                <div style={{  display: "flex", justifyContent: "center",  }}>
+                  <h3 style={{ marginTop: 10, color: "#3f51b5", fontSize: "12px", textAlign: "center", maxWidth: "80%" }}>
+                    {capability.capability}
+                  </h3>
+                </div>
+              }
+              className="capability-card"
+              hoverable
+              style={{
+                height: "100%",
+                background: `linear-gradient(to bottom right, #ffffff, #f3f3f3)`,
+                boxShadow: "0 6px 20px rgba(0,0,0,0.1)",
+                borderRadius: "16px",
+            
+                transition: "transform 0.3s ease-in-out",
+              }}
+            >
+              {capability.description.map((item, idx) => (
+                <div key={idx} style={{ fontSize: "14px", padding: "4px 0" }}>
+                  {item}
+                </div>
+              ))}
             </Card>
           </Col>
         ))}
