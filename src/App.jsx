@@ -8,6 +8,8 @@ import Navbar from './components/Header/Navbar';
 //import AboutUs from './components/home3/AboutUs';
 import AboutUs from './pages/AboutUs';
 import './App.css';
+import ServicesPage from './pages/ServicesPage';
+import EventsAndStoriesPage from './pages/EventsAndStoriesPage';
 
 const { Content } = Layout;
 
@@ -28,9 +30,9 @@ const App = () => {
           <Content>
             <Routes>
               <Route path="/" element={<LandingContent />} />
-              <Route path="/about" element={<AboutUs />} />
-
-
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/event-stories" element={<EventsAndStoriesPage />} />
+              
             </Routes>
           </Content>
 
