@@ -151,7 +151,7 @@ const LandingContent = () => {
       </Content>
       
       
-      {/* Contact Us Section */}
+    
       <ContactUs />
     </Layout>
   );

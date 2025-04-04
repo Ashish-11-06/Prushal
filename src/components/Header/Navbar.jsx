@@ -31,7 +31,10 @@ const Navbar = () => {
     { key: '1', label: 'Home', path: '/' }, 
     { key: '2', label: 'Services', path: '/services' },
     { key: '3', label: 'Events and Stories', path: '/event-stories' },
-    { key: '4', label: 'About', path: '/about' },
+    { key: '4', label: 'About us', path: '/about' },
+    { key: '5', label: 'Contact us', path: '/contact' },
+    { key: '6', label: 'News', path: '/news' },
+
   ];
 
   useEffect(() => {
