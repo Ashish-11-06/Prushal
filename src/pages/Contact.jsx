@@ -4,14 +4,8 @@ import ContactUs from "../components/ContactUs/ContactUs"
 
 const Contact= () => {
   return (
-    <div className="contact-container">
-      {/* Contact Form Section */}
-
-
+    <div >
       <ContactUs/>
-
-      
-      
     </div>
   );
 };

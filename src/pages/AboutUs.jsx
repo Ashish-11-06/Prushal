@@ -1,7 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+
 import "./AboutUs.css";
-import { Row, Col, Card, Typography, Image } from "antd";
+import { Row, Col, Card, Typography, Image, Modal } from "antd";
 import ceoimage from "../assets/kushalsharma.png";
 import Aboutimage from "../assets/about.png";
 import { LinkedinFilled } from "@ant-design/icons";
@@ -23,14 +25,17 @@ import "slick-carousel/slick/slick-theme.css";
 const { Title, Paragraph } = Typography;
 
 const AboutUs = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedMember, setSelectedMember] = useState(null);
+
   const sliderSettings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 1500,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 10000,
     responsive: [
       {
         breakpoint: 1024,
@@ -48,6 +53,9 @@ const AboutUs = () => {
       },
     ],
   };
+
+  // Rest of the component code remains same...
+
 
   return (
     <motion.div
@@ -278,109 +286,177 @@ const AboutUs = () => {
             </motion.div>
           </Col>
         ))}
+
+
+
+
+
+
+
+
       </Row>...{/* Our Team Section */}
       <Title level={2} style={{ marginTop: "50px", color: "#2980b9" }}>
         Our Team
       </Title>
       <Row justify="center" style={{ marginTop: "40px", padding: "20px" }}>
-        <Col xs={24} sm={24} md={24} lg={24}>
-          <Slider
-            {...{
-              infinite: true,
-              speed: 5000,
-              slidesToShow: 3,
-              slidesToScroll: 1,
-              autoplay: true,
-              autoplaySpeed: 0,
-              cssEase: "linear",
-              pauseOnHover: false,
-              arrows: false,
-              responsive: [
-                {
-                  breakpoint: 992,
-                  settings: {
-                    slidesToShow: 2,
-                  },
-                },
-                {
-                  breakpoint: 576,
-                  settings: {
-                    slidesToShow: 1,
-                  },
-                },
-              ],
+  <Col xs={24} sm={24} md={24} lg={24}>
+    <Slider
+      {...{
+        infinite: true,
+        speed: 5000,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 0,
+        cssEase: "linear",
+        pauseOnHover: false,
+        arrows: false,
+        responsive: [
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: 576,
+            settings: {
+              slidesToShow: 1,
+            },
+          },
+        ],
+      }}
+    >
+      {Array.from({ length: 8 }).map((_, index) => (
+        <div key={index} style={{ padding: "0 12px" }}>
+          <Card
+            hoverable
+            onClick={() => {
+              setSelectedMember(index);
+              setIsModalVisible(true);
+            }}
+            style={{
+              textAlign: "center",
+              borderRadius: "20px",
+              boxShadow: "0 15px 30px rgba(0, 0, 0, 0.08)",
+              padding: "16px",
+              background: "rgba(255, 255, 255, 0.9)",
+              backdropFilter: "blur(8px)",
+              transition: "all 0.3s ease",
+              height: "100%",
+              border: "1px solid rgba(0, 0, 0, 0.2)",
+              margin: "8px",
             }}
           >
-            {Array.from({ length: 8 }).map((_, index) => (
-              <div key={index} style={{ padding: "0 12px" }}>
-                <Card
-                  hoverable
-                  style={{
-                    textAlign: "center",
-                    borderRadius: "20px",
-                    boxShadow: "0 15px 30px rgba(0, 0, 0, 0.08)",
-                    padding: "16px",
-                    background: "rgba(255, 255, 255, 0.9)",
-                    backdropFilter: "blur(8px)",
-                    transition: "all 0.3s ease",
-                    height: "100%",
-                    border: "1px solid rgba(0, 0, 0, 0.2)",
-                    margin: "8px",
-                  }}
-                >
-                  <img
-                    src={ceoimage}
-                    alt={`Team Member ${index + 1}`}
-                    style={{
-                      width: "100px",
-                      height: "100px",
-                      borderRadius: "50%",
-                      objectFit: "cover",
-                      marginBottom: "16px",
-                      display: "block",
-                      marginLeft: "auto",
-                      marginRight: "auto",
-                      border: "2px solid rgba(0, 0, 0, 0.05)",
-                      boxShadow: "0 0 6px rgba(0, 0, 0, 0.07)",
-                    }}
-                  />
-                  <Title
-                    level={4}
-                    style={{
-                      marginBottom: 4,
-                      color: "#333",
-                      fontWeight: "600",
-                    }}
-                  >
-                    Team Member {index + 1}
-                  </Title>
-                  <Paragraph
-                    style={{
-                      fontStyle: "italic",
-                      marginBottom: 16,
-                      color: "#666",
-                      fontSize: "13px",
-                    }}
-                  >
-                    Role in Organization
-                  </Paragraph>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      fontSize: "20px",
-                      color: "#0077b5",
-                    }}
-                  >
-                    <LinkedinFilled />
-                  </a>
-                </Card>
-              </div>
-            ))}
-          </Slider>
-        </Col>
-      </Row>...{/* Achievements Section */}
+            <img
+              src={ceoimage}
+              alt={`Team Member ${index + 1}`}
+              style={{
+                width: "100px",
+                height: "100px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                marginBottom: "16px",
+                display: "block",
+                marginLeft: "auto",
+                marginRight: "auto",
+                border: "2px solid rgba(0, 0, 0, 0.05)",
+                boxShadow: "0 0 6px rgba(0, 0, 0, 0.07)",
+              }}
+            />
+            <Title
+              level={4}
+              style={{
+                marginBottom: 4,
+                color: "#333",
+                fontWeight: "600",
+              }}
+            >
+              Team Member {index + 1}
+            </Title>
+            <Paragraph
+              style={{
+                fontStyle: "italic",
+                marginBottom: 16,
+                color: "#666",
+                fontSize: "13px",
+              }}
+            >
+              Role in Organization
+            </Paragraph>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontSize: "20px",
+                color: "#0077b5",
+              }}
+            >
+              <LinkedinFilled />
+            </a>
+          </Card>
+        </div>
+      ))}
+    </Slider>
+  </Col>
+
+  {/* Modal Component */}
+  <Modal
+  open={isModalVisible} // Use 'open' instead of 'visible' in newer Ant Design versions
+  onCancel={() => setIsModalVisible(false)} // Properly handle the close action
+  footer={null} // No footer buttons
+  centered // Center the modal on the screen
+>
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "24px", // space between image and text
+    textAlign: "left", // text aligned left in text section
+  }}
+>
+  {/* Left: Image */}
+  <img
+    src={ceoimage}
+    alt={`Team Member ${selectedMember + 1}`}
+    style={{
+      width: "120px",
+      height: "120px",
+      borderRadius: "50%",
+      objectFit: "cover",
+    }}
+  />
+
+  {/* Right: Text Content */}
+  <div>
+    <Title level={4} style={{ margin: 0 }}>
+      Team Member {selectedMember + 1}
+    </Title>
+    <Paragraph style={{ margin: "8px 0" }}>
+      Role: Key Contributor in Organization
+    </Paragraph>
+    <a
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ fontSize: "20px", color: "#0077b5" }}
+    >
+      <LinkedinFilled />
+    </a>
+  </div>
+</div>
+
+</Modal>
+
+</Row>
+
+      
+      
+      
+      
+      
+      ...{/* Achievements Section */}
       <Title level={2} style={{ marginTop: "50px", color: "#2980b9" }}>
         Achievements
       </Title>

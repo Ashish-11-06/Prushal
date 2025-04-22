@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; 
 import { useNavigate } from "react-router-dom";
 import { Button, Drawer } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
@@ -8,12 +8,14 @@ const Navbar = () => {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   const [drawerTitle, setDrawerTitle] = useState('');
   const [hoveredMenuItem, setHoveredMenuItem] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const navigate = useNavigate();
 
   const handleMenuItemClick = (path) => {
     if (path) {
       navigate(path);
+      closeDrawer(); // Close drawer on navigation
     }
   };
 
@@ -30,24 +32,23 @@ const Navbar = () => {
   const menuItems = [
     { key: '1', label: 'Home', path: '/' }, 
     { key: '2', label: 'Services', path: '/services' },
-    { key: '3', label: 'Events and Stories', path: '/event-stories' },
-    { key: '4', label: 'About us', path: '/about' },
-    { key: '5', label: 'Contact us', path: '/contact' },
-    { key: '6', label: 'News', path: '/news' },
-
+    { key: '3', label: 'Products', path: '/products' },
+    { key: '4', label: 'Success Stories', path: '/success-stories' },
+    { key: '5', label: 'Case Studies', path: '/case-studies' },
+    { key: '6', label: 'Culture', path: '/culture' },
+    { key: '7', label: 'About us', path: '/about' },
+    { key: '8', label: 'Contact us', path: '/contact' },
   ];
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    const mobileButton = document.querySelector('.menu-mobile-button');
-    if (mobileButton) {
-      if (!mediaQuery.matches) {
-        mobileButton.style.display = 'none';
-      }
-    }
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Inline Styles
   const navbarStyle = {
     position: 'sticky',
     top: 0,
@@ -78,7 +79,7 @@ const Navbar = () => {
   };
 
   const desktopMenuStyle = {
-    display: 'flex',
+    display: isMobile ? 'none' : 'flex',
     alignItems: 'center',
     zIndex: 1000,
   };
@@ -87,12 +88,13 @@ const Navbar = () => {
     backgroundColor: '#001529',
     color: 'white',
     border: 'none',
+    display: isMobile ? 'block' : 'none',
     zIndex: 1000,
   };
 
   const menuItemStyle = (isHovered) => ({
     marginRight: '20px',
-    color: isHovered ? 'black' : 'white', // Change color on hover
+    color: isHovered ? 'black' : 'white',
     cursor: 'pointer',
     transition: 'color 0.3s ease-in-out',
   });
@@ -104,43 +106,60 @@ const Navbar = () => {
 
   return (
     <nav className="navbar" style={navbarStyle}>
-      <div style={logoStyle}></div>
+  {/* Clickable logo linking to "/" */}
+  <div style={{ cursor: 'pointer' }} onClick={() => navigate('/')}>
+    <div style={logoStyle}></div>
+  </div>
 
-      {/* Desktop Menu */}
-      <div className="menu-desktop" style={desktopMenuStyle}>
-        {menuItems.map((item) => (
-          <div
-            key={item.key}
-            style={menuItemStyle(hoveredMenuItem === item.key)}
-            onClick={() => handleMenuItemClick(item.path)}
-            onMouseEnter={() => setHoveredMenuItem(item.key)}
-            onMouseLeave={() => setHoveredMenuItem(null)}
-          >
-            {item.label}
-          </div>
-        ))}
-      </div>
-
-      {/* Mobile Menu Button */}
-      <Button
-        className="menu-mobile-button"
-        icon={<MenuOutlined />}
-        onClick={() => showDrawer('Menu')}
-        style={mobileButtonStyle}
-      />
-
-      {/* Drawer Menu */}
-      <Drawer
-        title={drawerTitle}
-        placement="top"
-        closable
-        onClose={closeDrawer}
-        open={isDrawerVisible}
-        styles={{ wrapper: drawerWrapperStyle }}
+  {/* Desktop Menu */}
+  <div className="menu-desktop" style={desktopMenuStyle}>
+    {menuItems.map((item) => (
+      <div
+        key={item.key}
+        style={menuItemStyle(hoveredMenuItem === item.key)}
+        onClick={() => handleMenuItemClick(item.path)}
+        onMouseEnter={() => setHoveredMenuItem(item.key)}
+        onMouseLeave={() => setHoveredMenuItem(null)}
       >
-        {/* Initially, nothing is displayed in the drawer */}
-      </Drawer>
-    </nav>
+        {item.label}
+      </div>
+    ))}
+  </div>
+
+  {/* Mobile Menu Button */}
+  <Button
+    className="menu-mobile-button"
+    icon={<MenuOutlined />}
+    onClick={() => showDrawer('Menu')}
+    style={mobileButtonStyle}
+  />
+
+  {/* Drawer Menu */}
+  <Drawer
+    title={drawerTitle}
+    placement="top"
+    closable
+    onClose={closeDrawer}
+    open={isDrawerVisible}
+    styles={{ wrapper: drawerWrapperStyle }}
+  >
+    {menuItems.map((item) => (
+      <div
+        key={item.key}
+        style={{
+          padding: '10px 0',
+          fontSize: '16px',
+          borderBottom: '1px solid #ddd',
+          cursor: 'pointer'
+        }}
+        onClick={() => handleMenuItemClick(item.path)}
+      >
+        {item.label}
+      </div>
+    ))}
+  </Drawer>
+</nav>
+
   );
 };
 

@@ -10,7 +10,10 @@ import NewsPage from './pages/NewsPage';
 import AboutUs from './pages/AboutUs';
 import './App.css';
 import ServicesPage from './pages/ServicesPage';
-import EventsAndStoriesPage from './pages/EventsAndStoriesPage';
+import ProductsPage from './pages/Productspage';
+import Culture from './pages/Culture';
+import SuccessStories from './pages/SuccessStories';
+import CaseStudies from './pages/CaseStudies';
 
 const { Content } = Layout;
 
@@ -34,10 +37,14 @@ const App = () => {
               <Route path="/about" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/news" element={<NewsPage />} />
+              <Route path="/products" element={<ProductsPage />} />
+              <Route path="/success-stories" element={<SuccessStories />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+
               
 
               <Route path="/services" element={<ServicesPage />} />
-              <Route path="/event-stories" element={<EventsAndStoriesPage />} />
+              <Route path="/culture" element={<Culture />} />
               
             </Routes>
           </Content>
