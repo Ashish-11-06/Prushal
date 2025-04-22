@@ -223,21 +223,21 @@ const AboutUs = () => {
           {
             title: "Our Vision",
             description:
-              "Our Team is on a charge to deliver on the upcoming demands of the IT Industry on the levels of Technical Skills. We are currently catering to the Services regarding Trainers & Trainings requirements.",
+              "Be and be recognized as the best solution provider for the businesses and individuals across the globe.",
             icon: FaRocket,
             color: "#3498db",
           },
           {
             title: "Our Mission",
             description:
-              "Manifesting Automation and transformation for the improvement and betterment of business processes and upliftment of individual lives.",
+              "Manifesting Automation and transformation for the improvement and betterment of the business process and upliftment of individual lives.",
             icon: FaBullseye,
             color: "#2ecc71",
           },
           {
             title: "Our Values",
             description:
-              "Indeed Inspiring Infotech was founded with a value system focused on training and internship programs on academics as well as on a corporate level. Our breadth of services spans across IT training and solutions.",
+              "Customer Satisfaction First, Deliver Beyond Promise.",
             icon: FaHandshake,
             color: "#f1c40f",
           },
@@ -294,12 +294,12 @@ const AboutUs = () => {
 
 
 
-      </Row>...{/* Our Team Section */}
-      <Title level={2} style={{ marginTop: "50px", color: "#2980b9" }}>
+      </Row>{/* Our Team Section */}
+      {/* <Title level={2} style={{ marginTop: "50px", color: "#2980b9" }}>
         Our Team
-      </Title>
+      </Title> */}
       <Row justify="center" style={{ marginTop: "40px", padding: "20px" }}>
-  <Col xs={24} sm={24} md={24} lg={24}>
+        {/* <Col xs={24} sm={24} md={24} lg={24}>
     <Slider
       {...{
         infinite: true,
@@ -399,64 +399,64 @@ const AboutUs = () => {
         </div>
       ))}
     </Slider>
-  </Col>
+  </Col> */}
 
-  {/* Modal Component */}
-  <Modal
-  open={isModalVisible} // Use 'open' instead of 'visible' in newer Ant Design versions
-  onCancel={() => setIsModalVisible(false)} // Properly handle the close action
-  footer={null} // No footer buttons
-  centered // Center the modal on the screen
->
-<div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "24px", // space between image and text
-    textAlign: "left", // text aligned left in text section
-  }}
->
-  {/* Left: Image */}
-  <img
-    src={ceoimage}
-    alt={`Team Member ${selectedMember + 1}`}
-    style={{
-      width: "120px",
-      height: "120px",
-      borderRadius: "50%",
-      objectFit: "cover",
-    }}
-  />
+        {/* Modal Component */}
+        <Modal
+          open={isModalVisible} // Use 'open' instead of 'visible' in newer Ant Design versions
+          onCancel={() => setIsModalVisible(false)} // Properly handle the close action
+          footer={null} // No footer buttons
+          centered // Center the modal on the screen
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "24px", // space between image and text
+              textAlign: "left", // text aligned left in text section
+            }}
+          >
+            {/* Left: Image */}
+            <img
+              src={ceoimage}
+              alt={`Team Member ${selectedMember + 1}`}
+              style={{
+                width: "120px",
+                height: "120px",
+                borderRadius: "50%",
+                objectFit: "cover",
+              }}
+            />
 
-  {/* Right: Text Content */}
-  <div>
-    <Title level={4} style={{ margin: 0 }}>
-      Team Member {selectedMember + 1}
-    </Title>
-    <Paragraph style={{ margin: "8px 0" }}>
-      Role: Key Contributor in Organization
-    </Paragraph>
-    <a
-      href="#"
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{ fontSize: "20px", color: "#0077b5" }}
-    >
-      <LinkedinFilled />
-    </a>
-  </div>
-</div>
+            {/* Right: Text Content */}
+            <div>
+              <Title level={4} style={{ margin: 0 }}>
+                Team Member {selectedMember + 1}
+              </Title>
+              <Paragraph style={{ margin: "8px 0" }}>
+                Role: Key Contributor in Organization
+              </Paragraph>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ fontSize: "20px", color: "#0077b5" }}
+              >
+                <LinkedinFilled />
+              </a>
+            </div>
+          </div>
 
-</Modal>
+        </Modal>
 
-</Row>
+      </Row>
 
-      
-      
-      
-      
-      
-      ...{/* Achievements Section */}
+
+
+
+
+
+      {/* Achievements Section */}
       <Title level={2} style={{ marginTop: "50px", color: "#2980b9" }}>
         Achievements
       </Title>
@@ -480,7 +480,7 @@ const AboutUs = () => {
             >
               <CountUp
                 start={0}
-                end={120}
+                end={50}
                 duration={2}
                 suffix="+"
                 style={{
@@ -562,7 +562,7 @@ const AboutUs = () => {
         </Col>
       </Row>
       {/* Social Media Section show proper react icons an dwe will link it later */}
-      <div
+      {/* <div
         style={{
           marginTop: "50px",
           padding: "20px 0",
@@ -632,9 +632,9 @@ const AboutUs = () => {
         </div>
 
         
-      </div> 
+      </div>  */}
     </motion.div>
-    
+
   );
 };
 

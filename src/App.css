@@ -22,7 +22,7 @@ body {
 /* Layout Styles */
 
 .ant-layout {
-    min-height: 100vh;
+    /* min-height: 100vh; */
     background-color: #F3F8FD;
     /* Light Background for Consistency */
 }

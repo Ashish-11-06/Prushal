@@ -19,17 +19,17 @@ The event not only showcased talents but fostered community spirit, innovation, 
 Employees, stakeholders, and guests actively participated, making it one of our most successful internal initiatives.`,
     image: celebrationImg,
   },
-  {
-    id: 2,
-    title: 'Successful Completion of Project TechTrix',
-    tags: ['Client Satisfaction', 'Full Implementation', 'Support System'],
-    desc: `Project TechTrix marked a milestone in our journey as we successfully completed the full-cycle implementation for a large-scale enterprise client.
-The project was delivered on time, with great attention to technical accuracy and process flow.
-The system now supports automated workflows, real-time analytics, and SLA-driven operations.
-Most importantly, the client shared a glowing review of their satisfaction, especially highlighting our proactive support and team collaboration.
-This project further establishes our footprint as a trusted tech solutions provider.`,
-    image: techtrixImg,
-  },
+//   {
+//     id: 2,
+//     title: 'Successful Completion of Project TechTrix',
+//     tags: ['Client Satisfaction', 'Full Implementation', 'Support System'],
+//     desc: `Project TechTrix marked a milestone in our journey as we successfully completed the full-cycle implementation for a large-scale enterprise client.
+// The project was delivered on time, with great attention to technical accuracy and process flow.
+// The system now supports automated workflows, real-time analytics, and SLA-driven operations.
+// Most importantly, the client shared a glowing review of their satisfaction, especially highlighting our proactive support and team collaboration.
+// This project further establishes our footprint as a trusted tech solutions provider.`,
+//     image: techtrixImg,
+//   },
 ];
 
 const fadeIn = (direction = 'up', delay = 0) => ({

@@ -4,7 +4,7 @@ import { Layout, ConfigProvider } from 'antd';
 import LandingContent from './components/LandingContent';
 import FooterComponent from './components/Footer';
 import Contact from './pages/Contact';
-import Navbar from './components/Header/Navbar';
+import Navbar from './components/Header/NavBar';
 import NewsPage from './pages/NewsPage';
 //import AboutUs from './components/home3/AboutUs';
 import AboutUs from './pages/AboutUs';

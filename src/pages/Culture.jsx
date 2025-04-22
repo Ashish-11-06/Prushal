@@ -1,11 +1,9 @@
 import React from 'react';
 import { Row, Col, Button, Card } from 'antd';
 import { motion } from 'framer-motion';
-import CountUp from 'react-countup';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './Culture.css';
-import { Link } from 'react-router-dom';
 import { FaUsers, FaLeaf, FaBalanceScale, FaChalkboardTeacher } from 'react-icons/fa';
 
 
@@ -32,25 +30,45 @@ const values = [
 
 const testimonials = [
   {
-    quote: "“Working here has been an incredible journey The leadership truly believes in your growth, and you're always encouraged.”",
-    name: "Ashish Bhosale",
-    role: "Full stack developer",
+    quote: "“The cross-functional collaboration here is exceptional. Teams work seamlessly across departments, breaking silos to deliver outstanding results.”",
+    name: "Priyanshu Sharma",
+    role: "Full Stack developer"
   },
   {
-    quote: "“Working here has been an incredible journey The leadership truly believes in your growth, and you're always encouraged.”",
-    name: "Ashish Bhosale",
-    role: "Full stack developer",
+    quote: "“What makes this place special is how leadership fosters psychological safety - everyone's voice is heard and valued equally in decision making.”",
+    name: "Arati Lahane",
+    role: "AI ML Developer"
   },
+  // {
+  //   quote: "“Our agile squads demonstrate true collective ownership. When one team member struggles, three others immediately jump in to help without being asked.”",
+  //   name: "Neha Patel",
+  //   role: "Scrum Master"
+  // },
   {
-    quote: "“Working here has been an incredible journey The leadership truly believes in your growth, and you're always encouraged.”",
-    name: "Ashish Bhosale",
-    role: "Full stack developer",
+    quote: "“The mentorship culture has accelerated my growth exponentially. Senior colleagues invest time in knowledge sharing without hesitation.”",
+    name: "Samruddhi Manikeri",
+    role: "Junior Developer"
   },
+  // {
+  //   quote: "“Remote collaboration feels natural here. The digital tools and meeting rhythms maintain strong team connectivity across timezones.”",
+  //   name: "Sonia Desai",
+  //   role: "Remote Team Lead"
+  // },
   {
-    quote: "“Working here has been an incredible journey The leadership truly believes in your growth, and you're always encouraged.”",
+    quote: "“Conflict resolution is handled with remarkable maturity. Disagreements become opportunities to find better solutions together.”",
     name: "Ashish Bhosale",
-    role: "Full stack developer",
+    role: "Full Stack Developer"
   },
+  // {
+  //   quote: "“Our retrospectives actually drive change. Action items from team feedback get implemented visibly, proving leadership listens.”",
+  //   name: "Ananya Reddy",
+  //   role: "QA Engineer"
+  // },
+  {
+    quote: "“The 'fail fast' culture removes fear. Teams innovate boldly knowing they have organizational support when experiments don't work out.”",
+    name: "Kiran Gaikwad",
+    role: "Junior Developer"
+  }
 ];
 
 const Culture = () => {
@@ -173,22 +191,34 @@ const Culture = () => {
 
 
 
-
-      {/* Testimonials */}
-      <section className="testimonials">
+{/* Testimonials */}
+<section className="testimonials">
   <h2 className="testimonial-title">What Our People Say</h2>
   <div className="testimonial-row">
     {testimonials.map((testimonial, index) => (
       <motion.div
         className="testimonial-card"
         key={index}
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ delay: index * 0.3, duration: 0.6 }}
+        style={{ minHeight: '250px' }} // Add fixed minimum height
       >
-        <div className="chat-box">
-          <p className="quote">“{testimonial.quote.slice(0, 200)}...”</p>
-          <p className="author"><strong>{testimonial.name}</strong> – {testimonial.role}</p>
+        <div className="chat-box" style={{ height: '100%' }}> {/* Make chat box fill container */}
+          <p className="quote" style={{ 
+            marginBottom: '20px',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            display: '-webkit-box',
+            WebkitLineClamp: 5, // Limit to 5 lines max
+            WebkitBoxOrient: 'vertical'
+          }}>
+            {testimonial.quote}
+          </p>
+          <div className="author-info" style={{ marginTop: 'auto', height: '100%' }}> {/* Push to bottom */}
+            <p className="author"><strong>{testimonial.name}</strong></p>
+            <p className="role">{testimonial.role}</p>
+          </div>
         </div>
       </motion.div>
     ))}
@@ -199,7 +229,7 @@ const Culture = () => {
 
 
       {/* Culture Video */}
-<section className="culture-videos">
+{/* <section className="culture-videos">
   <h2 className="culture-heading">Our Culture in Motion</h2>
   <div className="video-container" data-aos="zoom-in">
     <video controls className="custom-video-player" autoPlay loop muted>
@@ -207,7 +237,7 @@ const Culture = () => {
       Your browser does not support the video tag.
     </video>
   </div>
-</section>
+</section> */}
 
 
     </div>

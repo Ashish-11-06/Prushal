@@ -4,6 +4,8 @@ import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
 import image1 from '../assets/erp.gif';
 import image2 from '../assets/ticket.gif';
+import image3 from '../assets/healthSuite.gif';
+import image4 from '../assets/chatbot.gif';
 
 
 const { Title, Paragraph } = Typography;
@@ -11,8 +13,8 @@ const { Title, Paragraph } = Typography;
 const projects = [
   {
     id: 1,
-    title: 'ERP System',
-    tech: ['React', 'Django', 'PostgreSQL', 'Redux', 'REST API'],
+    title: 'Simple ERP',
+    tech: [ 'Django', 'SQlite','REST API', 'Bootstrap', 'HTML', 'CSS'],
     desc: `A full-featured ERP system developed for Kavya Enterprises to manage their water supply and dry cleaning businesses. 
 This platform includes order management, real-time tracking, customer and vendor dashboards, and invoice generation. 
 Admins can assign tasks, update orders, and generate monthly analytics reports. 
@@ -25,8 +27,8 @@ It supports both English and regional language preferences for better usability.
   },
   {
     id: 2,
-    title: 'Ticketing Tool',
-    tech: ['React', 'Django', 'SQLite', 'Bootstrap', 'Axios'],
+    title: 'Support Ease',
+    tech: ['React','Ant Design', 'Spring Boot', 'MySql', 'REST API'],
     desc: `This tool enables the TechTrix support team to create, manage, and assign technical support tickets seamlessly. 
 It allows clients to raise tickets via a web portal, which are then tracked by the support team. 
 Each ticket includes status updates, priority levels, and assignment logs. 
@@ -37,6 +39,34 @@ Axios is used for API communication with built-in loading indicators and toast n
 The tool is now used by over 50+ enterprise clients and supports email notifications and SLA tracking.`,
     image: image2,
   },
+    {
+      id: 3,
+      title: 'Health Suite',
+      tech: ['React', 'Django', 'SQlite', 'Ant Design', 'Redux', 'Rest API',  ],
+      desc: `A comprehensive medical coding platform that enables healthcare professionals to search, add, and manage medical codes with their descriptions and sub-descriptions. 
+  Users can like/dislike codes to indicate usefulness and edit code descriptions with version history tracking. 
+  The system includes an advanced search functionality with filters for code types, categories, and popularity. 
+  A unique assessment module allows patients to take various personality tests and receive detailed analyses. 
+  The backend uses Django  for efficient data queries, while React and Ant Design provide a clean, accessible interface. 
+  All code changes are logged with complete history for audit purposes. 
+  The platform supports role-based access control for different types of medical professionals and includes data export capabilities for reporting.`,
+      image: image3,
+    },
+    {
+      id: 4,
+      title: 'Infi - Chatbot Solutions',
+      tech: [ 'Django', 'SQLite', 'REST API', 'NLP', 'Transformer Models', 'WebSockets'],
+      desc: `A hybrid chatbot solution combining rule-based systems with LLM capabilities for enterprise use. 
+  The platform offers both text and voice-based interactions with company-specific knowledge bases. 
+  Rule-based components handle structured workflows while the LLM (GPT-3.5/4) manages open-ended conversations. 
+  Features include sentiment analysis, conversation history, and seamless handoff between rule-based and AI modes. 
+  The system integrates with company databases to provide personalized responses and can be trained on domain-specific documents. 
+  Includes analytics dashboard showing conversation metrics, user satisfaction, and common query patterns. 
+  Deployed with Django backend and WebSockets for real-time communication, supporting both web and mobile interfaces. 
+  Particularly effective for customer support, IT helpdesk, and internal knowledge management applications.`,
+      image: image4,
+    }
+  
 ];
 
 const fadeIn = (direction = 'up', delay = 0) => ({

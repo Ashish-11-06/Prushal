@@ -34,7 +34,7 @@ const Navbar = () => {
     { key: '2', label: 'Services', path: '/services' },
     { key: '3', label: 'Products', path: '/products' },
     { key: '4', label: 'Success Stories', path: '/success-stories' },
-    { key: '5', label: 'Case Studies', path: '/case-studies' },
+    // { key: '5', label: 'Case Studies', path: '/case-studies' },
     { key: '6', label: 'Culture', path: '/culture' },
     { key: '7', label: 'About us', path: '/about' },
     { key: '8', label: 'Contact us', path: '/contact' },
