@@ -56,7 +56,7 @@ const LandingContent = () => {
 
   return (
     <Layout>
-      <Content style={{ position: 'relative', zIndex: 1 }}>
+      <Content style={{ position: 'relative', zIndex: 1, maxWidth: '99.4%' }}>
         {/* Hero Section with Particle Background */}
         <div className="background-video-container">
           <div className="particles-overlay">
@@ -105,7 +105,9 @@ const LandingContent = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 6 }}
             >
-            
+              {/* <Paragraph className="paraText">
+                We specialize in providing data-driven solutions for your business needs.
+              </Paragraph> */}
             </motion.div>
           </div>
         </div>
@@ -149,7 +151,7 @@ const LandingContent = () => {
       </Content>
       
       
-      {/* Contact Us Section */}
+    
       <ContactUs />
     </Layout>
   );

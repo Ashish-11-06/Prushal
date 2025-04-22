@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  /* text-align: center; */
   color: white;
   padding: 0 20px;
   margin-top: 4%;
@@ -48,7 +48,7 @@
   height: 400px;
   padding: 40px;
   border-radius: 10px;
-  max-width: 90%;
+  /* max-width: 90%; */
   margin: 0 auto;
 }
 

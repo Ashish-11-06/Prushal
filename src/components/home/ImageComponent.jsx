@@ -1,44 +1,77 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import Typed from 'typed.js';
 import './ImageComponent.css';
-import image2 from '../../assets/home1/Hand__New.png';
-import image3 from '../../assets/home1/roboHeadphone__New.png';
-import image4 from '../../assets/home1/bird__New.png';
 
-const images = [image2, image3, image4];
+import image2 from '../../assets/home1/ai.png';
+import image3 from '../../assets/home1/cloudcom.png';
+import image4 from '../../assets/home1/web.png';
+import image5 from '../../assets/home1/data1.png';
+import image6 from '../../assets/home1/iot_transaprent.png';
+import image7 from '../../assets/home1/app1.png';
+
+const images = [
+  { src: image2, text: "Empowering smarter decisions through intelligent AI solutions." },
+  { src: image3, text: "Scalable cloud services for seamless digital transformation." },
+  { src: image4, text: "Modern, responsive web solutions for every business." },
+  { src: image5, text: "Turning raw data into powerful business insights." },
+  { src: image6, text: "Connecting devices to drive real-time smart solutions." },
+  { src: image7, text: "Robust application development for agile business growth." }
+];
 
 const ImageComponent = () => {
   const [visibleImageIndex, setVisibleImageIndex] = useState(0);
+  const typedRef = useRef(null);
+  const typedInstance = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setVisibleImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4000); // Change visible image every 4 seconds
-
-    return () => clearInterval(interval); // Cleanup interval on component unmount
+    }, 4000);
+    return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (typedInstance.current) {
+      typedInstance.current.destroy();
+    }
+
+    if (typedRef.current) {
+      typedRef.current.innerHTML = '';
+      typedInstance.current = new Typed(typedRef.current, {
+        strings: [images[visibleImageIndex].text],
+        typeSpeed: 30,
+        backSpeed: 20,
+        loop: false,
+        showCursor: false,
+      });
+    }
+
+    return () => {
+      if (typedInstance.current) {
+        typedInstance.current.destroy();
+      }
+    };
+  }, [visibleImageIndex]);
 
   return (
     <div className="image-container">
-      <AnimatePresence>
-        {images.map((image, index) => (
-          <motion.div
-            key={index}
-            className={`image-wrapper image-${index}`} // Apply a unique class based on the index
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: visibleImageIndex === index ? 1 : 0, scale: visibleImageIndex === index ? 1 : 0.9 }}
-            exit={{ opacity: 0, scale: 1.1 }}
-            transition={{ duration: 1.5 }}
-            style={{ maxWidth: '100%', display: visibleImageIndex === index ? 'block' : 'none' }} // Ensure responsiveness
-          >
-            <motion.img
-              src={image}
-              alt={`Sample ${index}`}
-              className="overlay-image"
-            />
-          </motion.div>
-        ))}
-      </AnimatePresence>
+      <motion.div
+        key={visibleImageIndex}
+        className="image-wrapper"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5 }}
+      >
+        <motion.img
+          src={images[visibleImageIndex].src}
+          alt={`Slide ${visibleImageIndex}`}
+          className="overlay-image"
+        />
+      </motion.div>
+      <div className="typing-effect">
+        <span ref={typedRef} />
+      </div>
     </div>
   );
 };

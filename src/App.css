@@ -1,70 +1,87 @@
 /* src/App.css */
 
+
 /* Global Styles */
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #2F2F9E; /* Primary Text Color */
-  background-color: #F3F8FD; /* Light Background Shade */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #2F2F9E;
+    /* Primary Text Color */
+    background-color: #F3F8FD;
+    /* Light Background Shade */
 }
+
 
 /* Layout Styles */
 
 .ant-layout {
-  min-height: 100vh;
-  background-color: #F3F8FD; /* Light Background for Consistency */
+    /* min-height: 100vh; */
+    background-color: #F3F8FD;
+    /* Light Background for Consistency */
 }
 
 .ant-layout-header {
-  background-color: #009EDB; /* Primary Header Color */
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background-color: #009EDB;
+    /* Primary Header Color */
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .ant-layout-content {
-  background-color: #fff; /* Keep Content Area White for Contrast */
-  border: 1px solid #D0E6F9; /* Subtle Border */
+    background-color: #fff;
+    /* Keep Content Area White for Contrast */
+    border: 1px solid #D0E6F9;
+    /* Subtle Border */
 }
 
 .ant-layout-footer {
-  background-color: #2F2F9E; /* Footer Background Color */
-  color: #fff; /* Text Color for Footer */
-  padding: 10px 20px;
-  text-align: center;
-  clear: both;
+    background-color: #2F2F9E;
+    /* Footer Background Color */
+    color: #fff;
+    /* Text Color for Footer */
+    padding: 10px 20px;
+    text-align: center;
+    clear: both;
 }
+
 
 /* Header Styles */
 
-.ant-menu-dark.ant-menu-horizontal > .ant-menu-item {
-  margin: 0 20px;
-  color: #fff; /* Menu Item Text Color */
+.ant-menu-dark.ant-menu-horizontal>.ant-menu-item {
+    margin: 0 20px;
+    color: #fff;
+    /* Menu Item Text Color */
 }
 
-.ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
-  background-color: #007BB5; /* Hover Effect - Slightly Darker Blue */
+.ant-menu-dark.ant-menu-horizontal>.ant-menu-item:hover {
+    background-color: #007BB5;
+    /* Hover Effect - Slightly Darker Blue */
 }
 
-.ant-menu-dark.ant-menu-horizontal > .ant-menu-item-selected {
-  background-color: #007BB5; /* Selected Menu Item Color */
+.ant-menu-dark.ant-menu-horizontal>.ant-menu-item-selected {
+    background-color: #007BB5;
+    /* Selected Menu Item Color */
 }
+
 
 /* Footer Styles */
 
 .ant-layout-footer a {
-  color: #FFD700; /* Gold for Links to Stand Out */
-  text-decoration: none;
+    color: #FFD700;
+    /* Gold for Links to Stand Out */
+    text-decoration: none;
 }
 
 .ant-layout-footer a:hover {
-  color: #FFFACD; /* Light Golden Hover Effect */
+    color: #FFFACD;
+    /* Light Golden Hover Effect */
 }

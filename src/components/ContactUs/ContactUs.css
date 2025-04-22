@@ -1,10 +1,12 @@
 /* ContactUs.css */
+
 .contact-us-container {
     padding: 10px;
-    background: #007676; /* Gradient background */
-  }
-  
-  .contact-us-form-container {
+    background: #007676;
+    /* Gradient background */
+}
+
+.contact-us-form-container {
     /* max-width: 1200px; */
     color: #fff;
     margin: 0 auto;
@@ -12,105 +14,116 @@
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
+}
+
 .ant-typography {
     color: black;
     text-align: center;
-  }
-  
-  .contact-us-paragraph {
+}
 
+.contact-us-paragraph {
     text-align: center;
     margin-bottom: 30px;
-  }
-  
-  .social-media-section {
-   /* border: 2px solid black; */
+}
+
+.social-media-section {
+    /* border: 2px solid black; */
     text-align: center;
     margin-top: 10%;
-  }
-  
-  .social-media-buttons {
+}
+
+.social-media-buttons {
     justify-content: center;
-  }
-  
-  .contact-us-email {
+}
+
+.contact-us-email {
     font-weight: bold;
     color: #1890ff;
     text-decoration: underline;
-  }
- 
-  .social-media-link {
+}
+
+.social-media-link {
     cursor: pointer;
     display: inline-block;
     margin-right: 10px;
-    z-index: 10; /* Ensure links are clickable */
-  }
-  
-  .social-media-link a {
+    z-index: 10;
+    /* Ensure links are clickable */
+}
+
+.social-media-link a {
     color: inherit;
     text-decoration: none;
-  }
-  
-  .social-media-link a:hover {
+}
+
+.social-media-link a:hover {
     color: #40a9ff;
-  }
-  
-  /* Hover Effects for Form Inputs */
-  input:focus, textarea:focus {
+}
+
+
+/* Hover Effects for Form Inputs */
+
+input:focus,
+textarea:focus {
     border-color: #40a9ff;
     box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #1890ff;
     color: #fff;
-  }
-  
-  /* Hover Effects for Social Media Links */
-  button[type="link"]:hover {
+}
+
+
+/* Hover Effects for Social Media Links */
+
+button[type="link"]:hover {
     color: #40a9ff;
-  }
-  
-  button[type="link"]:focus {
+}
+
+button[type="link"]:focus {
     color: #1890ff;
-  }
-  
-  /* Hover Effects for Social Media Icons */
-  .social-media-buttons button {
+}
+
+
+/* Hover Effects for Social Media Icons */
+
+.social-media-buttons button {
     transition: all 0.3s ease-in-out;
-  }
-  
-  .social-media-buttons button:hover {
+}
+
+.social-media-buttons button:hover {
     transform: scale(1.2);
     color: #40a9ff;
-  }
-  
-  /* Style for Button Icons */
-  .ant-btn-link {
+}
+
+
+/* Style for Button Icons */
+
+.ant-btn-link {
     font-size: 24px;
     padding: 10px;
-  }
-  
-  /* Hover Effect for Divider */
-  .contact-us-divider {
+}
+
+
+/* Hover Effect for Divider */
+
+.contact-us-divider {
     margin: 14px 0px 7px;
     border-top: 1px solid #000000;
     transition: all 0.3s ease-in-out;
-  }
-  
-  .contact-us-divider:hover {
+}
+
+.contact-us-divider:hover {
     border-top: 1px solid #40a9ff;
-  }
-  
-  .company-info{
+}
+
+.company-info {
     /* border: 2px solid red;  */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-  }
+}
 
-  .divider2{
+.divider2 {
     margin-top: 10%;
-  }
+}

@@ -3,10 +3,17 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Layout, ConfigProvider } from 'antd';
 import LandingContent from './components/LandingContent';
 import FooterComponent from './components/Footer';
-import ContactUs from './components/ContactUs/ContactUs';
-import Navbar from './components/Header/Navbar';
-import AboutUs from './components/home3/AboutUs';
+import Contact from './pages/Contact';
+import Navbar from './components/Header/NavBar';
+import NewsPage from './pages/NewsPage';
+//import AboutUs from './components/home3/AboutUs';
+import AboutUs from './pages/AboutUs';
 import './App.css';
+import ServicesPage from './pages/ServicesPage';
+import ProductsPage from './pages/Productspage';
+import Culture from './pages/Culture';
+import SuccessStories from './pages/SuccessStories';
+import CaseStudies from './pages/CaseStudies';
 
 const { Content } = Layout;
 
@@ -27,7 +34,18 @@ const App = () => {
           <Content>
             <Routes>
               <Route path="/" element={<LandingContent />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/news" element={<NewsPage />} />
+              <Route path="/products" element={<ProductsPage />} />
+              <Route path="/success-stories" element={<SuccessStories />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
 
+              
+
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/culture" element={<Culture />} />
+              
             </Routes>
           </Content>
 

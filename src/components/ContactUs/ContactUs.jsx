@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { Form, Input, Button, Typography, notification, Row, Col, Divider, Card, message } from 'antd';
 import {
@@ -9,7 +7,11 @@ import {
   YoutubeOutlined,
   PhoneOutlined,
   MailOutlined,
-  EnvironmentOutlined
+  EnvironmentOutlined,
+  FacebookFilled,
+  InstagramFilled,
+  LinkedinFilled,
+  YoutubeFilled
 } from '@ant-design/icons';
 import './ContactUs.css'; // Ensure this path is correct
 import ContactApi from '../../Redux/APIs/Contact';
@@ -100,36 +102,55 @@ const ContactUs = () => {
             <Card className="contact-info-card" style={{ height: '100%'}}>
               <div className="social-media-section">
                 {/* Company Address Section */}
-                <section className='company-info'>
-                  <div className="company-address-section">
-                    <Title level={4}><EnvironmentOutlined /> Our Address</Title>
-                    <Divider className="contact-us-divider" />
-                    <Paragraph style={{ marginBottom: 0, color: 'black' }}>
-                      <strong>Prushal Technology Pvt. Ltd.</strong><br />
-                      Flat No: 401, Vrindavan<br />
-                      Society, near Samindradevi<br />
-                      Market, Baif Road, Wagholi,<br />
-                      Pune, MH – 412207
-                    </Paragraph>
-                  </div>
+                <Row gutter={20} style={{ height: '100%' }}>
+                  <Col span={8} style={{ height: '100%' }}>
+                    <div className="company-address-section" style={{ height: '100%' }}>
+                      <Title level={4}><EnvironmentOutlined /> Our Address</Title>
+                      <Divider className="contact-us-divider" />
+                      <Paragraph style={{ marginBottom: 0, color: 'black' }}>
+                        <strong>Prushal Technology Pvt. Ltd.</strong><br />
+                        Flat No: 401, Vrindavan<br />
+                        Society, near Samindradevi<br />
+                        Market, Baif Road, Wagholi,<br />
+                        Pune, MH – 412207
+                      </Paragraph>
+                    </div>
+                  </Col>
 
-                  <div className="contact-container">
-                    <Title level={4}><PhoneOutlined /> Contact</Title>
-                    <Divider className="contact-us-divider" />
-                    <div className="contact-item">
-                      <a href="tel:+919850113269"> (+91) 9850113269</a>
+                  <Col span={8} style={{ height: '100%' }}>
+                    <div className="contact-container" style={{ height: '100%' }}>
+                      <Title level={4}><PhoneOutlined /> Contact</Title>
+                      <Divider className="contact-us-divider" />
+                      <div className="contact-item">
+                        <a href="tel:+919850113269"> (+91) 9850113269</a>
+                      </div>
+                      <div className="contact-item">
+                        <a href="tel:+919850603269"> (+91) 9850603269</a>
+                      </div>
+                      <div className="contact-item">
+                        <a href="tel:+919850803269"> (+91) 9850803269</a>
+                      </div>
+                      <div className="contact-item">
+                        <a href="tel:+919762203269"> (+91) 9762203269</a>
+                      </div>
                     </div>
-                    <div className="contact-item">
-                      <a href="tel:+919850603269"> (+91) 9850603269</a>
+                  </Col>
+
+                  <Col span={8} style={{ height: '100%' ,marginTop: '15px'}}>
+                    <div className="map-section" style={{ height: '100%' }}>
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d682.6188161467643!2d73.98006358889943!3d18.574471260457578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c3fbd4314181%3A0x8dd7d41e1bdef971!2sSachin%20Wanis%20house!5e1!3m2!1sen!2sin!4v1743762710000!5m2!1sen!2sin"
+                        width="100%"
+                        height="100%"
+                        style={{ border: "0" }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Google Maps"
+                      ></iframe>
                     </div>
-                    <div className="contact-item">
-                      <a href="tel:+919850803269"> (+91) 9850803269</a>
-                    </div>
-                    <div className="contact-item">
-                      <a href="tel:+919762203269"> (+91) 9762203269</a>
-                    </div>
-                  </div>
-                </section>
+                  </Col>
+                </Row>
 
                 <Divider className="divider2" />
 
@@ -144,7 +165,7 @@ const ContactUs = () => {
                     <a href="https://www.facebook.com/prushal" target="_blank" rel="noopener noreferrer" className="social-media-link">
                       <Button
                         type="link"
-                        icon={<FacebookOutlined style={{ fontSize: '24px', color: '#3b5998' }} />}
+                        icon={<FacebookFilled style={{ fontSize: '24px', color: '#3b5998' }} />}
                       />
                     </a>
                   </Col>
@@ -152,7 +173,7 @@ const ContactUs = () => {
                     <a href="https://www.instagram.com/prushaltech/" target="_blank" rel="noopener noreferrer" className="social-media-link">
                       <Button
                         type="link"
-                        icon={<InstagramOutlined style={{ fontSize: '24px', color: '#e4405f' }} />}
+                        icon={<InstagramFilled style={{ fontSize: '24px', color: '#e4405f' }} />}
                       />
                     </a>
                   </Col>
@@ -160,7 +181,7 @@ const ContactUs = () => {
                     <a href="https://www.linkedin.com/company/prushal-technology-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="social-media-link">
                       <Button
                         type="link"
-                        icon={<LinkedinOutlined style={{ fontSize: '24px', color: '#0077b5' }} />}
+                        icon={<LinkedinFilled style={{ fontSize: '24px', color: '#0077b5' }} />}
                       />
                     </a>
                   </Col>
@@ -168,7 +189,7 @@ const ContactUs = () => {
                     <a href="https://www.youtube.com/@prushaltechnology8846" target="_blank" rel="noopener noreferrer" className="social-media-link">
                       <Button
                         type="link"
-                        icon={<YoutubeOutlined style={{ fontSize: '24px', color: '#ff0000' }} />}
+                        icon={<YoutubeFilled style={{ fontSize: '24px', color: '#ff0000' }} />}
                       />
                     </a>
                   </Col>

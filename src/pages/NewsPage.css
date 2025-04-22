@@ -1,0 +1,32 @@
+/* NewsPage.css */
+
+
+/* General styles */
+
+.card-content {
+    padding: 12px;
+}
+
+
+/* Card Styles */
+
+.ant-card-body {
+    padding: 12px;
+}
+
+
+/* Category Tag Styles */
+
+.ant-tag {
+    margin-bottom: 8px;
+}
+
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+    .ant-col-xs-24 {
+        margin-bottom: 16px;
+        /* Add spacing between cards on smaller screens */
+    }
+}
