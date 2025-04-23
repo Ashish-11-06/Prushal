@@ -1,4 +1,4 @@
-import { Button, Typography, Tag } from 'antd';
+import { Button, Typography, Tag, Grid } from 'antd';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
@@ -80,14 +80,20 @@ const fadeIn = (direction = 'up', delay = 0) => ({
     y: 0,
     x: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.4,
       delay,
       ease: 'easeOut',
     },
   },
 });
 
+const { useBreakpoint } = Grid;
+
 const ProductsPage = () => {
+
+  const screens = useBreakpoint();
+  const isMobile = !screens.sm;
+
   const [heroRef, heroInView] = useInView({ triggerOnce: true });
   const navigate = useNavigate();
 
@@ -118,7 +124,7 @@ const ProductsPage = () => {
               level={1}
               style={{
                 fontWeight: 700,
-                fontSize: '42px',
+                fontSize: isMobile ? '28px' : '42px',
                 color: '#007676',
                 textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
                 marginBottom: '10px',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Button, Card } from 'antd';
+import { Row, Col, Button, Card, Grid } from 'antd';
 import { motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -44,16 +44,12 @@ const testimonials = [
   //   name: "Neha Patel",
   //   role: "Scrum Master"
   // },
+ 
   {
-    quote: "“The mentorship culture has accelerated my growth exponentially. Senior colleagues invest time in knowledge sharing without hesitation.”",
-    name: "Samruddhi Manikeri",
-    role: "Junior Developer"
+    quote: "“Remote collaboration feels natural here. The digital tools and meeting rhythms maintain strong team connectivity across timezones.”",
+    name: "Divyansh Sharma",
+    role: "Senior developer"
   },
-  // {
-  //   quote: "“Remote collaboration feels natural here. The digital tools and meeting rhythms maintain strong team connectivity across timezones.”",
-  //   name: "Sonia Desai",
-  //   role: "Remote Team Lead"
-  // },
   {
     quote: "“Conflict resolution is handled with remarkable maturity. Disagreements become opportunities to find better solutions together.”",
     name: "Ashish Bhosale",
@@ -68,12 +64,23 @@ const testimonials = [
     quote: "“The 'fail fast' culture removes fear. Teams innovate boldly knowing they have organizational support when experiments don't work out.”",
     name: "Kiran Gaikwad",
     role: "Junior Developer"
+  },
+  {
+    quote: "“The mentorship culture has accelerated my growth exponentially. Senior colleagues invest time in knowledge sharing without hesitation.”",
+    name: "Samruddhi Manikeri",
+    role: "Junior Developer"
   }
 ];
 
+const { useBreakpoint } = Grid;
+
 const Culture = () => {
+
+  const screens = useBreakpoint();
+  const isMobile = !screens.sm;
+
   return (
-    <div className="culture-page">
+    <div className="culture-page" style={{ padding: isMobile ? '5px' : '40px',}}>
 
       {/* Hero Section */}
       <section className="hero">
@@ -85,8 +92,8 @@ const Culture = () => {
     whileHover={{ scale: 1.02 }} 
     className="hero-content"
   >
-    <h2 className="hero-heading">We don’t just work. We grow together.</h2>
-    <p className="hero-subheading">Explore our culture that fuels innovation, collaboration, and joy.</p>
+    <h2 className="hero-heading" style={{background: ' #fdfdfd',  fontSize: isMobile ? '28px' : '42px',}}> We don’t just work. We grow together.</h2>
+    <p className="hero-subheading" style={{background: ' #fdfdfd'}}>Explore our culture that fuels innovation, collaboration, and joy.</p>
     <Button type="primary" className="hero-button">Join Us</Button>
   </motion.div>
 </section>
@@ -164,7 +171,7 @@ const Culture = () => {
   <div className="carousel-wrapper">
     <motion.div
       className="carousel-track"
-      animate={{ x: ['0%', '-50%'] }}
+      animate={{ x: ['-50%', '0%'] }}
       transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
     >
       {[...Array(2)].flatMap(() =>
@@ -192,37 +199,76 @@ const Culture = () => {
 
 
 {/* Testimonials */}
-<section className="testimonials">
-  <h2 className="testimonial-title">What Our People Say</h2>
-  <div className="testimonial-row">
-    {testimonials.map((testimonial, index) => (
-      <motion.div
-        className="testimonial-card"
-        key={index}
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: index * 0.3, duration: 0.6 }}
-        style={{ minHeight: '250px' }} // Add fixed minimum height
+<section className="testimonials" style={{ padding: '40px 20px' }}>
+  <h2 className="testimonial-title" style={{ textAlign: 'center', marginBottom: 40 }}>
+    What Our People Say
+  </h2>
+ 
+  <div
+  className="testimonial-row"
+  style={{
+    display: 'flex',
+    overflowX: 'auto',
+    gap: 24,
+    paddingBottom: 16,
+    scrollSnapType: 'x mandatory',
+  }}
+>
+<motion.div
+      className="carousel-track"
+      // animate={{ x: ['0%', '-50%'] }}
+      transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
+    >
+  {testimonials.map((testimonial, index) => (
+    <motion.div
+      className="testimonial-card"
+      key={index}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.2, duration: 0.4 }}
+      style={{
+        flex: '0 0 auto',
+        width: 300,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        padding: 20,
+        borderRadius: 16,
+        boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+        backgroundColor: '#fff',
+        scrollSnapAlign: 'start',
+      }}
+    >
+      <p
+        className="quote"
+        style={{
+          marginBottom: 20,
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          display: '-webkit-box',
+          WebkitLineClamp: 5,
+          WebkitBoxOrient: 'vertical',
+          lineHeight: 1.6,
+        }}
       >
-        <div className="chat-box" style={{ height: '100%' }}> {/* Make chat box fill container */}
-          <p className="quote" style={{ 
-            marginBottom: '20px',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            display: '-webkit-box',
-            WebkitLineClamp: 5, // Limit to 5 lines max
-            WebkitBoxOrient: 'vertical'
-          }}>
-            {testimonial.quote}
-          </p>
-          <div className="author-info" style={{ marginTop: 'auto', height: '100%' }}> {/* Push to bottom */}
-            <p className="author"><strong>{testimonial.name}</strong></p>
-            <p className="role">{testimonial.role}</p>
-          </div>
-        </div>
-      </motion.div>
-    ))}
-  </div>
+        {testimonial.quote}
+      </p>
+
+      <div className="author-info">
+        <p className="author" style={{ fontWeight: 'bold', marginBottom: 4 }}>
+          - {testimonial.name}
+        </p>
+        <p className="role" style={{ color: '#777' }}>
+          {testimonial.role}
+        </p>
+      </div>
+    </motion.div>
+  ))}
+  </motion.div>
+</div>
+
+
+
 </section>
 
 

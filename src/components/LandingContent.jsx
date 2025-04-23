@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Typography, Row, Col, Card, Button, Layout } from 'antd'; // Import AntD components
+import { Typography, Row, Col, Card, Button, Layout, Grid } from 'antd'; // Import AntD components
 import { motion } from 'framer-motion';
 import ServicesList from './ServicesList';
 import AnimatedBackground from '../components/Animation/AnimatedBackground';
@@ -19,7 +19,13 @@ import AboutUs from './home3/AboutUs';
 const { Title, Paragraph } = Typography;
 const { Content } = Layout;
 
+const { useBreakpoint } = Grid;
+
 const LandingContent = () => {
+  
+  const screens = useBreakpoint();
+  const isMobile = !screens.sm;
+
   const letterData = useMemo(() => [
     { letter: 'P', meaning: 'Pioneering' },
     { letter: 'R', meaning: 'Research and' },
@@ -115,7 +121,7 @@ const LandingContent = () => {
         </div>
 
         {/* Services Section */}
-        <Row justify="center" style={{ padding: '50px' }}>
+        <Row justify="center" style={{ padding: isMobile ? "6px" : "50px" }}>
           <Col span={24}>
             <Card bordered={false} style={{ borderRadius: '10px' }}>
               <ServicesList />
@@ -127,14 +133,16 @@ const LandingContent = () => {
         <HeroSection />
 
         {/* Offerings Section */}
-        <Row gutter={[16, 16]} style={{ padding: "50px", paddingBottom: "0" }}>
+        <Row gutter={[16, 16]} style={{  padding: isMobile ? "6px" : "50px", paddingBottom: "0" }}>
           <Col xs={24} md={8} style={{ display: "flex" }}>
-            <Card bordered={false} style={{ width: "100%", height: "100%" }}>
-              <AnalyticsOffering />
-            </Card>
+          {!screens.xs && (
+        <Card bordered={false} style={{ width: '100%', height: '100%' }}>
+          <AnalyticsOffering />
+        </Card>
+      )}
           </Col>
           <Col xs={24} md={16} style={{ display: "flex" }}>
-            <Card bordered={false} style={{ width: "100%", height: "100%" }}>
+            <Card bordered={false} style={{ width: "100%", height: "100%"}}>
               <CapabilitiesOffering />
               <CircularAnimation />
             </Card>

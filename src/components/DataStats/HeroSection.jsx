@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import './HeroSection.css';
@@ -58,7 +57,7 @@ const HeroSection = () => {
           animateCount();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 } // Lower threshold for mobile
     );
 
     if (statsRef.current) observer.observe(statsRef.current);
@@ -74,7 +73,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }} // Adjust margin for mobile
         >
           <h1 className="hero-title">
             10 <span className="highlight-text">years </span>of Expertise in Data Science, Web Development for Digital Transformation, and Branding Management
@@ -82,7 +81,6 @@ const HeroSection = () => {
           <p className="hero-subtitle">
             Let Prushal transform your Raw Data to Real Results and help you achieve your goals.
           </p>
-         
         </motion.div>
 
         <motion.div 
@@ -90,7 +88,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }} // Adjust margin for mobile
         >
           <div className="hero-image" />
         </motion.div>
@@ -102,7 +100,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }} // Adjust margin for mobile
         >
           <h2>{clients}+</h2>
           <p>Associates</p>
@@ -113,7 +111,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           <h2>{projects}+</h2>
           <p>Projects</p>
@@ -124,7 +122,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           <h2>{companies}+</h2>
           <p>Companies</p>
@@ -135,7 +133,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           <h2>{dataScientists}+</h2>
           <p>Data Scientists</p>

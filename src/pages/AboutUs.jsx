@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 import "./AboutUs.css";
-import { Row, Col, Card, Typography, Image, Modal } from "antd";
+import { Row, Col, Card, Typography, Image, Modal, Grid } from "antd";
 import ceoimage from "../assets/kushalsharma.png";
 import Aboutimage from "../assets/about.png";
 import { LinkedinFilled } from "@ant-design/icons";
@@ -24,7 +24,13 @@ import "slick-carousel/slick/slick-theme.css";
 
 const { Title, Paragraph } = Typography;
 
+const { useBreakpoint } = Grid;
+
 const AboutUs = () => {
+
+  const screens = useBreakpoint();
+  const isMobile = !screens.sm;
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedMember, setSelectedMember] = useState(null);
 
@@ -61,7 +67,7 @@ const AboutUs = () => {
     <motion.div
       style={{
         textAlign: "center",
-        padding: "50px",
+        padding: isMobile ? '20px' : '50px',
         background: "linear-gradient(135deg, #f3f3f3, #ffffff)",
         minHeight: "100vh",
       }}
@@ -213,7 +219,7 @@ const AboutUs = () => {
             />
           </Col>
         </Row>
-      </div>...
+      </div>
       <Row
         gutter={[24, 24]}
         justify="center"
@@ -460,113 +466,63 @@ const AboutUs = () => {
       <Title level={2} style={{ marginTop: "50px", color: "#2980b9" }}>
         Achievements
       </Title>
-      <Row gutter={[16, 16]} justify="center" style={{ marginTop: "40px" }}>
-        <Col xs={8} sm={8} md={8} lg={8}>
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <Card
-              hoverable
-              style={{
-                width: "100%",
-                height: "150px",
-                textAlign: "center",
-                boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)",
-                backgroundColor: "#f9f9f9",
-                borderRadius: "10px",
-              }}
-            >
-              <CountUp
-                start={0}
-                end={50}
-                duration={2}
-                suffix="+"
-                style={{
-                  fontSize: "36px",
-                  fontWeight: "bold",
-                  color: "#333",
-                  marginBottom: "10px",
-                }}
-              />
-              <Paragraph style={{ color: "#777" }}>Projects Completed</Paragraph>
-            </Card>
-          </motion.div>
-        </Col>
-        <Col xs={8} sm={8} md={8} lg={8}>
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <Card
-              hoverable
-              style={{
-                width: "100%",
-                height: "150px",
-                textAlign: "center",
-                boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)",
-                backgroundColor: "#f9f9f9",
-                borderRadius: "10px",
-              }}
-            >
-              <CountUp
-                start={0}
-                end={30}
-                duration={2}
-                suffix="+"
-                style={{
-                  fontSize: "36px",
-                  fontWeight: "bold",
-                  color: "#333",
-                  marginBottom: "10px",
-                }}
-              />
-              <Paragraph style={{ color: "#777" }}>Clients Served</Paragraph>
-            </Card>
-          </motion.div>
-        </Col>
-        <Col xs={8} sm={8} md={8} lg={8}>
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <Card
-              hoverable
-              style={{
-                width: "100%",
-                height: "150px",
-                textAlign: "center",
-                boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)",
-                backgroundColor: "#f9f9f9",
-                borderRadius: "10px",
-              }}
-            >
-              <CountUp
-                start={0}
-                end={12}
-                duration={2}
-                suffix="+"
-                style={{
-                  fontSize: "36px",
-                  fontWeight: "bold",
-                  color: "#333",
-                  marginBottom: "10px",
-                }}
-              />
-              <Paragraph style={{ color: "#777" }}>Awards Won</Paragraph>
-            </Card>
-          </motion.div>
-        </Col>
-      </Row>
+      <Row gutter={[16, 16]} justify="center" style={{ marginTop: "40px" }} className="main-container">
+  {[{
+    end: 50,
+    text: "Projects Completed"
+  }, {
+    end: 30,
+    text: "Clients Served"
+  }, {
+    end: 12,
+    text: "Awards Won"
+  }].map((item, index) => (
+    <Col
+      key={index}
+      xs={24} sm={12} md={8} lg={8} xl={6}
+      className="box"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 300 }}
+      >
+        <Card
+          hoverable
+          style={{
+            width: "100%",
+            height: "150px",
+            textAlign: "center",
+            boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)",
+            backgroundColor: "#f9f9f9",
+            borderRadius: "10px",
+          }}
+        >
+          <CountUp
+            start={0}
+            end={item.end}
+            duration={2}
+            suffix="+"
+            style={{
+              fontSize: "36px",
+              fontWeight: "bold",
+              color: "#333",
+              marginBottom: "10px",
+            }}
+          />
+          <Paragraph style={{ color: "#777" }}>{item.text}</Paragraph>
+        </Card>
+      </motion.div>
+    </Col>
+  ))}
+</Row>
+
       {/* Social Media Section show proper react icons an dwe will link it later */}
-      {/* <div
+      <div
         style={{
           marginTop: "50px",
           padding: "20px 0",
-          backgroundColor: "#f0f0f0",
+          // backgroundColor: "#f0f0f0",
         }}
       >
         <Title level={3} style={{ marginBottom: "20px", color: "#2980b9" }}>
@@ -584,7 +540,7 @@ const AboutUs = () => {
           >
             <FaFacebook />
           </motion.a>
-          <motion.a
+          {/* <motion.a
             href="https://www.twitter.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -592,9 +548,9 @@ const AboutUs = () => {
             whileHover={{ scale: 1.2 }}
           >
             <FaTwitter />
-          </motion.a>
+          </motion.a> */}
           <motion.a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/prushaltech/"
             target="_blank"
             rel="noopener noreferrer"
             style={{ fontSize: "24px", color: "#E4405F" }}
@@ -603,7 +559,7 @@ const AboutUs = () => {
             <FaInstagram />
           </motion.a>
           <motion.a
-            href="https://www.youtube.com"
+            href="https://www.youtube.com/@prushaltechnology8846"
             target="_blank"
             rel="noopener noreferrer"
             style={{ fontSize: "24px", color: "#FF0000" }}
@@ -612,7 +568,7 @@ const AboutUs = () => {
             <FaYoutube />
           </motion.a>
           <motion.a
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/company/prushal-technology-pvt-ltd"
             target="_blank"
             rel="noopener noreferrer"
             style={{ fontSize: "24px", color: "#0077B5" }}
@@ -632,7 +588,7 @@ const AboutUs = () => {
         </div>
 
         
-      </div>  */}
+      </div> 
     </motion.div>
 
   );
