@@ -58,7 +58,7 @@ The tool is now used by over 50+ enterprise clients and supports email notificat
       tech: [ 'Django', 'SQLite', 'REST API', 'NLP', 'Transformer Models', 'WebSockets'],
       desc: `A hybrid chatbot solution combining rule-based systems with LLM capabilities for enterprise use. 
   The platform offers both text and voice-based interactions with company-specific knowledge bases. 
-  Rule-based components handle structured workflows while the LLM (GPT-3.5/4) manages open-ended conversations. 
+  Rule-based components handle structured workflows while the LLM manages open-ended conversations. 
   Features include sentiment analysis, conversation history, and seamless handoff between rule-based and AI modes. 
   The system integrates with company databases to provide personalized responses and can be trained on domain-specific documents. 
   Includes analytics dashboard showing conversation metrics, user satisfaction, and common query patterns. 
