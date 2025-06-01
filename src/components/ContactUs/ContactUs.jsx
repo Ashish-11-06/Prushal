@@ -1,18 +1,10 @@
 import React from 'react';
 import { Form, Input, Button, Typography, notification, Row, Col, Divider, Card, message } from 'antd';
 import {
-  FacebookOutlined,
-  InstagramOutlined,
-  LinkedinOutlined,
-  YoutubeOutlined,
   PhoneOutlined,
   MailOutlined,
   EnvironmentOutlined,
-  FacebookFilled,
-  InstagramFilled,
-  LinkedinFilled,
-  YoutubeFilled
-} from '@ant-design/icons';
+  } from '@ant-design/icons';
 import './ContactUs.css'; // Ensure this path is correct
 import ContactApi from '../../Redux/APIs/Contact';
 
@@ -34,14 +26,17 @@ const ContactUs = () => {
     <div>
       <div className="contact-us-form-container">
         <Title level={2} className="contact-us-title">Contact Us</Title>
-        <Paragraph className="contact-us-paragraph" style={{ color: 'white' }}>
+        <Paragraph className="contact-us-paragraph">
           We'd love to hear from you! Please fill out the form below and we will get back to you as soon as possible.
         </Paragraph>
 
         <Row gutter={40}>
           {/* Left Column: Contact Form */}
           <Col xs={24} md={12} style={{marginTop: '10px'}}>
-            <Card className="contact-form-card" style={{ height:'100%'}}>
+<Card
+  className="contact-form-card"
+  style={{ height: '100%', border: '1px solid #1296db ' }}
+>
               <Form onFinish={onFinish} layout="vertical" >
                 <Form.Item
                   label="Name"
@@ -99,10 +94,13 @@ const ContactUs = () => {
 
           {/* Right Column: Social Media, Quick Links, Contact Email, and Address */}
           <Col xs={24} md={12} style={{marginTop: '10px'}}>
-            <Card className="contact-info-card" style={{ height: '100%'}}>
+<Card
+  className="contact-info-card"
+  style={{ height: '100%', border: '1px solid #1296db' }}
+>
               <div className="social-media-section">
                 {/* Company Address Section */}
-                <Row gutter={20} style={{ height: '100%' }}>
+                <Row gutter={20} style={{marginTop: '24px',height:'256px'}}>
                   <Col span={8} style={{ height: '100%' }}>
                     <div className="company-address-section" style={{ height: '100%' }}>
                       <Title level={4}><EnvironmentOutlined /> Our Address</Title>
@@ -159,42 +157,7 @@ const ContactUs = () => {
                   <MailOutlined /> For inquiries, you can reach us directly at:
                   <a href="mailto:info@prushal.com" className="contact-us-email"> info@prushal.com</a>
                 </Paragraph>
-
-                <Row gutter={20} className="social-media-buttons">
-                  <Col>
-                    <a href="https://www.facebook.com/prushal" target="_blank" rel="noopener noreferrer" className="social-media-link">
-                      <Button
-                        type="link"
-                        icon={<FacebookFilled style={{ fontSize: '24px', color: '#3b5998' }} />}
-                      />
-                    </a>
-                  </Col>
-                  <Col>
-                    <a href="https://www.instagram.com/prushaltech/" target="_blank" rel="noopener noreferrer" className="social-media-link">
-                      <Button
-                        type="link"
-                        icon={<InstagramFilled style={{ fontSize: '24px', color: '#e4405f' }} />}
-                      />
-                    </a>
-                  </Col>
-                  <Col>
-                    <a href="https://www.linkedin.com/company/prushal-technology-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="social-media-link">
-                      <Button
-                        type="link"
-                        icon={<LinkedinFilled style={{ fontSize: '24px', color: '#0077b5' }} />}
-                      />
-                    </a>
-                  </Col>
-                  <Col>
-                    <a href="https://www.youtube.com/@prushaltechnology8846" target="_blank" rel="noopener noreferrer" className="social-media-link">
-                      <Button
-                        type="link"
-                        icon={<YoutubeFilled style={{ fontSize: '24px', color: '#ff0000' }} />}
-                      />
-                    </a>
-                  </Col>
-                </Row>
-              </div>
+                </div>
             </Card>
           </Col>
         </Row>

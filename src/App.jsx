@@ -11,9 +11,18 @@ import AboutUs from './pages/AboutUs';
 import './App.css';
 import ServicesPage from './pages/ServicesPage';
 import ProductsPage from './pages/Productspage';
+import PartnersPage from './pages/PartnersPage';
+import ProjectsPage from './pages/ProjectsPage';
 import Culture from './pages/Culture';
 import SuccessStories from './pages/SuccessStories';
-import CaseStudies from './pages/CaseStudies';
+import Resources from './pages/Resources';
+  
+import ProductDetail from './pages/ProductDetail';    
+import CaseStudies from './pages/CaseStudies';  
+import Awards from './pages/Awards'; 
+import TeamPage from './pages/TeamPage';   
+import ScrollToTop from './components/ScrollToTop';    
+import ChatBot from './components/chatbot/ChatBot';                          
 
 const { Content } = Layout;
 
@@ -21,7 +30,7 @@ const App = () => {
   const theme = {
     token: {
       colorPrimary: '#009EDB', // Primary color
-      colorBgContainer: '#ddf9fd', // Background color for containers
+      colorBgContainer: '#EAEFEF', // Background color for containers
       colorText: '#000', // Text color
     },
   };
@@ -29,6 +38,8 @@ const App = () => {
   return (
     <ConfigProvider theme={theme}>
       <Router>
+              <ScrollToTop />
+
         <Navbar />
         <Layout>
           <Content>
@@ -38,13 +49,29 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/news" element={<NewsPage />} />
               <Route path="/products" element={<ProductsPage />} />
+              <Route path="/partners" element={<PartnersPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/success-stories" element={<SuccessStories />} />
               <Route path="/case-studies" element={<CaseStudies />} />
-
-              
-
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/culture" element={<Culture />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/products/:id" element={<ProductDetail />} />
+              <Route path="/case-studies/:id" element={<CaseStudies />} />
+              <Route path="/awards" element={<Awards />} />
+              <Route path="/team" element={<TeamPage />} />
+
+              
+              
+              {/* Add more routes as needed */}
+              
+              {/* Example: <Route path="/example" element={<ExampleComponent />} /> */}
+
+
+              {/* Add more routes as needed */}
+
+
+
               
             </Routes>
           </Content>
@@ -52,6 +79,7 @@ const App = () => {
           {/* <ContactUs /> */}
           <FooterComponent />
         </Layout>
+        <ChatBot />
       </Router>
     </ConfigProvider>
   );

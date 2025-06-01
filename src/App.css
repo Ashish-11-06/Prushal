@@ -10,7 +10,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Poppins, sans-serif;
     line-height: 1.6;
     color: #2F2F9E;
     /* Primary Text Color */
@@ -23,7 +23,7 @@ body {
 
 .ant-layout {
     /* min-height: 100vh; */
-    background-color: #F3F8FD;
+    background-color: #EAEFEF;
     /* Light Background for Consistency */
 }
 
@@ -37,7 +37,7 @@ body {
 }
 
 .ant-layout-content {
-    background-color: #fff;
+    background-color: #EAEFEF;
     /* Keep Content Area White for Contrast */
     border: 1px solid #D0E6F9;
     /* Subtle Border */

@@ -6,8 +6,8 @@ import {
   RocketOutlined,
   HeartOutlined,
   CheckCircleOutlined,
-} from "@ant-design/icons"; // Add icons
-import "./AboutUs.css"; // Styling file for the About Us component
+} from "@ant-design/icons";
+import "./AboutUs1.css";
 
 const { Title, Paragraph } = Typography;
 
@@ -16,18 +16,18 @@ const aboutUsData = [
     title: "Our Vision",
     content:
       "Be and be recognized as the best solution provider for the businesses and individuals across the globe.",
-    icon: <EyeOutlined style={{ fontSize: "24px", color: "#007676" }} />,
+    icon: <EyeOutlined />,
   },
   {
     title: "Our Mission",
     content:
       "Manifesting Automation and transformation for the improvement and betterment of the business process and upliftment of individual lives.",
-    icon: <RocketOutlined style={{ fontSize: "24px", color: "#007676" }} />,
+    icon: <RocketOutlined />,
   },
   {
     title: "Our Values",
-    content: ["Customer Satisfaction First", "Deliver Beyond Promise"],
-    icon: <HeartOutlined style={{ fontSize: "24px", color: "#007676" }} />,
+    content: ["Customer Satisfaction First.", "Deliver Beyond Promise"],
+    icon: <HeartOutlined />,
   },
   {
     title: "What We Ensure",
@@ -39,8 +39,8 @@ const aboutUsData = [
       "Additional Services and Resources: Providing extra services or resources that align with and contribute to client goals.",
       "Exceptional Support: Ensuring exceptional support to enhance the overall customer experience.",
     ],
-    icon: <CheckCircleOutlined style={{ fontSize: "24px", color: "#007676" }} />,
-    isSpecial: true, // Flag to style the 4th card differently
+    icon: <CheckCircleOutlined />,
+    isSpecial: true,
   },
 ];
 
@@ -50,56 +50,113 @@ const AboutUs = () => {
       <Title level={2} className="section-title">
         About Us
       </Title>
-
-      {/* First three cards in the first Row */}
-      <Row gutter={[24, 24]} justify="center">
-        {aboutUsData.slice(0, 3).map((section, index) => (
-          <Col xs={24} sm={12} md={8} key={index}>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="about-card"
-            >
-              <Card bordered={false} className="about-card-inner">
-                <Title level={4} className="card-title">
-                  {section.icon} {section.title}
-                </Title>
-                <Paragraph className="card-content">
-                  {Array.isArray(section.content) ? (
-                    <ul>
-                      {section.content.map((item, idx) => (
-                        <li key={idx}>{item}</li>
-                      ))}
-                    </ul>
-                  ) : (
-                    section.content
-                  )}
-                </Paragraph>
-              </Card>
-            </motion.div>
-          </Col>
-        ))}
-      </Row>
-
-      {/* Special fourth card in a separate Row */}
-      <Row gutter={[24, 24]} justify="center" className="special-row">
-        <Col xs={24} sm={24} md={16}>
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.95 }}
-            className="about-card-special"
-          >
-            <Card bordered={false} className="about-card-inner-special">
-              <Title level={4} className="card-title">
-                {aboutUsData[3].icon} {aboutUsData[3].title}
-              </Title>
-              <Paragraph className="card-content">
+      <Row gutter={[24, 24]} justify="center" align="stretch">
+  {aboutUsData.slice(0, 3).map((section, index) => (
+    <Col
+      xs={24}
+      sm={24}
+      md={8}
+      lg={8}
+      xl={8}
+      key={index}
+      style={{ display: "flex" }} // ensures equal height for all Cols
+    >
+      <motion.div
+        whileHover={{
+          scale: 1.04,
+          boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
+        }}
+        whileTap={{ scale: 0.97 }}
+        className="about-card"
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <Card
+          bordered={false}
+          className="about-card-inner"
+          style={{
+            flex: 1, // stretch to fill parent
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
+          <div style={{ flexGrow: 1 }}>
+            <div className="icon-wrap">{section.icon}</div>
+            <Title level={4} className="card-title">
+              {section.title}
+            </Title>
+            <Paragraph className="card-content">
+              {Array.isArray(section.content) ? (
                 <ul>
-                  {aboutUsData[3].content.map((item, idx) => (
+                  {section.content.map((item, idx) => (
                     <li key={idx}>{item}</li>
                   ))}
                 </ul>
-              </Paragraph>
+              ) : (
+                section.content
+              )}
+            </Paragraph>
+          </div>
+        </Card>
+      </motion.div>
+    </Col>
+  ))}
+</Row>
+
+
+      <Row
+        gutter={[24, 24]}
+        justify="center"
+        style={{ marginTop: "30px" }}
+        className="special-row"
+      >
+        <Col
+          xs={24}
+          sm={24}
+          md={20}
+          lg={16}
+          xl={12}
+          style={{ display: "flex" }}
+        >
+          <motion.div
+            whileHover={{
+              scale: 1.02,
+              boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
+            }}
+            whileTap={{ scale: 0.97 }}
+            className="about-card about-card-special"
+            style={{ width: "100%" }}
+          >
+            <Card
+              bordered={false}
+              className="about-card-inner about-card-inner-special"
+              style={{
+                width: "100%",
+                minHeight: "300px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                height: "100%",
+              }}
+            >
+              <div>
+                <div className="icon-wrap">{aboutUsData[3].icon}</div>
+                <Title level={4} className="card-title">
+                  {aboutUsData[3].title}
+                </Title>
+                <Paragraph className="card-content">
+                  <ul>
+                    {aboutUsData[3].content.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                </Paragraph>
+              </div>
             </Card>
           </motion.div>
         </Col>

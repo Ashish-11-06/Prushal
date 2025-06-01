@@ -1,105 +1,130 @@
 .hero-container {
-  position: relative;
-  background-image: url('../../assets/Hero__New.jpg');
-  /* Static path for caching */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  /* Prevent reloading and keep the image fixed */
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* text-align: center; */
-  color: white;
-  padding: 0 20px;
-  margin-top: 4%;
-  overflow: hidden;
+    position: relative;
+    background-image: url('../../assets/aboutback.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    padding: 0 20px;
+    overflow: hidden;
+    margin-top: 4%;
 }
 
-/* Adding the blur effect */
 .hero-container::before {
-  content: '';
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: inherit;
-  /* Inherit background image */
-  filter: blur(3px);
-  /* Apply the blur effect */
-  z-index: 0;
-  /* Ensure the blur is behind the content */
-  background-size: cover;
-  /* Ensure the background image covers the whole container */
-  background-position: center;
-  /* Center the background image */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: inherit;
+    filter: blur(3px);
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
 }
-
 
 .hero-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  z-index: 1;
-  height: 400px;
-  padding: 40px;
-  border-radius: 10px;
-  /* max-width: 90%; */
-  margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    padding: 20px;
 }
 
 .hero-title {
-  font-size: 30px;
-  font-weight: bold;
-  margin-right: 54px;
-  color: #fefefe;
-
-}
-
-.highlight-text {
-  color: #ffcd61;
-  /* Highlighted color */
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: bold;
+    color: #fefefe;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    max-width: 90%;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  margin-right: 54px;
-  color: #fefefe;
-}
-
-.hero-btn {
-  background-color: #2196f3;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.hero-btn:hover {
-  background-color: #1e88e5;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: #fefefe;
+    line-height: 1.6;
+    max-width: 85%;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .stats-container {
-  position: absolute;
-  bottom: 50px;
-  display: flex;
-  justify-content: end;
-  gap: 50px;
-  width: 100%;
-  z-index: 3;
-  margin-right: 10%;
+    z-index: 3;
+    width: 100%;
+    padding: 0 5%;
+    margin-top: 30px;
 }
 
-.stat {
-  padding: 1%;
-  border: 2px solid #ffcd6144;
-  border-radius: 15%;
+.stat-box {
+    border: 2px solid #ffcd6144;
+    border-radius: 15px;
+    text-align: center;
+    padding: 12px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 100%;
+}
+
+.stat-box h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.stat-box p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.highlight-text {
+    color: #FFD700;
+}
+
+.stat-box h2 {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        height: auto;
+        padding-bottom: 30px;
+    }
+    .hero-content {
+        padding: 2px 4px;
+    }
+    .hero-title {
+        font-size: clamp(1.1rem, 5vw, 1.7rem);
+        line-height: 1.25;
+        margin-left: 0;
+        max-width: 65%;
+        word-break: break-word;
+    }
+    .hero-subtitle {
+        font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+        margin-bottom: 15px;
+        margin-left: 0;
+        max-width: 65%;
+        word-break: break-word;
+    }
+    .stats-container {
+        margin-top: 20px;
+        padding: 0 5px;
+    }
+    .stat-box {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+    .stat-box h2 {
+        font-size: 1.1rem;
+    }
+    .stat-box p {
+        font-size: 0.85rem;
+    }
 }

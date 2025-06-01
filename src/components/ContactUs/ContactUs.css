@@ -1,20 +1,16 @@
-/* ContactUs.css */
-
-.contact-us-container {
-    padding: 10px;
-    background: #007676;
-    /* Gradient background */
-}
-
 .contact-us-form-container {
-    /* max-width: 1200px; */
-    color: #fff;
+    width: 100%;
+    max-width: 1525px;
     margin: 0 auto;
-    background-color: #007676;
-    padding: 30px;
+    padding: 40px 24px;
+    background: linear-gradient(to right, #e0fbfe, #b3f1fa);
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    color: #fff;
 }
+
+
+/* Typography */
 
 .ant-typography {
     color: black;
@@ -22,108 +18,232 @@
 }
 
 .contact-us-paragraph {
+    color: #000000;
     text-align: center;
-    margin-bottom: 30px;
+    font-size: 18px;
+    margin-bottom: 40px;
 }
 
-.social-media-section {
-    /* border: 2px solid black; */
-    text-align: center;
-    margin-top: 10%;
+
+/* --- Contact Form Small --- */
+
+.contact-form-card.contact-form-small {
+    max-width: 550px;
+    min-width: 220px;
+    width: 100%;
+    min-height: 320px;
+    padding: 18px 16px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 160px;
 }
 
-.social-media-buttons {
+
+/* --- Contact Image --- */
+
+.contact-image-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-image-wrapper {
+    width: 100%;
+    max-width: 480px;
+    min-width: 240px;
+    margin-left: -270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-image {
+    width: 100%;
+    max-width: 410px;
+    min-width: 180px;
+    height: 350px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+    object-fit: cover;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-18px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+/* --- Address & Contact Cards (Same Size) --- */
+
+.contact-info-card1 {
+    min-height: 220px;
+    margin-left: 160px;
+    width: 550px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
+.contact-info-card2 {
+    min-height: 220px;
+    margin-left: 16px;
+    width: 410px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-numbers-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.contact-item {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.contact-item a {
+    color: #1890ff;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+
+/* --- Map Section --- */
+
+.contact-map-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-map-card {
+    width: 430px;
+    min-width: 260px;
+    max-width: 98vw;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.map-section {
+    width: 100%;
+    height: 240px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* --- Email link --- */
+
 .contact-us-email {
-    font-weight: bold;
+    font-weight: 600;
     color: #1890ff;
     text-decoration: underline;
 }
 
-.social-media-link {
-    cursor: pointer;
-    display: inline-block;
-    margin-right: 10px;
-    z-index: 10;
-    /* Ensure links are clickable */
-}
 
-.social-media-link a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.social-media-link a:hover {
-    color: #40a9ff;
-}
-
-
-/* Hover Effects for Form Inputs */
-
-input:focus,
-textarea:focus {
-    border-color: #40a9ff;
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-}
-
-button:hover {
-    background-color: #1890ff;
-    color: #fff;
-}
-
-
-/* Hover Effects for Social Media Links */
-
-button[type="link"]:hover {
-    color: #40a9ff;
-}
-
-button[type="link"]:focus {
-    color: #1890ff;
-}
-
-
-/* Hover Effects for Social Media Icons */
-
-.social-media-buttons button {
-    transition: all 0.3s ease-in-out;
-}
-
-.social-media-buttons button:hover {
-    transform: scale(1.2);
-    color: #40a9ff;
-}
-
-
-/* Style for Button Icons */
-
-.ant-btn-link {
-    font-size: 24px;
-    padding: 10px;
-}
-
-
-/* Hover Effect for Divider */
+/* Divider */
 
 .contact-us-divider {
-    margin: 14px 0px 7px;
-    border-top: 1px solid #000000;
-    transition: all 0.3s ease-in-out;
+    margin: 14px 0 16px;
+    border-top: 1px solid #000;
+    transition: border-color 0.3s ease-in-out;
 }
 
 .contact-us-divider:hover {
     border-top: 1px solid #40a9ff;
 }
 
-.company-info {
-    /* border: 2px solid red;  */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+
+/* Responsive adjustments */
+
+@media (max-width: 991px) {
+    .contact-us-form-container {
+        padding: 30px 8px;
+    }
+    .contact-form-card.contact-form-small,
+    .contact-info-card.contact-info-same-size,
+    .contact-map-card {
+        max-width: 100%;
+        min-width: unset;
+    }
+    .contact-image-wrapper {
+        max-width: 100%;
+    }
+    .contact-map-card {
+        width: 90vw;
+    }
 }
 
-.divider2 {
-    margin-top: 10%;
+@media (max-width: 576px) {
+    .contact-us-form-container {
+        padding: 16px 2px;
+    }
+    .contact-form-card.contact-form-small,
+    .contact-info-card.contact-info-same-size,
+    .contact-map-card {
+        padding: 10px 2px;
+        min-height: unset;
+    }
+    .contact-image-wrapper {
+        margin-top: 24px;
+    }
+    .contact-map-card {
+        width: 100vw;
+        min-width: 100px;
+    }
+    .map-section {
+        height: 160px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Stack the address/contact/map vertically in the right info card */
+    .contact-info-card .ant-row {
+        flex-direction: column !important;
+        height: auto !important;
+        gap: 16px;
+    }
+    .contact-info-card .ant-col {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 0 !important;
+        height: auto !important;
+        display: block;
+    }
+    .company-address-section,
+    .contact-container,
+    .map-section {
+        height: auto !important;
+        min-height: 120px;
+        margin-bottom: 12px;
+    }
+    .map-section iframe {
+        min-height: 140px;
+        height: 160px;
+        width: 100%;
+    }
 }

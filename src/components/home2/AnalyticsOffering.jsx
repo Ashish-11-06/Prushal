@@ -81,7 +81,7 @@ const AnalyticsOffering = () => {
 
   return (
     <div className="analytics-offering">
-      <h1>Industries We Serve</h1>
+<h1 className="industries-heading">Industries We Serve</h1>
       <Timeline mode="alternate" className="industry-timeline">
         {industriesData.map((industry, index) => (
           <Timeline.Item key={index} >

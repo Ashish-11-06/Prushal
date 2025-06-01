@@ -1,7 +1,7 @@
 .culture-page {
     font-family: 'Poppins', sans-serif;
     padding: 40px;
-    background-color: #f7f7f7;
+    background-color: #EAEFEF;
 }
 
 
@@ -56,7 +56,10 @@ section {
 
 .hero-heading {
     font-size: 36px;
+    background-color: #F8F8FF;
     margin-bottom: 12px;
+    margin-left: 50px;
+    margin-right: 50px;
     animation: pulse 2s infinite;
     font-weight: bold;
     color: #007676;
@@ -65,7 +68,10 @@ section {
 
 .hero-subheading {
     font-size: 18px;
+    background-color: #F8F8FF;
     margin-bottom: 20px;
+    margin-left: 55px;
+    margin-right: 55px;
     color: #222;
 }
 
@@ -107,6 +113,7 @@ section {
 /* Core Values */
 
 .core-values {
+    font-family: poppins, sans-serif;
     padding: 60px 20px;
     background-color: #f8f8f8;
     text-align: center;
@@ -132,12 +139,32 @@ section {
 }
 
 .value-card {
-    text-align: center;
-    padding: 20px;
-    background-color: #ffffff;
+    height: 100%;
+    /* Ensures container fills height of column */
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.value-card-inner {
+    height: 100%;
+    /* Make Ant Design Card full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border-radius: 16px;
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.value-inner {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
 .icon {
@@ -375,6 +402,8 @@ section {
 .testimonial-row {
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
+    /* Add this line */
     gap: 16px;
     padding: 10px 5px;
     scroll-behavior: smooth;
@@ -385,6 +414,7 @@ section {
     transition: transform 0.3s ease;
     display: flex;
     justify-content: center;
+    margin-top: 45px;
 }
 
 .chat-box {

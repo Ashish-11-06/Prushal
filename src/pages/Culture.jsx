@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Button, Card } from 'antd';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './Culture.css';
@@ -72,6 +73,7 @@ const testimonials = [
 ];
 
 const Culture = () => {
+  const navigate = useNavigate();
   return (
     <div className="culture-page">
 
@@ -85,12 +87,20 @@ const Culture = () => {
     whileHover={{ scale: 1.02 }} 
     className="hero-content"
   >
-    <h2 className="hero-heading">We don’t just work. We grow together.</h2>
-    <p className="hero-subheading">Explore our culture that fuels innovation, collaboration, and joy.</p>
-    <Button type="primary" className="hero-button">Join Us</Button>
-  </motion.div>
-</section>
+<h2 className="hero-heading" style={{ backgroundColor: '#F8F8FF' }}>
+  Don't Just work.
+</h2>
+        <h2 style={{ backgroundColor: '#F8F8FF' }} >We grow together</h2>
 
+    <p className="hero-subheading">Explore culture that fuels innovation,collaboration & joy.</p>
+<Button
+        type="primary"
+        className="hero-button"
+        onClick={() => navigate("/contact")} // ✅ navigate on click
+      >
+        Join Us
+      </Button>  </motion.div>
+</section>
 
 
 <section className="core-values">
@@ -110,13 +120,12 @@ const Culture = () => {
           }}
           whileHover={{ scale: 1.05 }}
         >
-          <Card hoverable bordered>
-  <div className="value-inner">  {/* ✅ Inner wrapper */}
-    <div className="icon">{val.icon}</div>
-    <p className="value-title">{val.title}</p>
-  </div>
-</Card>
-
+          <Card hoverable bordered className="value-card-inner">
+            <div className="value-inner">
+              <div className="icon">{val.icon}</div>
+              <p className="value-title">{val.title}</p>
+            </div>
+          </Card>
         </motion.div>
       </Col>
     ))}
@@ -125,31 +134,64 @@ const Culture = () => {
 
 
 
-<section className="env-culture-section">
-  <h2 className="section-title">Environment & Culture</h2>
-  <div className="culture-cards-container">
-    <div className="culture-card fade-in-up">
-      <FaUsers className="card-icon" />
-      <h3>Inclusive Culture</h3>
-      <p>We celebrate diversity and ensure everyone feels welcome, respected, and valued.</p>
-    </div>
-    <div className="culture-card zoom-in">
-      <FaLeaf className="card-icon" />
-      <h3>Eco-Friendly Workspace</h3>
-      <p>Our initiatives promote sustainability—from green spaces to energy-saving practices.</p>
-    </div>
-    <div className="culture-card slide-in-left">
-      <FaBalanceScale className="card-icon" />
-      <h3>Work-Life Balance</h3>
-      <p>We support flexible working hours, mental health, and a stress-free workplace.</p>
-    </div>
-    <div className="culture-card bounce-in">
-      <FaChalkboardTeacher className="card-icon" />
-      <h3>Continuous Learning</h3>
-      <p>From weekly workshops to cross-functional training, growth never stops here.</p>
-    </div>
-  </div>
-</section>
+
+
+
+
+ 
+    <section className="env-culture-section">
+      <h2 className="section-title">Environment & Culture</h2>
+      <div className="culture-cards-container">
+        <motion.div
+          className="culture-card"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <FaUsers className="card-icon" />
+          <h3>Inclusive Culture</h3>
+          <p>We celebrate diversity and ensure everyone feels welcome, respected, and valued.</p>
+        </motion.div>
+
+        <motion.div
+          className="culture-card"
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <FaLeaf className="card-icon" />
+          <h3>Eco-Friendly Workspace</h3>
+          <p>Our initiatives promote sustainability—from green spaces to energy-saving practices.</p>
+        </motion.div>
+
+        <motion.div
+          className="culture-card"
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <FaBalanceScale className="card-icon" />
+          <h3>Work-Life Balance</h3>
+          <p>We support flexible working hours, mental health, and a stress-free workplace.</p>
+        </motion.div>
+
+        <motion.div
+          className="culture-card"
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          animate={{ y: [0, -15, 0] }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <FaChalkboardTeacher className="card-icon" />
+          <h3>Continuous Learning</h3>
+          <p>From weekly workshops to cross-functional training, growth never stops here.</p>
+        </motion.div>
+      </div>
+    </section>
 
 
 
@@ -175,9 +217,9 @@ const Culture = () => {
           { img: training3, text: "Celebarting birthdays!!" },
           { img: training4, text: "Group discussions and barin-storming" },
           { img: training, text: "Team building games in full swing!" },
-          { img: training, text: "Cultural night filled with colors & fun." },
-          { img: training, text: "Field visit to historic Rajgad Fort." },
-          { img: training, text: "Workshop on modern dairy automation." },
+          { img: training1, text: "Cultural night filled with colors & fun." },
+          { img: training2, text: "Field visit to historic Rajgad Fort." },
+          { img: training3, text: "Workshop on AI and Data Analytics." },
         ].map((item, index) => (
           <div className="carousel-item" key={`${index}-${Math.random()}`}>
             <img src={item.img} alt={`Activity ${index + 1}`} className="gallery-img" />
@@ -192,7 +234,7 @@ const Culture = () => {
 
 
 {/* Testimonials */}
-<section className="testimonials">
+{/* <section className="testimonials">
   <h2 className="testimonial-title">What Our People Say</h2>
   <div className="testimonial-row">
     {testimonials.map((testimonial, index) => (
@@ -204,7 +246,7 @@ const Culture = () => {
         transition={{ delay: index * 0.3, duration: 0.6 }}
         style={{ minHeight: '250px' }} // Add fixed minimum height
       >
-        <div className="chat-box" style={{ height: '100%' }}> {/* Make chat box fill container */}
+        <div className="chat-box" style={{ height: '100%' }}> 
           <p className="quote" style={{ 
             marginBottom: '20px',
             overflow: 'hidden',
@@ -215,7 +257,7 @@ const Culture = () => {
           }}>
             {testimonial.quote}
           </p>
-          <div className="author-info" style={{ marginTop: 'auto', height: '100%' }}> {/* Push to bottom */}
+          <div className="author-info" style={{ marginTop: 'auto', height: '100%' }}> 
             <p className="author"><strong>{testimonial.name}</strong></p>
             <p className="role">{testimonial.role}</p>
           </div>
@@ -223,7 +265,7 @@ const Culture = () => {
       </motion.div>
     ))}
   </div>
-</section>
+</section> */}
 
 
 

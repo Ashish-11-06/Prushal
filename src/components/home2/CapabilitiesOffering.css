@@ -1,56 +1,67 @@
 /* Background for the entire component */
+
 .capabilities-offering {
-  /* border: 2px solid red; */
-  padding: 0px 20px;
-  /* background: linear-gradient(to bottom right, #e3f2fd, #ffffff); */
-  /* min-height: 100vh; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+    /* border: 2px solid red; */
+    padding: 0px 20px;
+    /* background: linear-gradient(to bottom right, #e3f2fd, #ffffff); */
+    /* min-height: 100vh; */
+    background-color: #EAEFEF;
+    ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
+
 
 /* Title Styling */
+
 .capabilities-offering h1 {
-  /* border: 2px solid rgb(9, 255, 0); */
-  font-size: 25px;
-  color: #3f51b5;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
+    /* border: 2px solid rgb(9, 255, 0); */
+    font-size: 25px;
+    color: #007676;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
+
 /* Capability Card Styling */
+
 .capability-card ul {
-  /* border: 2px solid rgb(0, 38, 255); */
-  list-style-type: none;
-  padding: 2px;
-  margin: 0;
-  color: #333;
+    /* border: 2px solid rgb(0, 38, 255); */
+    list-style-type: none;
+    padding: 2px;
+    margin: 0;
+    color: #333;
 }
 
 .capability-card ul li {
-  /* border: 2px solid rgb(251, 0, 255); */
-  padding: 2px 0;
-  position: relative;
-  padding-left: 24px;
-  font-size: 14px;
+    /* border: 2px solid rgb(251, 0, 255); */
+    padding: 2px 0;
+    position: relative;
+    padding-left: 24px;
+    font-size: 14px;
 }
+
 
 /* Custom Bullet Icon */
+
 .capability-card ul li::before {
-  content: '•';
-  color: #3f51b5;
-  font-size: 18px;
-  position: absolute;
-  left: 0;
-  top: 2px;
+    content: '•';
+    color: #007676;
+    font-size: 18px;
+    position: absolute;
+    left: 0;
+    top: 2px;
 }
 
+
 /* Hover Effect */
+
 .capability-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }

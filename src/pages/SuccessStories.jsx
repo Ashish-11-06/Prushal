@@ -10,13 +10,9 @@ const { Title, Paragraph } = Typography;
 const stories = [
   {
     id: 1,
-    title: '10 Years Celebration & Data Fest Event',
+    title: 'A Decade of Excellence: Celebrating 10 Years of Innovation & Impact',
     tags: ['Public Speaking', 'Tech Talks', 'Quizzes', 'Personality Dev'],
-    desc: `To commemorate 10 years of our organization's establishment, we hosted an exciting and enriching event named Data Fest.
-It featured a mix of technical and non-technical competitions such as public speaking, quizzes, storytelling, and personality development sessions.
-A keynote by renowned industry speakers added valuable insights for attendees.
-The event not only showcased talents but fostered community spirit, innovation, and leadership.
-Employees, stakeholders, and guests actively participated, making it one of our most successful internal initiatives.`,
+    desc: `To mark the successful completion of 10 remarkable years of our organization, we hosted a grand celebration that brought together employees, senior leadership, and valued clients for a memorable get-together. This special occasion was filled with joy, appreciation, and reflection as we honored a decade of growth, innovation, and collaboration. Alongside this, we organized a dynamic series of internal events under the banner of "Data Fest," designed to highlight the talent and enthusiasm within our team. Data Fest featured a range of technical and non-technical competitions such as public speaking, storytelling, quizzes, and personality development sessions, all aimed at engaging and uplifting our employees. A keynote by esteemed industry experts added valuable insights and inspiration. Together, the celebration and Data Fest showcased the strength of our community, the spirit of continuous learning, and the passion that drives our success.`,
     image: celebrationImg,
   },
 //   {
@@ -81,7 +77,7 @@ const SuccessStories = () => {
               level={1}
               style={{
                 fontWeight: 700,
-                fontSize: '42px',
+                fontSize: '36px',
                 color: '#007676',
                 textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
                 marginBottom: '10px',
@@ -121,6 +117,7 @@ const SuccessStories = () => {
               style={{
                 display: 'flex',
                 flexDirection: imageFirst ? 'row' : 'row-reverse',
+                backgroundColor:'white',
                 marginBottom: 100,
                 alignItems: 'center',
                 gap: 100,
@@ -164,12 +161,13 @@ const SuccessStories = () => {
                 </div>
                 <Paragraph
                   style={{
-                    fontSize: 16,
-                    color: '#333',
-                    lineHeight: '1.7',
-                    maxWidth: 500,
-                    whiteSpace: 'pre-line',
-                    textAlign: 'justify',
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: 15,
+              color: '#black',
+              lineHeight: '1.7',
+              maxWidth: 500,
+              whiteSpace: 'pre-line',
+              textAlign: 'justify',
                   }}
                 >
                   {story.desc}

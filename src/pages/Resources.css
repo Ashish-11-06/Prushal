@@ -1,0 +1,164 @@
+.resources-container {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+
+/* Or, for just the resources page:
+.resources-container, .resources-container * {
+  font-family: 'Poppins', sans-serif !important;
+}
+*/
+
+.resources-container {
+    padding: 40px 20px;
+    background-color: #F2EFE7;
+    min-height: 100vh;
+}
+
+
+/* Hero Section */
+
+.hero-section {
+    text-align: center;
+    margin: 40px 0;
+    padding: 60px 20px;
+    background-color: #eafaf9;
+    border-radius: 16px;
+    animation: fadeInUp 1s ease-out;
+    margin-top: -60px;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    color: #007676;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.8);
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+
+/* Tabs */
+
+.ant-tabs-nav {
+    margin: 0 0 30px 0;
+    padding: 0 20px;
+}
+
+.ant-tabs-tab {
+    font-weight: 500;
+    color: #666 !important;
+    padding: 12px 25px !important;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #007676 !important;
+    font-weight: 600;
+}
+
+.ant-tabs-ink-bar {
+    background: #007676 !important;
+    height: 3px !important;
+}
+
+
+/* Resource Cards */
+
+.resource-grid {
+    gap: 30px !important;
+}
+
+.resource-card-wrapper {
+    transition: transform 0.3s ease;
+}
+
+.resource-card {
+    border-radius: 16px !important;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    border: none !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.resource-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12) !important;
+}
+
+.card-icon .anticon {
+    font-size: 2.2rem !important;
+    color: #007676 !important;
+    animation: bounceIcon 1.5s ease-in-out;
+}
+
+.resource-card h3 {
+    color: #007676 !important;
+    font-weight: 700 !important;
+    margin: 15px 0;
+}
+
+.resource-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 15px;
+    min-height: 60px;
+}
+
+.resource-card .ant-btn-primary {
+    font-family: poppins, sans-serif;
+    background: #007676;
+    border: none;
+    border-radius: 6px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.resource-card .ant-btn-primary:hover {
+    background: #005f5f !important;
+    transform: translateY(-2px);
+}
+
+
+/* Animations */
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIcon {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 40px 20px;
+    }
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .resource-grid {
+        gap: 20px !important;
+    }
+}

@@ -127,7 +127,7 @@ const LandingContent = () => {
         <HeroSection />
 
         {/* Offerings Section */}
-        <Row gutter={[16, 16]} style={{ padding: "50px", paddingBottom: "0" }}>
+        <Row gutter={[16, 16]} style={{ padding: "10px", paddingBottom: "0"}}>
           <Col xs={24} md={8} style={{ display: "flex" }}>
             <Card bordered={false} style={{ width: "100%", height: "100%" }}>
               <AnalyticsOffering />

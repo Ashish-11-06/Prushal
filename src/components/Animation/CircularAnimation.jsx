@@ -32,13 +32,8 @@ const CircularScrollAnimation = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
+    const handleScroll = () => setScrollY(window.scrollY);
+    const handleResize = () => setWindowWidth(window.innerWidth);
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
@@ -49,17 +44,26 @@ const CircularScrollAnimation = () => {
     };
   }, []);
 
-  // Dynamic radius based on screen width
-  const radius1 = windowWidth < 768 ? 150 : 250; // Outer circle radius
-  const radius2 = windowWidth < 768 ? 100 : 150; // Inner circle radius
-
-  // Dynamic image size based on screen width
-  const imageSize = windowWidth < 768 ? 40 : 60; // Smaller size for mobile, larger for desktop
+  // Responsive radii and image sizes
+  let radius1, radius2, imageSize, centerLogoSize;
+  if (windowWidth < 400) {
+    radius1 = 80; radius2 = 50; imageSize = 24; centerLogoSize = 48;
+  } else if (windowWidth < 576) {
+    radius1 = 100; radius2 = 60; imageSize = 28; centerLogoSize = 56;
+  } else if (windowWidth < 768) {
+    radius1 = 120; radius2 = 80; imageSize = 34; centerLogoSize = 68;
+  } else if (windowWidth < 992) {
+    radius1 = 170; radius2 = 110; imageSize = 44; centerLogoSize = 88;
+  } else if (windowWidth < 1200) {
+    radius1 = 210; radius2 = 130; imageSize = 52; centerLogoSize = 104;
+  } else {
+    radius1 = 250; radius2 = 150; imageSize = 60; centerLogoSize = 120;
+  }
 
   const angleOffset = (scrollY / 10) % 360;
 
   return (
-    <div className="scroll-circular-container">
+    <div className="scroll-circular-container" aria-label="Technology Logos Circular Animation">
       <div className="scroll-circle">
         {/* Outer Circle */}
         {images.slice(0, 10).map((image, index) => {
@@ -78,9 +82,10 @@ const CircularScrollAnimation = () => {
             >
               <img
                 src={image}
-                alt={`img-${index}`}
+                alt={`Tech logo ${index + 1}`}
                 className="logo"
                 style={{ width: `${imageSize}px`, height: `${imageSize}px` }}
+                loading="lazy"
               />
             </div>
           );
@@ -103,9 +108,10 @@ const CircularScrollAnimation = () => {
             >
               <img
                 src={image}
-                alt={`img-${index}`}
+                alt={`Tech logo ${index + 11}`}
                 className="logo"
                 style={{ width: `${imageSize}px`, height: `${imageSize}px` }}
+                loading="lazy"
               />
             </div>
           );
@@ -117,7 +123,8 @@ const CircularScrollAnimation = () => {
             src={prushalLogo}
             alt="Prushal Logo"
             className="center-logo"
-            style={{ width: `${imageSize * 2}px`, height: `${imageSize * 2}px` }} // Center logo is larger
+            style={{ width: `${centerLogoSize}px`, height: `${centerLogoSize}px` }}
+            loading="lazy"
           />
         </div>
       </div>
