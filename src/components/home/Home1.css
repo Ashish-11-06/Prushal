@@ -7,10 +7,11 @@
     overflow: hidden;
     padding: 1%;
     margin: 1%;
-    background: linear-gradient(100deg, #2196F3, #007676);
+    background: linear-gradient(100deg, #2196F3, #007676) !important;
     /* Gradient background */
     border-radius: 10px;
     /* Optional for rounded corners */
+    /* border: 2px solid red; */
 }
 
 .background-video {

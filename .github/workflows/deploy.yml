@@ -1,0 +1,37 @@
+name: Deploy Vite App to Server
+
+on:
+  push:
+    branches: [main]  # Or your deployment branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: ⬇️ Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🛠️ Install dependencies
+      run: npm install
+
+    - name: 🏗️ Build Vite project
+      run: npm run build
+
+    - name: 🚀 Deploy dist/ to server
+      uses: appleboy/scp-action@v0.1.6
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        source: "dist/*"
+        target: "/home/ubuntu/Prushal/dist"  # adjust as needed
+
+    - name: 🔁 Reload Nginx (optional)
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          sudo systemctl reload nginx
