@@ -19,21 +19,38 @@ import emp1 from '../assets/teammember.jpg';
 
 const ceo = {
   name: 'Mr. Kushal Sharma',
-  designation: 'Founder & CEO',
+  designation: 'MD, Prushal Technology Pvt. Ltd.',
   img: ceoImg,
   linkedin: 'https://www.linkedin.com/in/kushalsharma76/?originalSubdomain=in',
   phone: '+91 97622 03269',
-  say: `“At our company here , we everyone believe in empowering every individual to innovate,collaborate,  grow, and make a real impact personally and professionally. Our success is built on the passion, integrity, inclusivity and collaboration of our team and their dedicated hardwork. Let us continue to dream high, support each other, and create a future we're all proud of..”`
+  say: `A visionary leader driving innovative tech solutions for industry and the masses, known for bringing clarity and purpose to every initiative.
+He is also an accomplished author, data science expert, and deeply passionate about psychology and human behavior.
+Kushal thrives on mentoring young talent and shaping future-ready, impactful solutions with a human-centered approach.`
 };
 
 const hrManager = {
   name: 'Mr. Shivsingh Patel',
-  designation: 'Manager',
+  designation: 'HR and Industry Project Head',
   img: emp1, // Replace with actual HR image if available
   linkedin: 'https://www.linkedin.com/in/shivsinghpatel/',
   phone: '+91 98506 03269',
-  say: `“People are our greatest asset. As a manager, my mission is to build a culture where every team member feels valued and empowered. When individuals thrive, teams succeed. By nurturing talent, promoting inclusivity, and investing in both personal and professional growth, we foster a workplace where innovation, collaboration, and purpose drive meaningful and lasting impact.””`
+  say: `Leads talent strategy and industry collaborations, aligning people and projects to drive impactful results.
+He actively supports project implementation, smooth delivery, and post-development support by closely aligning with technical teams.
+Shivsingh also plays a pivotal role in campus hiring, internship programs, and shaping future-ready professionals through industry exposure.`
 };
+
+const head2 = {
+  name: 'Mr. Ritviz Singh',
+  designation: 'Head of Learning & Development',
+  img: emp1, // Replace with actual HR image if available
+  linkedin: 'https://www.linkedin.com/in/ritviz-singh-606a92203/',
+  phone: '+91 98506 03269',
+  say: `Ensures continuous growth of the team by bridging skill gaps, fostering upskilling, and creating a culture of lifelong learning.
+Ritviz not only empowers in-house teams but also enables client success through tailored learning interventions.
+His structured programs and mentorship ensure every learner evolves with confidence and relevance in a fast-changing tech landscape.`
+};
+
+
 const team = [
   // First row
   {
@@ -276,16 +293,19 @@ const TeamPage = () => (
     </section>
 
     {/* CEO and HR Manager Side by Side */}
-    <section style={{ margin: '0 auto 48px auto', maxWidth: 1100, width: '100%' }}>
-      <Row gutter={[32, 32]} justify="center" align="top">
-        <Col xs={24} md={12}>
-          <LeaderCard leader={ceo} />
-        </Col>
-        <Col xs={24} md={12}>
-          <LeaderCard leader={hrManager} />
-        </Col>
-      </Row>
-    </section>
+  <section style={{ margin: '0 auto 48px auto', width: '100%' }}>
+  <Row gutter={[32, 32]} justify="center" align="top">
+    <Col xs={24} md={12} lg={8}>
+      <LeaderCard leader={ceo} />
+    </Col>
+    <Col xs={24} md={12} lg={8}>
+      <LeaderCard leader={hrManager} />
+    </Col>
+    <Col xs={24} md={12} lg={8}>
+      <LeaderCard leader={head2} />
+    </Col>
+  </Row>
+</section>
 
 
 {/* Team Members Section */}

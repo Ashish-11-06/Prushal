@@ -120,16 +120,16 @@ const productData = [{
 
     {
         id: 'health-suite',
-        title: 'Health Suite',
+        title: 'HSuite',
         subtitle: 'A comprehensive medical coding and patient assessment platform for healthcare professionals, featuring search, management, and detailed analysis tools.',
         image: image4,
         demoUrl: 'https://hsuite.prushal.com/login',
         docUrl: '#',
         about: [
-            'Health Suite is a powerful medical coding platform designed to streamline the management and usage of medical codes for healthcare professionals. The system allows users to easily search for, add, and manage medical codes along with their descriptions and sub-descriptions. Healthcare professionals can rate the usefulness of codes by liking or disliking them, while also having the ability to edit and track the version history of code descriptions for accuracy and auditing purposes.',
-            'The platform features advanced search functionality, complete with filters for code types, categories, and popularity, making it easier for users to find the exact codes they need in real time. Additionally, Health Suite introduces a unique patient assessment module that allows patients to take personality tests and receive in-depth analysis results. This feature not only enhances the experience for healthcare providers but also provides valuable insights for patient care and treatment planning.',
-            'Built with React and Ant Design, Health Suite delivers an intuitive and responsive frontend, while the Django backend ensures efficient data management and query handling. The system logs all code changes, keeping a complete version history for auditing purposes, which is essential in the medical field where accuracy is critical. Role-based access control is integrated into the system, providing healthcare professionals with personalized access and functionality based on their roles.',
-            'Moreover, Health Suite supports seamless data export capabilities for reporting purposes, making it easy for medical professionals and organizations to generate reports based on code usage, popularity, and other key metrics. Whether for individual practitioners, clinics, or larger healthcare organizations, Health Suite offers a centralized, efficient platform for managing medical codes and patient assessments.'
+            'HSuite is a powerful medical coding platform designed to streamline the management and usage of medical codes for healthcare professionals. The system allows users to easily search for, add, and manage medical codes along with their descriptions and sub-descriptions. Healthcare professionals can rate the usefulness of codes by liking or disliking them, while also having the ability to edit and track the version history of code descriptions for accuracy and auditing purposes.',
+            'The platform features advanced search functionality, complete with filters for code types, categories, and popularity, making it easier for users to find the exact codes they need in real time. Additionally, HSuite introduces a unique patient assessment module that allows patients to take personality tests and receive in-depth analysis results. This feature not only enhances the experience for healthcare providers but also provides valuable insights for patient care and treatment planning.',
+            'Built with React and Ant Design, HSuite delivers an intuitive and responsive frontend, while the Django backend ensures efficient data management and query handling. The system logs all code changes, keeping a complete version history for auditing purposes, which is essential in the medical field where accuracy is critical. Role-based access control is integrated into the system, providing healthcare professionals with personalized access and functionality based on their roles.',
+            'Moreover, HSuite supports seamless data export capabilities for reporting purposes, making it easy for medical professionals and organizations to generate reports based on code usage, popularity, and other key metrics. Whether for individual practitioners, clinics, or larger healthcare organizations, HSuite offers a centralized, efficient platform for managing medical codes and patient assessments.'
         ],
         techStack: [
             { name: 'React & Ant Design', description: 'Used for building a clean, modern, and user-friendly interface that facilitates easy navigation and interaction with medical codes and assessments.' },
@@ -138,12 +138,12 @@ const productData = [{
             { name: 'REST API', description: 'RESTful APIs provide seamless communication between the frontend and backend, ensuring smooth data flow and interactions between the user interface and database.' }
         ],
         testimonials: [
-            { author: 'Dr. Rajiv Mehra', content: 'Health Suite has transformed the way we manage and track medical codes, saving us time and improving accuracy in our daily operations.' },
+            { author: 'Dr. Rajiv Mehra', content: 'HSuite has transformed the way we manage and track medical codes, saving us time and improving accuracy in our daily operations.' },
             { author: 'Dr. Priya Sharma', content: 'The search functionality and version history tracking are fantastic—this platform ensures I always have the most accurate and up-to-date information.' },
             { author: 'Dr. Anil Deshmukh', content: 'The personality assessments have added a unique touch to the patient experience, helping us understand our patients better.' },
-            { author: 'Dr. Ritu Kapoor', content: 'Health Suite’s role-based access control makes it incredibly easy for our team to work together while maintaining security and privacy.' },
+            { author: 'Dr. Ritu Kapoor', content: 'HSuite’s role-based access control makes it incredibly easy for our team to work together while maintaining security and privacy.' },
             { author: 'Dr. Vikram Jain', content: 'The data export capabilities have been invaluable for reporting and analysis, simplifying our workflow and helping with compliance.' },
-            { author: 'Dr. Seema Malik', content: 'I can’t imagine working without Health Suite anymore. It has significantly improved my practices efficiency and patient interaction.' }
+            { author: 'Dr. Seema Malik', content: 'I can’t imagine working without HSuite anymore. It has significantly improved my practices efficiency and patient interaction.' }
         ]
     },
 

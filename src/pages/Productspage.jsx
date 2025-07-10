@@ -42,7 +42,7 @@ const projects = [
     
     {
       id: 'health-suite',
-      title: 'Health Suite',
+      title: 'HSuite',
       tech: ['React', 'Django', 'SQlite', 'Ant Design', 'Redux', 'Rest API',  ],
       desc: `A medical coding platform for healthcare professionals to search, add, and manage codes with descriptions and sub-descriptions. Users can like/dislike codes, edit them with version tracking, and use advanced filters by type, category, and popularity. It includes an assessment module for personality tests with detailed results. Built with Django for backend efficiency and React with Ant Design for a clean UI, it logs all changes for audits. The system supports role-based access and data export for reporting.`,
 
