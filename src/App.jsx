@@ -29,8 +29,8 @@ const { Content } = Layout;
 const App = () => {
   const theme = {
     token: {
-      colorPrimary: '#009EDB', // Primary color
-      colorBgContainer: '#EAEFEF', // Background color for containers
+      colorPrimary: '#white', // Primary color
+      colorBgContainer: '#white', // Background color for containers
       colorText: '#000', // Text color
     },
   };

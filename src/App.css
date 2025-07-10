@@ -23,7 +23,7 @@ body {
 
 .ant-layout {
     /* min-height: 100vh; */
-    background-color: #EAEFEF;
+    background-color: white;
     /* Light Background for Consistency */
 }
 
@@ -37,7 +37,7 @@ body {
 }
 
 .ant-layout-content {
-    background-color: #EAEFEF;
+    background-color: white;
     /* Keep Content Area White for Contrast */
     border: 1px solid #D0E6F9;
     /* Subtle Border */

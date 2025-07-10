@@ -84,9 +84,16 @@ const ContactUs = () => {
                 </Form.Item>
 
                 <Form.Item>
-                  <Button type="primary" htmlType="submit" block>
-                    Send Message
-                  </Button>
+                 <Button
+  type="primary"
+  htmlType="submit"
+  block
+  style={{ backgroundColor: '#078dc2', borderColor: '#078dc2', color: 'white' }}
+>
+  Send Message
+</Button>
+
+
                 </Form.Item>
               </Form>
             </Card>

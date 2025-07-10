@@ -279,7 +279,7 @@ Corporate Trainings.
             borderRadius: 18,
             boxShadow: "0 4px 20px rgba(0,0,0,0.07)",
             // background: "linear-gradient(135deg, #e0f7fa 80%, #fff 100%)",
-            backgroundColor: "#EAEFEF;",
+            backgroundColor: "white",
             minHeight: 290,
           }}
         >
