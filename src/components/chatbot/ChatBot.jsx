@@ -7,7 +7,7 @@ import {
   closeSocket
 } from '../../services/socketService';
 
-import { SendOutlined, AudioOutlined } from '@ant-design/icons';
+import { SendOutlined } from '@ant-design/icons';
 import './ChatBot.css';
 import img from '../../assets/Background/bot.gif';
 
@@ -18,11 +18,7 @@ const ChatBot = () => {
     { from: 'bot', text: 'Hi there! How can I help you today?' },
   ]);
   const [loading, setLoading] = useState(false);
-  const [isListening, setIsListening] = useState(false);
-  const [isBotSpeaking, setIsBotSpeaking] = useState(false);
-  const recognitionRef = useRef(null);
   const messagesEndRef = useRef(null);
-  const selectedVoiceRef = useRef(null);
 
   // Connect to WebSocket on mount
   useEffect(() => {
@@ -32,11 +28,6 @@ const ChatBot = () => {
           listenToMessages((data) => {
             const botReply = extractBotReply(data);
             setMessages(prev => [...prev, { from: 'bot', text: botReply }]);
-            if (["bye", "exit", "goodbye"].includes(botReply.toLowerCase())) {
-              speakResponse("Ok bye! Have a good day!");
-            } else {
-              speakResponse(botReply);
-            }
             setLoading(false);
           });
         })
@@ -44,7 +35,7 @@ const ChatBot = () => {
 
       return () => closeSocket();
     }
-  }, [isOpen]);
+  }, []);
 
   // Scroll to bottom on new message
   useEffect(() => {
@@ -53,42 +44,9 @@ const ChatBot = () => {
     }
   }, [messages, isOpen]);
 
-  // Load preferred voice (Neerja) for speech synthesis
-  useEffect(() => {
-    function loadVoices() {
-      const voices = window.speechSynthesis.getVoices();
-      selectedVoiceRef.current = voices.find(voice =>
-        voice.name.toLowerCase().includes('neerja')
-      );
-    }
-    if (window.speechSynthesis.getVoices().length > 0) {
-      loadVoices();
-    } else {
-      window.speechSynthesis.onvoiceschanged = loadVoices;
-    }
-  }, []);
-
   // Extract bot reply from response
   const extractBotReply = (data) => {
     return data.response || data.reply || data.text || data.message || "Sorry, I didn't understand that.";
-  };
-
-  // Bot speaks the response
-  const speakResponse = (text) => {
-    if (!window.speechSynthesis) return;
-    let speechText = text;
-    if (text.includes("{user_name}")) {
-      speechText = "Please log in to get personalized responses. " + text.replace("{user_name}", "");
-    }
-    const utterance = new window.SpeechSynthesisUtterance(speechText);
-    utterance.lang = 'en-IN';
-    if (selectedVoiceRef.current) {
-      utterance.voice = selectedVoiceRef.current;
-    }
-    utterance.onstart = () => setIsBotSpeaking(true);
-    utterance.onend = () => setIsBotSpeaking(false);
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utterance);
   };
 
   // Send message via WebSocket
@@ -100,44 +58,7 @@ const ChatBot = () => {
     setInput('');
     setLoading(true);
 
-    if (isBotSpeaking) {
-      window.speechSynthesis.cancel();
-      setIsBotSpeaking(false);
-    }
-
     sendMessage(trimmed);
-  };
-
-  // Voice input (Speech Recognition)
-  const handleVoiceInput = () => {
-    if (!('webkitSpeechRecognition' in window)) {
-      AntMessage.warning('Speech recognition not supported in this browser.');
-      return;
-    }
-    if (isListening) {
-      recognitionRef.current.stop();
-      setIsListening(false);
-    } else {
-      const recognition = new window.webkitSpeechRecognition();
-      recognition.lang = 'en-US';
-      recognition.interimResults = false;
-      recognition.continuous = false;
-      recognition.onstart = () => setIsListening(true);
-      recognition.onresult = (event) => {
-        const transcript = event.results[event.results.length - 1][0].transcript.trim();
-        if (transcript) {
-          setInput(transcript);
-          handleSend(transcript);
-        }
-      };
-      recognition.onerror = () => {
-        AntMessage.error('Voice input failed. Please try again.');
-        setIsListening(false);
-      };
-      recognition.onend = () => setIsListening(false);
-      recognition.start();
-      recognitionRef.current = recognition;
-    }
   };
 
   const handleInputKeyDown = (e) => {
@@ -200,12 +121,6 @@ const ChatBot = () => {
               onClick={() => handleSend()}
               disabled={loading || !input.trim()}
               type="primary"
-            />
-            <Button
-              icon={<AudioOutlined />}
-              onClick={handleVoiceInput}
-              disabled={loading || isListening}
-              type={isListening ? "danger" : "default"}
             />
           </div>
         </div>
