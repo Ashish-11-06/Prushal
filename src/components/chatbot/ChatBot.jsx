@@ -1,10 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button, Input, Spin, message as AntMessage } from 'antd';
+import {
+  connectSocket,
+  sendMessage,
+  listenToMessages,
+  closeSocket
+} from '../../services/socketService';
+
 import { SendOutlined, AudioOutlined } from '@ant-design/icons';
 import './ChatBot.css';
 import img from '../../assets/Background/bot.gif';
-
-const API_URL = "https://cb25-103-211-60-173.ngrok-free.app/api/contact/indeed-chat/";
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +23,26 @@ const ChatBot = () => {
   const recognitionRef = useRef(null);
   const messagesEndRef = useRef(null);
   const selectedVoiceRef = useRef(null);
+
+  // Connect to WebSocket on mount
+  useEffect(() => {
+    connectSocket()
+      .then(() => {
+        listenToMessages((data) => {
+          const botReply = extractBotReply(data);
+          setMessages(prev => [...prev, { from: 'bot', text: botReply }]);
+          if (["bye", "exit", "goodbye"].includes(botReply.toLowerCase())) {
+            speakResponse("Ok bye! Have a good day!");
+          } else {
+            speakResponse(botReply);
+          }
+          setLoading(false);
+        });
+      })
+      .catch(() => AntMessage.error("Failed to connect to chatbot server"));
+
+    return () => closeSocket();
+  }, []);
 
   // Scroll to bottom on new message
   useEffect(() => {
@@ -41,7 +66,7 @@ const ChatBot = () => {
     }
   }, []);
 
-  // Extract bot reply from API response
+  // Extract bot reply from response
   const extractBotReply = (data) => {
     return data.response || data.reply || data.text || data.message || "Sorry, I didn't understand that.";
   };
@@ -64,8 +89,8 @@ const ChatBot = () => {
     window.speechSynthesis.speak(utterance);
   };
 
-  // Send message to API
-  const handleSend = async (msg = null) => {
+  // Send message via WebSocket
+  const handleSend = (msg = null) => {
     const trimmed = (msg !== null ? msg : input).trim();
     if (!trimmed) return;
 
@@ -73,33 +98,12 @@ const ChatBot = () => {
     setInput('');
     setLoading(true);
 
-    try {
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: trimmed, chatbot_type: "indeed" }),
-      });
-      if (!response.ok) throw new Error(`API error: ${response.status}`);
-      const data = await response.json();
-      const botReply = extractBotReply(data);
-
-      setTimeout(() => {
-        setMessages(prev => [...prev, { from: 'bot', text: botReply }]);
-        if (["bye", "exit", "goodbye"].includes(trimmed.toLowerCase())) {
-          speakResponse("Ok bye! Have a good day!");
-        } else {
-          speakResponse(botReply);
-        }
-        setLoading(false);
-      }, 1000);
-    } catch (err) {
-      setMessages(prev => [
-        ...prev,
-        { from: 'bot', text: "Something went wrong. Please try again." }
-      ]);
-      AntMessage.error("Failed to get response from chatbot.");
-      setLoading(false);
+    if (isBotSpeaking) {
+      window.speechSynthesis.cancel();
+      setIsBotSpeaking(false);
     }
+
+    sendMessage(trimmed);
   };
 
   // Voice input (Speech Recognition)
@@ -120,15 +124,11 @@ const ChatBot = () => {
       recognition.onresult = (event) => {
         const transcript = event.results[event.results.length - 1][0].transcript.trim();
         if (transcript) {
-          if (isBotSpeaking) {
-            window.speechSynthesis.cancel();
-            setIsBotSpeaking(false);
-          }
           setInput(transcript);
           handleSend(transcript);
         }
       };
-      recognition.onerror = (event) => {
+      recognition.onerror = () => {
         AntMessage.error('Voice input failed. Please try again.');
         setIsListening(false);
       };
