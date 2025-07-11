@@ -13,6 +13,7 @@ import img from '../../assets/Background/bot.gif';
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSocketOpen, setIsSocketOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
     { from: 'bot', text: 'Hi there! How can I help you today?' },
@@ -22,9 +23,11 @@ const ChatBot = () => {
 
   // Connect to WebSocket on mount
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && !isSocketOpen) {
+      console.log("Connecting to chatbot server...");
       connectSocket()
         .then(() => {
+          setIsSocketOpen(true);
           listenToMessages((data) => {
             const botReply = extractBotReply(data);
             setMessages(prev => [...prev, { from: 'bot', text: botReply }]);
@@ -33,9 +36,19 @@ const ChatBot = () => {
         })
         .catch(() => AntMessage.error("Failed to connect to chatbot server"));
 
-      return () => closeSocket();
+      // return () => closeSocket();
     }
-  }, []);
+  }, [isOpen, isSocketOpen]);
+
+  useEffect(() => {
+  let timer;
+  if (loading) {
+    timer = setTimeout(() => {
+      setLoading(false);
+    }, 30000); // 30 seconds
+  }
+  return () => clearTimeout(timer);
+}, [loading]);
 
   // Scroll to bottom on new message
   useEffect(() => {
