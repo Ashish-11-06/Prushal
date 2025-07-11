@@ -26,23 +26,25 @@ const ChatBot = () => {
 
   // Connect to WebSocket on mount
   useEffect(() => {
-    connectSocket()
-      .then(() => {
-        listenToMessages((data) => {
-          const botReply = extractBotReply(data);
-          setMessages(prev => [...prev, { from: 'bot', text: botReply }]);
-          if (["bye", "exit", "goodbye"].includes(botReply.toLowerCase())) {
-            speakResponse("Ok bye! Have a good day!");
-          } else {
-            speakResponse(botReply);
-          }
-          setLoading(false);
-        });
-      })
-      .catch(() => AntMessage.error("Failed to connect to chatbot server"));
+    if (isOpen) {
+      connectSocket()
+        .then(() => {
+          listenToMessages((data) => {
+            const botReply = extractBotReply(data);
+            setMessages(prev => [...prev, { from: 'bot', text: botReply }]);
+            if (["bye", "exit", "goodbye"].includes(botReply.toLowerCase())) {
+              speakResponse("Ok bye! Have a good day!");
+            } else {
+              speakResponse(botReply);
+            }
+            setLoading(false);
+          });
+        })
+        .catch(() => AntMessage.error("Failed to connect to chatbot server"));
 
-    return () => closeSocket();
-  }, []);
+      return () => closeSocket();
+    }
+  }, [isOpen]);
 
   // Scroll to bottom on new message
   useEffect(() => {
