@@ -106,7 +106,7 @@ const fadeIn = (direction = 'up', delay = 0) => ({
     y: 0,
     x: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.3,
       delay,
       ease: 'easeOut',
     },
@@ -119,68 +119,104 @@ const ServicesPage = () => {
 
   return (
     <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 20px' }}>
+
+
       {/* Hero Section */}
       <motion.div
-        ref={heroRef}
-        initial="hidden"
-        animate={heroInView ? 'visible' : 'hidden'}
-        variants={fadeIn('up')}
+  ref={heroRef}
+  initial="hidden"
+  animate={heroInView ? 'visible' : 'hidden'}
+  variants={fadeIn('up')}
+>
+  <div
+    className="responsive-hero"
+    style={{
+      textAlign: 'center',
+      padding: '100px 30px',
+      background: 'linear-gradient(135deg, #e0f7fa, #ffffff)',
+      borderRadius: '20px',
+      boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+      margin: '40px 20px',
+      height: '300px',
+    }}
+  >
+    <motion.div
+      animate={{ y: [-10, 10] }}
+      transition={{ duration: 3, repeat: Infinity, repeatType: 'reverse' }}
+    >
+      <Title
+        level={1}
+        style={{
+          fontWeight: 700,
+          fontSize: '36px',
+          color: '#007676',
+          textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
+          marginBottom: '10px',
+          marginTop: '-15px',
+        }}
       >
-        <div
-          style={{
-            textAlign: 'center',
-            padding: '100px 30px',
-            background: 'linear-gradient(135deg, #e0f7fa, #ffffff)',
-            borderRadius: '20px',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
-            margin: '40px 20px',
-          }}
-        >
-          <motion.div
-            animate={{ y: [-10, 10] }}
-            transition={{ duration: 3, repeat: Infinity, repeatType: 'reverse' }}
-          >
-            <Title
-              level={1}
-              style={{
-                fontWeight: 700,
-                fontSize: '42px',
-                color: '#007676',
-                textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
-                marginBottom: '10px',
-                marginTop: '-15px',
+        Strategic Solutions that Drive Business Growth..
+      </Title>
+    </motion.div>
+    <Paragraph
+      style={{
+        fontSize: 18,
+        maxWidth: 800,
+        margin: '0 auto',
+        color: '#007676',
+        lineHeight: '1.6',
+        textAlign: 'center',
+      }}
+    >
+      From strategy to execution, we provide everything you need to succeed in the digital era.
+    </Paragraph>
+    <motion.div
+      whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
+    >
+      <Button
+        type="primary"
+        size="large"
+        onClick={() => navigate('/contact')}
+        style={{ zIndex: 1, marginTop: '20px', backgroundColor: '#007676', borderColor: '#007676' }}
+      >
+        Contact Us
+      </Button>
+    </motion.div>
+  </div>
+  {/* Responsive mobile styles */}
+  <style>{`
+    @media (max-width: 700px) {
+      .responsive-hero {
+        padding: 36px 6px !important;
+        margin: 16px 2px !important;
+        height: auto !important;
+        min-height: 180px;
+      }
+      .responsive-hero h1,
+      .responsive-hero .ant-typography {
+        font-size: 1.2rem !important;
+        margin-top: 0 !important;
+        margin-bottom: 8px !important;
+        line-height: 1.2 !important;
+      }
+      .responsive-hero .ant-typography,
+      .responsive-hero p {
+        font-size: 1rem !important;
+        max-width: 98vw !important;
+        line-height: 1.5 !important;
+      }
+      .responsive-hero button {
+        width: 100%;
+        font-size: 1rem !important;
+        margin-top: 16px !important;
+      }
+    }
+  `}</style>
+</motion.div>
 
-              }}
-            >
-              Expert Solutions to Propel Your Business Forward
-            </Title>
-          </motion.div>
-          <Paragraph
-            style={{
-              fontSize: 20,
-              maxWidth: 800,
-              margin: '0 auto',
-              color: '#007676',
-              lineHeight: '1.6',
-              textAlign: 'center',
-            }}
-          >
-            We offer a comprehensive suite of services to help your business thrive in the digital age.
-          </Paragraph>
-          <motion.div
-            whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
-          >
-            <Button
-              type="primary"
-              size="large"
-              onClick={() => navigate('/contact')}
-              style={{zIndex:1 , marginTop: '20px', backgroundColor: '#007676', borderColor: '#007676'}}
-            >
-              Contact Us
-            </Button>
-          </motion.div>
-        </div>
-      </motion.div>
+
+
+
 
       {/* Services List */}
       <div>
@@ -193,7 +229,7 @@ const ServicesPage = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              variants={fadeIn(imageFirst ? 'left' : 'right', index * 0.3)}
+              variants={fadeIn(imageFirst ? 'left' : 'right', index * 0.1)}
               style={{
                 display: 'flex',
                 flexDirection: imageFirst ? 'row' : 'row-reverse',
@@ -224,7 +260,7 @@ const ServicesPage = () => {
                   borderRadius: '15px',
                 }}
                 animate={{ opacity: [0, 1, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
               />
               <motion.img
                 src={service.image}
@@ -236,12 +272,12 @@ const ServicesPage = () => {
                   boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
                   objectFit: 'contain',  // Ensure the whole image is visible
                   height: '300px', // Added fixed height
-                  animation: 'float 3s ease-in-out infinite', // Added floating animation
+                  animation: 'float 1s ease-in-out infinite', // Added floating animation
                   zIndex: 1,      // Place above the gradient
                   position: 'relative',
                 }}
                 whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.1 }}
               />
               <div
                 style={{
@@ -275,14 +311,14 @@ const ServicesPage = () => {
                     transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                     style={{ display: 'inline-block' }}
                   >
-                    <Button
+                    {/* <Button
                       type="primary"
                       style={{ marginRight: '10px' }}
                       whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.1 }}
                     >
                       Learn More
-                    </Button>
+                    </Button> */}
                   </motion.div>
                   <motion.div
                     animate={{ y: [0, -6, 0] }}
@@ -292,7 +328,7 @@ const ServicesPage = () => {
                     <Button
                       onClick={() => navigate('/contact')}
                       whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.1 }}
                     >
                       Contact Us
                     </Button>

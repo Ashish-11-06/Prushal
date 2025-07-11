@@ -1,46 +1,58 @@
 .company-logos-container {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  width: 100%;
-  margin-top: 20px;
-  white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 20px;
+    white-space: nowrap;
 }
 
 .logos-line {
-  display: inline-block;
-  white-space: nowrap;
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .scroll-left {
-  animation: scroll-left 30s linear infinite;
+    animation: scroll-left 30s linear infinite;
 }
 
 .scroll-right {
-  animation: scroll-right 35s linear infinite;
+    animation: scroll-right 35s linear infinite;
 }
 
 @keyframes scroll-left {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 @keyframes scroll-right {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .logo-img {
-  width: 10%;
-  height: 10%;
-  display: inline-block;
-  margin: 0 10px;
+    width: 10%;
+    height: auto;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+
+/* ✅ Increase logo size on small screens */
+
+@media (max-width: 600px) {
+    .logo-img {
+        width: 14%;
+        /* increase from 10% */
+        margin: 0 12px;
+        /* optional: give them more space */
+    }
 }

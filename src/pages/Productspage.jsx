@@ -2,85 +2,67 @@ import { Button, Typography, Tag } from 'antd';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
-import image1 from '../assets/erp.gif';
+import image from '../assets/erp.gif';
 import image2 from '../assets/ticket.gif';
-import image3 from '../assets/healthSuite.gif';
-import image4 from '../assets/chatbot.gif';
+import image3 from '../assets/product_images/healthSuite.gif';
+import image4 from '../assets/product_images/chatbot.gif';
+
 
 
 const { Title, Paragraph } = Typography;
 
 const projects = [
+  
   {
-    id: 1,
-    title: 'Simple ERP',
-    tech: [ 'Django', 'SQlite','REST API', 'Bootstrap', 'HTML', 'CSS'],
-    desc: `A full-featured ERP system developed for Kavya Enterprises to manage their water supply and dry cleaning businesses. 
-This platform includes order management, real-time tracking, customer and vendor dashboards, and invoice generation. 
-Admins can assign tasks, update orders, and generate monthly analytics reports. 
-The backend was built using Django with REST APIs, while the frontend uses React and Redux for state management. 
-The platform includes secure authentication, responsive UI, and integration with payment gateways. 
-Multiple modules are designed for product management, customer requests, and employee tracking. 
-This system has helped the company reduce manual errors and streamline operations effectively. 
-It supports both English and regional language preferences for better usability.`,
-    image: image1,
-  },
-  {
-    id: 2,
+    id: 'support-ease',
     title: 'Support Ease',
     tech: ['React','Ant Design', 'Spring Boot', 'MySql', 'REST API'],
-    desc: `This tool enables the TechTrix support team to create, manage, and assign technical support tickets seamlessly. 
-It allows clients to raise tickets via a web portal, which are then tracked by the support team. 
-Each ticket includes status updates, priority levels, and assignment logs. 
-Admins can oversee all tickets, while users can track the progress of their own. 
-The tool also includes a quotation generator for tech services based on the selected modules and client preferences. 
-Technologies used include Django for backend with SQLite for easy deployment and React for a snappy frontend UI. 
-Axios is used for API communication with built-in loading indicators and toast notifications. 
-The tool is now used by over 50+ enterprise clients and supports email notifications and SLA tracking.`,
+    desc:`This tool helps the TechTrix team create, manage, and assign support tickets efficiently. Clients raise tickets via a web portal, which the support team tracks with status, priority, and assignment logs. Admins manage all tickets, while users follow their own. It includes a quotation generator based on selected modules and preferences. Built with Django (SQLite) and React, it uses Axios for API calls, with loading indicators and toast notifications. Now used by 50+ enterprise clients, it supports email alerts and SLA tracking.`,
+
     image: image2,
   },
+    
     {
-      id: 3,
-      title: 'Health Suite',
-      tech: ['React', 'Django', 'SQlite', 'Ant Design', 'Redux', 'Rest API',  ],
-      desc: `A comprehensive medical coding platform that enables healthcare professionals to search, add, and manage medical codes with their descriptions and sub-descriptions. 
-  Users can like/dislike codes to indicate usefulness and edit code descriptions with version history tracking. 
-  The system includes an advanced search functionality with filters for code types, categories, and popularity. 
-  A unique assessment module allows patients to take various personality tests and receive detailed analyses. 
-  The backend uses Django  for efficient data queries, while React and Ant Design provide a clean, accessible interface. 
-  All code changes are logged with complete history for audit purposes. 
-  The platform supports role-based access control for different types of medical professionals and includes data export capabilities for reporting.`,
-      image: image3,
+      id: 'infi-chatbot-solutions',
+      title: 'Infi Chatbot Solutions',
+      tech: [ 'Django', 'SQLite', 'REST API', 'NLP', 'Transformer Models', 'WebSockets'],
+      desc: `A hybrid chatbot solution blending rule-based workflows with LLM (GPT-3.5/4) for enterprise use. It supports text and voice chats with company-specific knowledge bases. Rule-based logic handles structured tasks, while LLM manages open-ended dialogue. Features include sentiment analysis, chat history, and smooth switching between modes. It integrates with databases for personalized replies, includes an analytics dashboard, and supports domain training. Built with Django and WebSockets for real-time use across web and mobile, ideal for support and internal knowledge systems.`,
+
+      image: image4,
     },
     {
-      id: 4,
-      title: 'Infi - Chatbot Solutions',
-      tech: [ 'Django', 'SQLite', 'REST API', 'NLP', 'Transformer Models', 'WebSockets'],
-      desc: `A hybrid chatbot solution combining rule-based systems with LLM capabilities for enterprise use. 
-  The platform offers both text and voice-based interactions with company-specific knowledge bases. 
-  Rule-based components handle structured workflows while the LLM (GPT-3.5/4) manages open-ended conversations. 
-  Features include sentiment analysis, conversation history, and seamless handoff between rule-based and AI modes. 
-  The system integrates with company databases to provide personalized responses and can be trained on domain-specific documents. 
-  Includes analytics dashboard showing conversation metrics, user satisfaction, and common query patterns. 
-  Deployed with Django backend and WebSockets for real-time communication, supporting both web and mobile interfaces. 
-  Particularly effective for customer support, IT helpdesk, and internal knowledge management applications.`,
-      image: image4,
-    }
-  
+      id: 'simple-erp',
+      title: 'Simple ERP',
+      tech: [ 'Django', 'SQlite','REST API', 'Bootstrap', 'HTML', 'CSS'],
+      desc: `A full ERP system built for Kavya Enterprises to manage water supply and dry cleaning services. It includes order handling, tracking, dashboards, invoicing, and task assignment. Admins access analytics, while secure login and payment integration enhance usability. Built with Django REST APIs, React, and Redux, the platform features modules for product, request, and employee management. It reduces manual errors, supports regional languages, and improves overall operations.`,
+
+      image: image,
+    },
+     
+    
+    {
+      id: 'health-suite',
+      title: 'HSuite',
+      tech: ['React', 'Django', 'SQlite', 'Ant Design', 'Redux', 'Rest API',  ],
+      desc: `A medical coding platform for healthcare professionals to search, add, and manage codes with descriptions and sub-descriptions. Users can like/dislike codes, edit them with version tracking, and use advanced filters by type, category, and popularity. It includes an assessment module for personality tests with detailed results. Built with Django for backend efficiency and React with Ant Design for a clean UI, it logs all changes for audits. The system supports role-based access and data export for reporting.`,
+
+      image: image3,
+    },
+
 ];
 
 const fadeIn = (direction = 'up', delay = 0) => ({
   hidden: {
     opacity: 0,
-    y: direction === 'up' ? 40 : 0,
-    x: direction === 'left' ? -40 : direction === 'right' ? 40 : 0,
+    y: direction === 'up' ? 20 : 0,
+    x: direction === 'left' ? -10 : direction === 'right' ? 20 : 0,
   },
   visible: {
     opacity: 1,
     y: 0,
     x: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.1,
       delay,
       ease: 'easeOut',
     },
@@ -98,17 +80,17 @@ const ProductsPage = () => {
         ref={heroRef}
         initial="hidden"
         animate={heroInView ? 'visible' : 'hidden'}
-        variants={fadeIn('up')}
       >
         <div
-          style={{
-            textAlign: 'center',
-            padding: '100px 30px',
-            background: 'linear-gradient(135deg, #e0f7fa, #ffffff)',
-            borderRadius: '20px',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
-            margin: '40px 20px',
-          }}
+         style={{
+          textAlign: 'center',
+          padding: '100px 30px',
+          background: 'linear-gradient(135deg, #e0f7fa, #ffffff)',
+          borderRadius: '20px',
+          boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+          margin: '40px 20px',
+        }}
+        
         >
           <motion.div
             animate={{ y: [-10, 10] }}
@@ -117,20 +99,24 @@ const ProductsPage = () => {
             <Title
               level={1}
               style={{
+                fontFamily: 'Poppins, sans-serif',
+
                 fontWeight: 700,
-                fontSize: '42px',
+                fontSize: '36px',
                 color: '#007676',
                 textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
                 marginBottom: '10px',
-                marginTop: '-15px',
+                marginTop: '-20px',
               }}
             >
-              Transforming Ideas into Scalable Solutions
+              Cutting Edge Products Designed to Drive Innovation.
             </Title>
           </motion.div>
           <Paragraph
             style={{
-              fontSize: 20,
+              fontFamily: 'Poppins, sans-serif',
+
+              fontSize: 18,
               maxWidth: 800,
               margin: '0 auto',
               color: '#007676',
@@ -138,114 +124,116 @@ const ProductsPage = () => {
               textAlign: 'center',
             }}
           >
-            Empowering enterprises with custom web applications tailored for real-world impact.
-          </Paragraph>
+Empowering businesses with advanced tools to simplify processes and enhance productivity          </Paragraph>
         </div>
       </motion.div>
 
       {/* Projects List */}
       <div style={{ marginTop: 60 }}>
-        {projects.map((project, index) => {
-          const imageFirst = index % 2 === 0;
+  {projects.map((project, index) => {
+    const imageFirst = index % 2 === 0;
 
-          return (
+    return (
+      <motion.div
+        key={project.id}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        style={{
+          
+          display: 'flex',
+          flexDirection: imageFirst ? 'row' : 'row-reverse',
+          backgroundColor:'white',
+          marginBottom: 60,
+          alignItems: 'center',
+          gap: 100,
+          flexWrap: 'wrap',
+          border: '1px solid rgba(0, 0, 0, 0.3)',
+          borderRadius: 20,
+          padding: 20,
+        }}
+      >
+        {/* Image */}
+        <motion.img
+          src={project.image}
+          alt={project.title}
+          style={{
+            width: '85%',
+            height: '280px',
+            maxWidth: 500,
+            borderRadius: 20,
+            boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+            flex: 1,
+            marginBottom: '10px',
+          }}
+          whileHover={{ scale: 1.03 }}
+          transition={{ type: 'spring', stiffness: 120 }}
+        />
+
+        {/* Text */}
+        <motion.div
+          style={{ flex: 1, color: '#000', }}
+          initial="hidden"
+          animate="visible"
+          variants={fadeIn('up', 0.2)}
+        >
+          <h2 style={{ color: '#007676', fontSize: 32, fontWeight: 'bold' }}>
+            {project.title}
+          </h2>
+          <div style={{ margin: '10px 0' }}>
+            {project.tech.map((tech, idx) => (
+              <Tag key={idx} color="cyan" style={{ marginBottom: 5 }}>
+                {tech}
+              </Tag>
+            ))}
+          </div>
+          <Paragraph
+            style={{
+             fontFamily: 'Poppins, sans-serif',
+              fontSize: 15,
+              color: '#black',
+              lineHeight: '1.7',
+              maxWidth: 500,
+              whiteSpace: 'pre-line',
+              textAlign: 'justify',
+            }}
+          >
+            {project.desc}
+          </Paragraph>
+
+          <div style={{ marginTop: 20, display: 'flex', gap: 20 }}>
             <motion.div
-              key={project.id}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={fadeIn(index % 2 === 0 ? 'left' : 'right', index * 0.3)}
-              style={{
-                display: 'flex',
-                flexDirection: imageFirst ? 'row' : 'row-reverse',
-                marginBottom: 100,
-                alignItems: 'center',
-                
-                gap: 100,
-                flexWrap: 'wrap',
-                border: '1px solid rgba(0, 0, 0, 0.3)',
-                borderRadius: 20,
-                padding: 20,
-
-              }}
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
             >
-              {/* Image */}
-              <motion.img
-                src={project.image}
-                alt={project.title}
-                style={{
-                  width: '100%',
-                  maxWidth: 500,
-                  borderRadius: 20,
-                  boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
-                  flex: 1,
-                  marginBottom: '10px',
-                }}
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: 'spring', stiffness: 120 }}
-              />
-
-              {/* Text */}
-              <motion.div
-                style={{ flex: 1, color: '#000' }}
-                initial="hidden"
-                animate="visible"
-                variants={fadeIn('up', 0.5)}
+              <Button
+                style={{ backgroundColor: '#2196F3', color: '#fff', border: 'none' }}
+                size="large"
+                onClick={() => navigate(`/products/${project.id}`)}
               >
-                <h2 style={{ color: '#007676', fontSize: 32, fontWeight: 'bold' }}>
-                  {project.title}
-                </h2>
-                <div style={{ margin: '10px 0' }}>
-                  {project.tech.map((tech, idx) => (
-                    <Tag key={idx} color="cyan" style={{ marginBottom: 5 }}>
-                      {tech}
-                    </Tag>
-                  ))}
-                </div>
-                <Paragraph
-                  style={{
-                    fontSize: 16,
-                    color: '#333',
-                    lineHeight: '1.7',
-                    maxWidth: 500,
-                    whiteSpace: 'pre-line',
-                    textAlign: 'justify',
-                  }}
-                >
-                  {project.desc}
-                </Paragraph>
-
-                <div style={{ marginTop: 20, display: 'flex', gap: 20 }}>
-                  <motion.div
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <Button
-                      style={{ backgroundColor: '#2196F3', color: '#fff', border: 'none' }}
-                      size="large"
-                    >
-                      View Demo
-                    </Button>
-                  </motion.div>
-
-                  <motion.div
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
-                  >
-                    <Button
-                      style={{ backgroundColor: '#2196F3', color: '#fff', border: 'none' }}
-                      size="large"
-                      onClick={() => navigate('/contact')}
-                    >
-                      Contact Us
-                    </Button>
-                  </motion.div>
-                </div>
-              </motion.div>
+                Explore
+              </Button>
             </motion.div>
-          );
-        })}
-      </div>
+
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
+            >
+              <Button
+                style={{ backgroundColor: '#2196F3', color: '#fff', border: 'none' }}
+                size="large"
+                onClick={() => navigate('/contact')}
+              >
+                Contact Us
+              </Button>
+            </motion.div>
+          </div>
+        </motion.div>
+      </motion.div>
+    );
+  })}
+</div>
+
     </div>
   );
 };

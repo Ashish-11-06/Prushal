@@ -1,11 +1,10 @@
-
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: 'https://api.prushal.com/api', // Ensure this base URL is correct
-    headers: {
-        'Content-Type': 'application/json',
-    },
+  baseURL: `${import.meta.env.VITE_API_BASE_URL}`, // Dynamically use env
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 export default axiosInstance;

@@ -47,6 +47,7 @@
 /* Text below image */
 
 .typing-effect {
+    font-family: poppins, sans-serif;
     margin-top: 20px;
     font-size: 1.2rem;
     font-weight: 650;

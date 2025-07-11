@@ -1,42 +1,52 @@
-.analytics-offering{
-  font-size: 25px;
-  margin: 20% 0%;
-  
+.analytics-offering {
+    font-size: 25px;
+    margin: 6% 0%;
+    background-color: white;
 }
 
- h1 {
-  font-size: 25px;
-  color: #3f51b5; /* Color for the main title */
-  text-align: center;
-  margin: 20px 0px;
+.industries-heading {
+    color: #007676;
+    font-size: 25px;
+    /* Color for the main title */
+    text-align: center;
+    margin: 20px 0px;
 }
 
 .industry-timeline .ant-timeline-item-head {
-  border-color: #0066cc; /* Customize the timeline dot color */
+    border-color: #007676;
+    /* Customize the timeline dot color */
 }
 
 .timeline-content h3 {
-  /* border: 2px solid red; */
-  font-size: 101%;
-  color: #0066cc; /* Industry name color */
+    /* border: 2px solid red; */
+    font-family: poppins;
+    font-size: 101%;
+    color: #007676;
+    /* Industry name color */
 }
 
 .timeline-content ul li {
-  /* border: 2px solid rgb(0, 255, 34); */
-  color: #ffffff; /* Description color */
+    /* border: 2px solid rgb(0, 255, 34); */
+    color: #ffffff;
+    /* Description color */
 }
 
-li{
-  font-size: 14px;
+li {
+    font-family: poppins;
+    font-size: 14px;
 }
+
 .ant-timeline .ant-timeline-item {
-  position: relative;
-  margin: 0;
-  font-size: 14px;
-  list-style: none;
+    font-family: poppins;
+    position: relative;
+    margin: 0;
+    font-size: 14px;
+    list-style: none;
 }
+
 
 /* Timeline custom style targeting with specificity */
+
 .analytics-offering .ant-timeline .ant-timeline-item-tail {
-  border-inline-start: 2px solid #65a9de;
+    border-inline-start: 2px solid #65a9de;
 }

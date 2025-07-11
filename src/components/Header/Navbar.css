@@ -3,8 +3,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: linear-gradient(100deg, #2196F3, #007676); /* Gradient background */
-    color: white;
+    background: linear-gradient(100deg, #2196F3, #007676);
+    /* Gradient background */
+    color: #ffffff;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -43,29 +44,37 @@
 }
 
 .ant-menu-item:hover {
-    color: #40a9ff; /* Ant Design secondary color */
+    color: #40a9ff;
+    /* Ant Design secondary color */
     transform: translateY(-3px);
 }
 
+
 /* Styles for submenu items */
+
 .ant-menu-submenu-title {
     color: white;
     font-weight: 500;
 }
 
 .ant-menu-submenu-title:hover {
-    color: #40a9ff; /* Ant Design secondary color */
+    color: #40a9ff;
+    /* Ant Design secondary color */
 }
 
 .ant-menu-submenu {
-    background: rgba(255, 255, 255, 0.1); /* Slightly transparent background for submenus */
+    background: rgba(255, 255, 255, 0.1);
+    /* Slightly transparent background for submenus */
 }
 
 .ant-menu-item-selected {
-    color: #40a9ff; /* Highlight selected item */
+    color: #40a9ff;
+    /* Highlight selected item */
 }
 
+
 /* Media queries for responsiveness */
+
 @media screen and (max-width: 768px) {
     .menu-desktop {
         display: none;
@@ -78,9 +87,11 @@
 
 @media screen and (max-width: 480px) {
     .navbar {
-        padding: 10px 15px; /* Adjust padding for smaller screens */
+        padding: 10px 15px;
+        /* Adjust padding for smaller screens */
     }
     .logo {
-        font-size: 20px; /* Smaller logo font size for mobile */
+        font-size: 20px;
+        /* Smaller logo font size for mobile */
     }
 }
